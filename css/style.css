@@ -1,0 +1,62 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url(../fonts/Poppins-Black.ttf);
+}
+@font-face {
+    font-family: 'Poppins-Bold';
+    src: url(../fonts/Poppins-Bold.ttf);
+}
+@font-face {
+    font-family: 'Poppins-Italic';
+    src: url(../fonts/Poppins-Italic.ttf);
+}
+@font-face {
+    font-family: 'Roboto';
+    src: url(../fonts/Roboto-Black.ttf);
+}
+@font-face {
+    font-family: 'Roboto-Regular';
+    src: url(../fonts/Roboto-Regular.ttf);
+}
+@font-face {
+    font-family: 'Roboto-Bold';
+    src: url(../fonts/Roboto-Bold.ttf);
+}
+@font-face {
+    font-family: 'Roboto-Italic';
+    src: url(../fonts/Roboto-Italic.ttf);
+}
+@font-face {
+    font-family: 'Lato';
+    src: url(../fonts/Lato-Black.ttf);
+}
+@font-face {
+    font-family: 'Lato-Bold';
+    src: url(../fonts/Lato-Bold.ttf);
+}
+@font-face {
+    font-family: 'Lato-Italic';
+    src: url(../fonts/Lato-Italic.ttf);
+}
+@font-face {
+    font-family: 'Lato-Regular';
+    src: url(../fonts/Lato-Regular.ttf);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins, Roboto, Lucida Sans';
+}
+body::-webkit-scrollbar-track {
+    margin: 0 5px;
+    box-shadow: inset 0 0 6px rgba(0,0,0, 0.3);
+}
+body::-webkit-scrollbar-thumb {
+    background-color: gray;
+    border-radius: 50px;
+}
+body::-webkit-scrollbar {
+    width: 12px;
+    box-shadow: inset 0 0 6px rgba(0,0,0, 0.3);
+}
