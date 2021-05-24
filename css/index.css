@@ -3,17 +3,13 @@ body{
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    box-shadow: inset 0em 100em rgba(7, 6, 6, 0.5);
-}
-.container{
-    width: 100%;
-    position: relative;
-    box-sizing: border-box;
+    box-shadow: inset 0em 150em rgba(7, 6, 6, 0.5);
 }
 header{
     width: 100%;
+    position: relative;
     height: 500px;
-    margin-bottom: 180px;
+    /* max-height: 500px; */
 }
 ul{
     padding: 0;
@@ -86,6 +82,99 @@ ul{
     color: yellowgreen;
 }
 
+/* Menu reponsive */
+
+.responsive-menu{
+    position: absolute;
+    right: 15px;
+    top: 20px;
+    width: 50px;
+    height: 50px;
+    z-index: 200;
+    cursor: pointer;
+    display: none;
+}
+.responsive-menu span{
+    display: inline-block;
+    height: 3px;
+    background-color: white;
+    width: 100%;
+    transition: all 0.6s;
+}
+ .resp{
+    transform: translateY(-100%);
+    transition: all 0.6s;
+    position: absolute;
+    width: 100%;
+    height: 500px;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    background-color: rgb(32, 32, 32);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+.resp.active{
+    transform: translateY(0);
+}
+.resp .navigue ul{
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 500px;
+}
+.resp .navigue ul li{
+    margin: 40px 20px;
+} 
+.resp .navigue ul li a{
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    font-family: 'Roboto-Regular';
+    transition: all 0.6s;
+}
+.resp .navigue ul li a:hover{
+    color: yellowgreen;
+}
+.responsive-menu.active span:first-child{
+    transform: translateY(18px) rotate(-45deg);
+}
+.responsive-menu.active span:nth-child(2){
+    display: none;
+}
+.responsive-menu.active span:last-child{
+    transform: translateY(0px) rotate(45deg);
+}
+/* responsive design */
+@media screen and (max-width: 734px) {
+    .navigation{
+        display: none;
+    }
+    .responsive-menu, .resp{
+        display: block;
+    }
+}
+@media screen and (max-width: 500px) {
+    .resp .navigue ul{
+        flex-direction: column;
+    }
+    .presentation{
+        margin-top: 0px;
+    }
+    .apropos{
+        display: none;
+    }
+}
+
+.container{
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+}
 .content .description{
     /* background-color: #000; */
     display: flex;
@@ -98,14 +187,39 @@ ul{
     text-transform: uppercase;
     font-family: 'Bell MT';
     text-align: center;
-    margin: 65px 0;
+    margin: 60px 0;
     color: rgb(243, 237, 229);
+    overflow: hidden;
+}
+.content .description .encouragement p{
+    transform: translate(0,205%);
+    animation: reveal 1.5s cubic-bezier(0.77, 0, 0.175, 1) 0.5s forwards;
 }
 .encouragement span{
     display: block;
     padding-left: 25px;
     color: rgb(120, 255, 9);
+    transform: translate(0,105%);
+    animation: reveal 1.5s cubic-bezier(0.77, 0, 0.175, 1) 0.8s forwards;
 }
+/* abimations d'apparition */
+@keyframes reveal {
+    100% {
+      transform: translate(0,0);
+    }
+  }
+  @-moz-keyframes reveal{
+   
+      100% {
+        transform: translate(0,0);
+      }
+  }
+  @-o-keyframes reveal{
+      100% {
+        transform: translate(0,0);
+      }
+  }
+/* end */
 .content .description .desc{
     text-align: center;
     display: flex;
@@ -214,161 +328,5 @@ ul{
 .presentation .elt .box .bt p{
     text-align: justify;
 }
-
-/* pieds de page */
-.foot{
-    background-color: #000;
-    margin-top: 31px;
-    color: white;
-    height: auto;
-}
-.hauteur{
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    padding: 10px;
-}
-.hauteur > div{
-    flex-shrink: 0;
-}
-h2{
-    padding: 9px;
-    text-align: center;
-    text-transform: uppercase;
-    font-family: 'Lato';
-}
-.apropos ul li{
-    list-style: none;
-    padding: 15px;
-    font-family: 'Lucida Sans';
-}
-.apropos ul li a{
-    text-decoration: none;
-    color: white;
-    text-transform: uppercase;
-    font-family: 'Lucida Sans';
-    transition: all 0.5s;
-}
-.apropos ul li a:hover{
-    color: yellowgreen;
-}
-.perso ul li{
-    margin: 10px 0;
-    list-style: none;
-    font-family: 'Lucida Sans';
-}
-.perso ul{
-    margin: 25px 0;
-}
-.media ul{
-    display: flex;
-    justify-content: space-between;
-    margin: 25px 0;
-    list-style: none;
-}
-.media ul li{
-    margin: 0 15px;
-}
-.copy{
-    border-top: 2px solid yellowgreen;
-    display: flex;
-    padding: 10px;
-    justify-content: center;
-}
-.copy span{
-    color: yellowgreen;
-    font-family: Roboto;
-    text-transform: capitalize;
-}
-
-/* Menu reponsive */
-
-.responsive-menu{
-    position: absolute;
-    right: 15px;
-    top: 20px;
-    width: 50px;
-    height: 50px;
-    z-index: 200;
-    cursor: pointer;
-    display: none;
-}
-.responsive-menu span{
-    display: inline-block;
-    height: 3px;
-    background-color: white;
-    width: 100%;
-    transition: all 0.6s;
-}
- .resp{
-    transform: translateY(-100%);
-    transition: all 0.6s;
-    position: absolute;
-    width: 100%;
-    height: 80%;
-    z-index: 100;
-    top: 0;
-    left: 0;
-    background-color: rgb(32, 32, 32);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    display: none;
-}
-.resp.active{
-    transform: translateY(0);
-}
-.resp .navigue ul{
-    display: flex;
-    list-style: none;
-    justify-content: center;
-    align-items: center;
-    margin-top: 35px;
-    height: 500px;
-}
-.resp .navigue ul li{
-    margin: 40px 20px;
-} 
-.resp .navigue ul li a{
-    text-decoration: none;
-    text-transform: uppercase;
-    color: white;
-    font-family: 'Roboto-Regular';
-    transition: all 0.6s;
-} */
-.resp .navigue ul li a:hover{
-    color: yellowgreen;
-}
-.responsive-menu.active span:first-child{
-    transform: translateY(18px) rotate(-45deg);
-}
-.responsive-menu.active span:nth-child(2){
-    display: none;
-}
-.responsive-menu.active span:last-child{
-    transform: translateY(0px) rotate(45deg);
-}
-/* responsive design */
-@media screen and (max-width: 734px) {
-    .navigation{
-        display: none;
-    }
-    .responsive-menu, .resp{
-        display: block;
-    }
-}
-@media screen and (max-width: 500px) {
-    .resp .navigue ul{
-        flex-direction: column;
-    }
-    .presentation{
-        margin-top: 0px;
-    }
-    .apropos{
-        display: none;
-    }
-}
-
-
 
 

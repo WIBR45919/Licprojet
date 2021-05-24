@@ -1,0 +1,50 @@
+.connexion{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    box-sizing: border-box;
+    background-color: rgb(56, 216, 155);
+}
+.formulaire{
+    position: relative;
+    margin-top: 25px;
+    height: 600px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 25px;
+    width: 500px;
+    padding: 8px 0;
+    border-radius: 8px;
+    box-shadow: 0 0 38px rgba(0, 0, 0, 0.6);
+    background-color: rgba(27, 26, 26, 0.8);
+}
+.login .school{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px 0;
+}
+.login .school img{
+    border-radius: 50%;
+    border: 2px solid rgb(49, 48, 48);
+    background-color: #fff;
+}
+.form{
+    width: 60%;
+}
+form input{
+    font-family: 'Poppins-Black';
+}
+form label, button{
+    color: white;
+    font-family: 'Lato';
+}

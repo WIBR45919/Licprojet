@@ -1,0 +1,70 @@
+.foot{
+    background-color: rgb(34, 33, 33);
+    margin-top: 31px;
+    color: white;
+    height: auto;
+}
+.hauteur{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+.hauteur > div{
+    flex-shrink: 0;
+}
+h2{
+    padding: 9px;
+    text-transform: uppercase;
+    font-family: 'Lato';
+    margin: 0 auto;
+    font-size: 15px;
+    display: inline-block;
+    border-bottom: 2px solid rgb(179, 177, 177);
+}
+.apropos ul li{
+    list-style: none;
+    padding: 9px;
+    font-family: 'Lucida Sans';
+}
+.apropos ul li a{
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    font-family: 'Lucida Sans';
+    transition: all 0.5s;
+    font-size: 13px;
+}
+.apropos ul li a:hover{
+    color: yellowgreen;
+}
+.perso ul li{
+    margin: 10px 0;
+    font-size: 13px;
+    font-style: italic;
+    list-style: none;
+    font-family: 'Lucida Sans';
+}
+.perso ul{
+    margin: 25px 0;
+}
+.media ul{
+    display: flex;
+    justify-content: space-between;
+    margin: 25px 0;
+    list-style: none;
+}
+.media ul li{
+    margin: 0 15px;
+}
+.copy{
+    border-top: 2px solid yellowgreen;
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+}
+.copy span{
+    color: yellowgreen;
+    font-family: Roboto;
+    text-transform: capitalize;
+}
