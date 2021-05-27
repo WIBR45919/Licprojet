@@ -1,1 +1,77 @@
-<p>connexion works!</p>
+<div class="connexion">
+    <!-- code à inclure dans le component connexion -->
+    <div class="formulaire">
+       <div class="login">
+           <div class="school">
+               <img src="https://upload.wikimedia.org/wikipedia/commons/2/25/Logo_IUT_Douala.png" alt="">
+               <h1 style="color: whitesmoke;">Login</h1>
+           </div>
+           <div class="form">
+            <form>
+                <div class="mb-4">
+                  <label for="exampleInputEmail1" class="form-label">Username</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                  <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+                </div>
+                <div class="mb-4" style="position: relative;">
+                  <label for="InputPassword1" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="InputPassword1" required>
+                  <span class="sh s">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye-off"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
+                  </span>
+                  <span class="sh h">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                  </span>
+                </div>
+                <button type="submit" class="btn btn-success mb-4 w-100">Se Connecter</button>
+                <div class="mb-3 form-check w-100">
+                    <span style="color:white;">Inscrivez-vous ici
+                         <a routerLink = "/" style="margin-left: 1em;">S'inscrire</a> | <a routerLink="/home">Acceuil</a>
+                    </span>
+                 </div>
+                <div class="mb-3 form-check w-100">
+                   <a href="" class="" data-bs-toggle="modal" data-bs-target="#forgotpass" style="float: right;">Mot de passe oublié</a>
+                </div>
+              </form>
+           </div>
+       </div>
+    </div>
+    <!-- end code -->
+</div>
+<div class="modal fade" id="forgotpass" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-dialog-centered">
+      <div class="modal-content" id="modalforgot">
+        <div class="modal-header" style="border: none;">
+          <h3 class="modal-title" id="exampleModalLabel">Mot de passe oublié</h3>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" style="border: none;">
+          <form>
+            <div class="mb-3">
+              <label for="recipient-number" class="col-form-label">N° de préinscription <span class="start">*</span>:</label>
+              <input type="text" class="form-control" id="recipient-number" placeholder="N° de préinscription" required>
+            </div>
+            <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Nom et Prénom <span class="start">*</span>:</label>
+                <input type="text" class="form-control" id="recipient-name" placeholder="Nom et Prénom" required>
+            </div>
+            <div class="mb-3">
+                <label for="recipient-date" class="col-form-label">Date de naissance <span class="start">*</span>:</label>
+                <input type="date" class="form-control" id="recipient-date" placeholder="Date de naissance" required>
+            </div>
+            <div class="mb-3">
+                <label for="recipient-lieu" class="col-form-label">Lieu de naissance <span class="start">*</span>:</label>
+                <input type="text" class="form-control" id="recipient-lieu" placeholder="Lieu de naissance" required>
+            </div>
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Se rappeler de moi</label>
+            </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-success">Envoyer</button>
+        </div>
+    </form>
+      </div>
+    </div>
+  </div>
