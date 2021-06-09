@@ -1,0 +1,27 @@
+.mat-vertical-stepper{
+  font-family: Poppins;
+}
+p{
+  color: white;
+}
+.buttons{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.buttons button{
+  width: 150px;
+  font-size: 14px;
+  font-family: "Poppins";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.prev{
+  background-color: #fff;
+  color: black;
+}
+.next{
+  background-color: #a4dc4a;
+  color: white;
+}

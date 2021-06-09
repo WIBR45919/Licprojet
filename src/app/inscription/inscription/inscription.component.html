@@ -1,1 +1,44 @@
-<p>inscription works!</p>
+<div class="inscription">
+  <mat-stepper [orientation]="(stepperOrientation | async)!">
+     <mat-step label="RECOMMANDATION" completed=true>
+       <p>Etape 1</p>
+       <div class="buttons">
+         <button class="next" mat-raised-button matStepperNext>Suivant <mat-icon>chevron_right</mat-icon></button>
+       </div>
+     </mat-step>
+    <mat-step label="IDENTIFICATION" completed=false>
+      <p>Etape 1</p>
+      <div class="buttons">
+        <button class="prev" mat-raised-button matStepperPrevious><mat-icon>chevron_left</mat-icon>Precedent</button>
+        <button class="next" mat-raised-button matStepperNext>Suivant <mat-icon>chevron_right</mat-icon></button>
+      </div>
+    </mat-step>
+    <mat-step label="SPECIALISATION" completed=false>
+      <p>Etape 1</p>
+      <div class="buttons">
+        <button class="prev" mat-raised-button matStepperPrevious><mat-icon>chevron_left</mat-icon>Precedent</button>
+        <button class="next" mat-raised-button matStepperNext>Suivant <mat-icon>chevron_right</mat-icon></button>
+      </div>
+    </mat-step>
+    <mat-step label="CURSUS ACADEMIQUE" completed=false>
+      <p>Etape 1</p>
+      <div class="buttons">
+        <button class="prev" mat-raised-button matStepperPrevious><mat-icon>chevron_left</mat-icon>Precedent</button>
+        <button class="next" mat-raised-button matStepperNext>Suivant <mat-icon>chevron_right</mat-icon></button>
+      </div>
+    </mat-step>
+     <mat-step label="AUTRES INFOS ET CONTACTS" completed=false>
+       <p>Etape 2</p>
+       <div class="buttons">
+         <button class="prev" mat-raised-button matStepperPrevious><mat-icon>chevron_left</mat-icon>Precedent</button>
+         <button class="next" mat-raised-button matStepperNext>Suivant <mat-icon>chevron_right</mat-icon></button>
+       </div>
+     </mat-step>
+     <mat-step label="FINISH" completed=false>
+       <p>Etape 3</p>
+       <div class="buttons">
+         <button class="prev" mat-raised-button matStepperPrevious><mat-icon>chevron_left</mat-icon>Precedent</button>
+       </div>
+     </mat-step>
+  </mat-stepper>
+</div>
