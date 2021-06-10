@@ -16,7 +16,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

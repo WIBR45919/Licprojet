@@ -1,8 +1,38 @@
-.mat-vertical-stepper{
+.inscription{
+  padding: 0 10px;
+  background-color: transparent;
+}
+.step{
   font-family: Poppins;
 }
-p{
+mat-stepper{
+  font-family: Poppins;
+  background-color: rgba(0, 0, 0, 0.8);
   color: white;
+  font-family: Poppins;
+}
+.parent{
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0;
+}
+.champs{
+  margin-right: 15px;
+  width: 63%;
+}
+.champsaround{
+  margin-right: 15px;
+  width: 55%;
+}
+.imgaround{
+  width: 45%;
+  position: relative;
+  /*background-color: #fff;*/
+}
+.img{
+  width: 36%;
+  position: relative;
+  /*background-color: #fff;*/
 }
 .buttons{
   display: flex;
@@ -24,4 +54,61 @@ p{
 .next{
   background-color: #a4dc4a;
   color: white;
+}
+.liste{
+  font-family: Poppins;
+  font-size: 20px;
+  margin: 45px 0;
+  line-height: 40px;
+}
+mat-list button{
+  margin: 0 20px;
+}
+/* style form */
+ form{
+   padding: 10px;
+   margin-bottom: 40px;
+   border-radius: 5px;
+ }
+ mat-form-field{
+   margin: 0 10px;
+ }
+mat-form-field.mat-form-field {
+  font-size: 20px;
+  font-family: Poppins;
+}
+.right{
+  margin-right: 20px;
+}
+/* Gestion du responsive */
+@media screen and (max-width: 398px){
+  .buttons{
+
+  }
+  .buttons button{
+    width: 100px;
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 734px){
+  .img, .imgaround{
+    display: none;
+  }
+  .parent{
+    justify-content: center;
+    align-items: center;
+  }
+  .champsaround, .champs{
+    width: 100%;
+    margin-right: 0;
+  }
+  .liste{
+    font-family: Poppins;
+    font-size: 14px;
+    margin: 5px 0;
+    line-height: 18px;
+  }
+  mat-list button{
+    margin: 0 2px;
+  }
 }
