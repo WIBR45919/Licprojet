@@ -1,0 +1,19 @@
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class GlobalinfoService {
+
+  private url = '192.168.137.92:8080/login';
+
+  constructor() { }
+
+  getApiUrl(): string{
+    return this.url;
+  }
+
+  setApiUrl(newUrl: string): void{
+    this.url = newUrl;
+  }
+}

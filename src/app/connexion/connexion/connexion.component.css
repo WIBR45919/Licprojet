@@ -84,5 +84,9 @@ span.sh.h{
 .start{
     color: red;
 }
+.error{
+  color: #ec3131;
+  font-size: 14px;
+}
 
 

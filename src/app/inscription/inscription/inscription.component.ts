@@ -4,7 +4,7 @@ import {Observable} from "rxjs";
 import {STEPPER_GLOBAL_OPTIONS, StepperOrientation} from "@angular/cdk/stepper";
 import {map} from "rxjs/operators";
 import {ScriptsService} from "../../_services/scripts.service";
-import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
+import {FormBuilder, FormArray, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-inscription',
@@ -37,7 +37,13 @@ export class InscriptionComponent implements OnInit {
   initForm(): void {
     this.formEtudiant = this.formBuilder.group(
       {
-        name: new FormControl('')
+       identification : this.formBuilder.array([
+         this.formBuilder.control(''),
+         this.formBuilder.control(''),
+         this.formBuilder.control(''),
+         this.formBuilder.control(''),
+         this.formBuilder.control(''),
+       ])
       }
     );
   }

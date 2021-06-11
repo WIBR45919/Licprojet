@@ -1,8 +1,8 @@
 <div class="inscription">
-  <form>
+  <form [formGroup]="formEtudiant" (ngSubmit)="onSubmit()">
     <h1>Veuillez suivre les différentes étapes suivantes pour vous préinscrire</h1>
       <mat-stepper [orientation]="(stepperOrientation | async)!" linear>
-         <mat-step label="RECOMMANDATION" state="info"  class="step">
+         <mat-step label="RECOMMANDATION" state="info" class="step">
            <div class="parent">
              <div class="champsaround">
                <mat-list role="list">
@@ -20,7 +20,7 @@
              <button class="next" mat-raised-button matStepperNext>Suivant<mat-icon>chevron_right</mat-icon></button>
            </div>
          </mat-step>
-        <mat-step label="IDENTIFICATION" state="person">
+        <mat-step label="IDENTIFICATION"  errorMessage="Fill these field" state="person">
           <div class="parent">
             <div class="champs">
               <mat-form-field appearance="outline">

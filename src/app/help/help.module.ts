@@ -1,14 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {HelpRoutingModule} from "./help-routing.module";
-
+import {HelpComponent} from "./help/help.component";
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    HelpComponent,
+  ],
   imports: [
     CommonModule,
-    HelpRoutingModule
-  ]
+    HelpRoutingModule,
+  ],
 })
 export class HelpModule { }
