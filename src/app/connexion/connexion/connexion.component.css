@@ -25,7 +25,7 @@
     width: 500px;
     padding: 8px 0;
     border-radius: 5px;
-    box-shadow: 0 0 38px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
     /*background-color: rgba(27, 26, 26, 0.8);*/
     background-color: #fff;
 }
@@ -70,18 +70,20 @@ span.sh.h{
 } */
 #modalforgot{
     border-radius: 3px;
-    color: white;
-    box-shadow: 0 0 38px rgba(0, 0, 0, 0.6);
-    /* background-color: rgb(61, 61, 61); */
-    background-color: rgba(75, 118, 20, 0.8);
+    color: black;
+    font-weight: bold;
+}
+.col-form-label{
+  color: black;
 }
 .modal-footer{
-    display: flex;
-    justify-content: space-between;
+  padding: 0;
 }
 .btn-close{
-    background-color:white;
+    background-color:rgba(0, 0, 0, 0.5);
     border-radius:50%;
+    width: 50px;
+    height: 50px;
 }
 #exampleModalLabel{
     text-align: center;
