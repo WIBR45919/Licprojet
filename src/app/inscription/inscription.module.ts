@@ -11,18 +11,21 @@ import { MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatListModule} from "@angular/material/list";
 import {HeaderComponent} from "../header/header.component";
+import {HelpComponent} from "./help/help.component";
+import {MatDividerModule} from "@angular/material/divider";
 
 @NgModule({
   declarations: [
     InscriptionComponent,
     InscriptionShellComponent,
+    HelpComponent,
     HeaderComponent
   ],
   imports: [
     CommonModule,
     InscriptionRoutingModule,
     MatStepperModule, MatButtonModule, MatIconModule, MatFormFieldModule, MatInputModule, MatListModule,
-    ReactiveFormsModule, FormsModule,
+    ReactiveFormsModule, FormsModule,MatDividerModule
   ],
   exports: [
     HeaderComponent

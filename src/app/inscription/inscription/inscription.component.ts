@@ -49,5 +49,7 @@ export class InscriptionComponent implements OnInit {
   }
 
 //  Send form method
-  onSubmit(): void{}
+  onSubmit(): void{
+    alert('Envoyer');
+  }
 }
