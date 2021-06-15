@@ -13,6 +13,9 @@ import {MatListModule} from "@angular/material/list";
 import {HeaderComponent} from "../header/header.component";
 import {HelpComponent} from "./help/help.component";
 import {MatDividerModule} from "@angular/material/divider";
+import {MatSelectModule} from "@angular/material/select";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatNativeDateModule} from "@angular/material/core";
 
 @NgModule({
   declarations: [
@@ -25,7 +28,8 @@ import {MatDividerModule} from "@angular/material/divider";
     CommonModule,
     InscriptionRoutingModule,
     MatStepperModule, MatButtonModule, MatIconModule, MatFormFieldModule, MatInputModule, MatListModule,
-    ReactiveFormsModule, FormsModule,MatDividerModule
+    ReactiveFormsModule, FormsModule,MatDividerModule, MatSelectModule,
+    MatDatepickerModule,MatNativeDateModule
   ],
   exports: [
     HeaderComponent

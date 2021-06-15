@@ -3,7 +3,6 @@
   /*background-color: transparent;*/
 }
 ::ng-deep .mat-step-label{
-  font-family: Roboto!important;
   color: black!important;
 }
 ::ng-deep .mat-step-icon{
@@ -11,18 +10,37 @@
   height: 40px!important;
   width: 40px!important;
 }
+::ng-deep .mat-step-header .mat-step-icon-selected{
+  background-color: turquoise!important;
+}
 ::ng-deep .mat-step-icon-state-done{
   background-color: yellowgreen!important;
 }
-mat-stepper{
+::ng-deep .mat-step-text-label{
   font-family: Roboto;
+}
+::ng-deep .mat-datepicker-toggle{
+  color: black!important;
+}
+::ng-deep .mat-calendar-body-active{
+  background-color: yellowgreen;
+  border-radius: 50%;
+}
+::ng-deep .mat-calendar-body-cell:not(.mat-calendar-body-disabled):hover>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical), .cdk-keyboard-focused .mat-calendar-body-active>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical), .cdk-program-focused .mat-calendar-body-active>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical){
+  background-color: yellowgreen!important;
+}
+
+mat-stepper{
   background-color: white;
   color: black;
+}
+h1{
+  font-size: 17px;
 }
 .parent{
   display: flex;
   justify-content: space-between;
-  margin: 15px 0 8px 0;
+  margin: 10px 0 8px 0;
 }
 .champs{
   margin-right: 15px;
@@ -65,13 +83,17 @@ mat-stepper{
 }
 .liste{
   font-family: Roboto;
-  font-size: 20px;
-  margin: 15px 0;
+  font-size: 17px;
+  margin: 8px 0;
   color: black;
   line-height: 25px;
 }
+::ng-deep .mat-list-base .mat-list-item .mat-list-item-content, .mat-list-base .mat-list-option .mat-list-item-content{
+  font-family: Roboto;
+}
 mat-list button{
   margin: 0 20px;
+  font-family: Roboto;
 }
 /* style form */
  form{
@@ -90,7 +112,7 @@ mat-form-field.mat-form-field {
   font-size: 20px;
   font-family: Roboto;
   border-radius: 3px;
-  box-shadow: 0 0 5px rgba(0,0,0,0.6);
+  box-shadow: 1px 2px 2px rgba(0,0,0,0.6);
 }
 mat-divider{
   background-color: gray;
@@ -108,6 +130,35 @@ mat-label{
 .right{
   margin-right: 20px;
 }
+::ng-deep .mat-primary .mat-option.mat-selected:not(.mat-option-disabled){
+  color: yellowgreen;
+}
+::ng-deep .mat-select-value{
+  color: black!important;
+}
+
+/* Cursus academique */
+.message-warn{
+  display: flex;
+  justify-content: space-between;
+}
+.message-warn .text p{
+  font-size: 16px;
+  font-family: Roboto;
+  text-align: justify;
+}
+.table{
+  text-align: center;
+}
+.table tr th{
+  font-size: 15px;
+  font-family: Lato;
+}
+.table tr td{
+  font-size: 14px;
+  font-family: Arial;
+}
+
 /* Gestion du responsive */
 @media screen and (max-width: 398px){
   .buttons{

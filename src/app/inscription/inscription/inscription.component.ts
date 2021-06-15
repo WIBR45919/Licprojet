@@ -37,12 +37,22 @@ export class InscriptionComponent implements OnInit {
   initForm(): void {
     this.formEtudiant = this.formBuilder.group(
       {
-       identification : this.formBuilder.array([
-         this.formBuilder.control(''),
-         this.formBuilder.control(''),
-         this.formBuilder.control(''),
-         this.formBuilder.control(''),
-         this.formBuilder.control(''),
+       form : this.formBuilder.array([
+         this.formBuilder.group({
+
+         }),
+         this.formBuilder.group({
+
+         }),
+         this.formBuilder.group({
+
+         }),
+         this.formBuilder.group({
+
+         }),
+         this.formBuilder.group({
+
+         }),
        ])
       }
     );

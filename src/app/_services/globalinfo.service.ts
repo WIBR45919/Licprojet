@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class GlobalinfoService {
 
-  private url = '192.168.137.92:8080/login';
+  private url = '192.168.137.92:8080/inscrit';
 
   constructor() { }
 
