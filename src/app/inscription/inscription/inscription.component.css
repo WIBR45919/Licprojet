@@ -158,28 +158,45 @@ mat-label{
   font-size: 14px;
   font-family: Arial;
 }
-
+.col-form-label{
+  font-family: Lato;
+  font-size: 15px;
+  font-weight: bold;
+}
+.btn-close{
+  background-color:rgba(0, 0, 0, 0.5);
+  border-radius:50%;
+  width: 30px;
+  height: 30px;
+}
+.modal-content{
+  border-radius: 2px;
+}
+.modal-title{
+  font-family: Roboto;
+  font-size: 22px;
+  text-transform: uppercase;
+}
+.others{
+  min-height: 400px;
+}
+.modal-footer button{
+  color: white;
+  font-family: Roboto;
+  min-height: 50px;
+  border-radius: 3px;
+}
 /* Gestion du responsive */
 @media screen and (max-width: 398px){
-  .buttons{
-
-  }
   .buttons button{
     width: 100px;
     font-size: 12px;
   }
 }
 @media screen and (max-width: 734px){
-  .img, .imgaround{
-    display: none;
-  }
   .parent{
     justify-content: center;
     align-items: center;
-  }
-  .champsaround, .champs{
-    width: 100%;
-    margin-right: 0;
   }
   .liste{
     font-family: Roboto;
@@ -191,3 +208,13 @@ mat-label{
     margin: 0 2px;
   }
 }
+@media screen and (max-width: 1000px){
+  .img, .imgaround{
+    display: none;
+  }
+  .champsaround, .champs{
+    width: 100%;
+    margin-right: 0;
+  }
+}
+

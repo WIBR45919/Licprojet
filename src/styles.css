@@ -5,7 +5,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 *,html{
     margin: 0;
     padding: 0;
-    font-family: 'Poppins, Roboto, Lucida Sans';
 }
 body::-webkit-scrollbar-track {
     margin: 0 5px;

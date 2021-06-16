@@ -150,14 +150,15 @@
             <div class="champs">
               <mat-form-field appearance="outline">
                 <mat-icon matSuffix>translate</mat-icon>
-                <mat-label>Langues</mat-label>
+                <mat-label>Cursus</mat-label>
                 <mat-select>
-                  <mat-option value="Français">Français</mat-option>
-                  <mat-option value="Anglais">Anglais</mat-option>
-                  <mat-option value="Espagnol">Espagnol</mat-option>
-                  <mat-option value="Italien">Italien</mat-option>
-                  <mat-option value="Chinois">Chinois</mat-option>
-                  <mat-option value="Japonais">Japonais</mat-option>
+                  <mat-option value="BTS">BTS</mat-option>
+                  <mat-option value="FORMATION INITIAL">FORMATION INITIAL</mat-option>
+                  <mat-option value="LICENCE DE TECHNOLOGIE">LICENCE DE TECHNOLOGIE</mat-option>
+                  <mat-option value="FORMATION EN ALTERNANCE">FORMATION EN ALTERNANCE"</mat-option>
+                  <mat-option value="DOCTORAT/PHD 1">DOCTORAT/PHD 1</mat-option>
+                  <mat-option value="MASTER 1">MASTER 1</mat-option>
+                  <mat-option value="MASTER RECHERCHE 2">MASTER RECHERCHE 2</mat-option>
                 </mat-select>
               </mat-form-field>
               <mat-form-field appearance="outline">
@@ -303,7 +304,7 @@
           </div>
         </mat-step>
         <mat-step label="CURSUS ACADEMIQUE" state="school">
-          <div class="parent">
+          <div class="parent others">
             <div class="champs">
               <div class="message-warn">
                 <div class="warnlog">
@@ -319,7 +320,7 @@
                 </div>
               </div>
               <div class="add">
-                <table class="table table-hover table-borderless">
+                <table class="table table-hover table-bordered">
                   <thead>
                   <tr>
                     <th scope="col">#</th>
@@ -331,13 +332,14 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                    <td><button type="button" class="btn btn-danger">Supprimer</button></td>
+                  <tr *ngFor="let elt of listDiplomeAutre;let i = index">
+                    <th scope="row">{{ i+1 }}</th>
+                    <td>{{ elt.anneeObtention }}</td>
+                    <td>{{ elt.nomDiplome }}</td>
+                    <td>{{ elt.etablissement }}</td>
+                    <td>{{ elt.mention }}</td>
+                    <td><button type="button" class="btn btn-danger"  mat-stroked-button (click)="deleteDiplome(i)">
+                      Supprimer</button></td>
                   </tr>
                   </tbody>
                 </table>
@@ -352,7 +354,7 @@
           </div>
           <div class="buttons">
             <button type="button" class="prev" mat-raised-button matStepperPrevious><mat-icon>chevron_left</mat-icon>Precedent</button>
-            <button type="button" class="next" mat-raised-button matStepperNext>Suivant<mat-icon>chevron_right</mat-icon></button>
+            <button type="button" class="next" [disabled]="listDiplomeAutre.length < 3" mat-raised-button matStepperNext>Suivant<mat-icon>chevron_right</mat-icon></button>
           </div>
         </mat-step>
         <mat-step label="AUTRES INFOS ET CONTACTS" state="contact_phone">
@@ -419,25 +421,39 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Ajouter un nouveau Diplome</h5>
+        <h1 class="modal-title" id="exampleModalLabel">Ajouter un nouveau Diplome</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        <form>
-          <div class="mb-3">
-            <label for="recipient-name" class="col-form-label">Recipient:</label>
-            <input type="text" class="form-control" id="recipient-name">
-          </div>
-          <div class="mb-3">
-            <label for="message-text" class="col-form-label">Message:</label>
-            <textarea class="form-control" id="message-text"></textarea>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
-      </div>
+      <form [formGroup]="formDiplome" (ngSubmit)="addDiplome()">
+        <div class="modal-body">
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label">Année d'obtention:</label>
+              <select class="form-select" id="message-text" formControlName="annee">
+                <option *ngFor="let anne of annees;" [value]="anne">{{ anne }}</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="message-text2" class="col-form-label">Établissement d'obtention:</label>
+              <input type="text" formControlName="etablissement" class="form-control" id="message-text2" placeholder="Etablissement d'obtention">
+            </div>
+            <div class="mb-3">
+              <label for="message-text3" class="col-form-label">Diplôme:</label>
+              <select class="form-select" formControlName="diplome" id="message-text3">
+                <option *ngFor="let dip of diplome;" [value]="dip">{{ dip }}</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="message-text4" class="col-form-label">Mention:</label>
+              <select class="form-select" formControlName="mention" id="message-text4">
+                <option *ngFor="let m of mention;" [value]="m">{{ m }}</option>
+              </select>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" mat-stroked-button (click)="ConfirmAjout('Ajout éffectuer')"
+                  [disabled]="formDiplome?.invalid" class="btn btn-primary w-100">AJOUTER</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>

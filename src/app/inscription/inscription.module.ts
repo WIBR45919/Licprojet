@@ -16,6 +16,7 @@ import {MatDividerModule} from "@angular/material/divider";
 import {MatSelectModule} from "@angular/material/select";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import {MatNativeDateModule} from "@angular/material/core";
     InscriptionRoutingModule,
     MatStepperModule, MatButtonModule, MatIconModule, MatFormFieldModule, MatInputModule, MatListModule,
     ReactiveFormsModule, FormsModule,MatDividerModule, MatSelectModule,
-    MatDatepickerModule,MatNativeDateModule
+    MatDatepickerModule,MatNativeDateModule, MatSnackBarModule
   ],
   exports: [
     HeaderComponent
