@@ -10,12 +10,14 @@ export  interface EtudiantModel {
   nom: string;
   prenom: string;
   sexe: string;
+  situationFamilial: string;
   dateNaissance: string;
   lieu: string;
   numCNI: string;
   email: string;
   telephone: number;
   paysOrigine: string;
+  regionOrigine: string;
   langue: string;
   handicap: string;
   profession: string;
