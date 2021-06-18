@@ -24,7 +24,7 @@ export  interface EtudiantModel {
   cursus: CursusModel,
   DiplomeAdmission: DiplomeAdmissionModel,
   DiplomeAutre: DiplomeAutreModel[],
-  Fiiere: FiliereModel,
+  Filiere: FiliereModel,
   Tuteur: TuteurModel,
   Niveau: NiveauModel,
   Inscrit: loginModel;

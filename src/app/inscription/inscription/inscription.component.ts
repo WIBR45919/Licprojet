@@ -7,6 +7,8 @@ import {ScriptsService} from "../../_services/scripts.service";
 import {FormBuilder, FormArray, FormGroup, FormControl, Validators, AbstractControl} from "@angular/forms";
 import {DiplomeAutreModel} from "../../_models/diplomeAutre.model";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {InfosService} from "../__services/infos.service";
+declare var $:any
 
 @Component({
   selector: 'app-inscription',
@@ -22,25 +24,21 @@ export class InscriptionComponent implements OnInit {
 
   //getion de la liste des diplomes
   listDiplomeAutre = new Array<DiplomeAutreModel>();
-  annees = ["1991","1992","1993","1994","1995","1996","1997","1998","1999",
-    "2000","2001","2002","2003","2004","2005","2006","2007","2008","2009","2010","2011","2012",
-    "2013","2014","2015","2016","2017","2018","2019","2020","2021",];
-  diplome = [
-    "HND","DSEP","Baccalaureat","BT","DUT","Licence Scientifique","GCE Advanced Level","BEPC / CAP",
-    "Ingénieur des Travaux","Licence Technologie","BTS","DEUG","Probatoire","HCE Ordinary Level","CEP anglophone"
-  ];
-  mention = ["Asséz-bien","Bien","Excellent","Passable","Très bien","Sous-reserve"];
-
+  annees!: string[];
+  diplome!: string[];
+  mention!: string[];
+  cursus!: any;
 
   //creation du gestionnaire de formulaire reactif
   formEtudiant!: FormGroup;
   formDiplome!: FormGroup;
   isVisible = false;
-  val!:any;
+  filiere = [{id: 1, name:''}];
+  niveau = [{id: 1, name:''}];
 
 
   constructor(private breakpoint: BreakpointObserver, private script: ScriptsService,
-               private formBuilder: FormBuilder, private snack: MatSnackBar) {
+               private formBuilder: FormBuilder, private snack: MatSnackBar, private infos: InfosService) {
     this.stepperOrientation = breakpoint.observe('(min-width: 1000px)').pipe(
       map(({matches}) => matches ? 'horizontal' : 'vertical')
     );
@@ -54,7 +52,12 @@ export class InscriptionComponent implements OnInit {
     this.script.responsiveMenu();
     this.initForm();
     this.initFormDiplome();
-    this.val = this.informations.get([0]);
+
+    //initialisations des valeurs a utiliser provenant du service
+    this.mention = this.infos.mention;
+    this.annees = this.infos.annees;
+    this.diplome = this.infos.diplome;
+    this.cursus = this.infos.cursus;
   }
 
   initForm(): void {
@@ -77,7 +80,17 @@ export class InscriptionComponent implements OnInit {
            langues: new FormControl(['Français'],[Validators.required]),
          }),
          this.formBuilder.group([
-
+           // nomCursus: new FormControl('',[Validators.required]),
+           // niveauFil: new FormControl('',[Validators.required]),
+           // nomFil: new FormControl('',[Validators.required]),
+           // diplomeAdd: new FormControl('',[Validators.required]),
+           // serieAdd: new FormControl('',[Validators.required]),
+           // mentionDiplome: new FormControl('',[Validators.required]),
+           // anneeObtention: new FormControl('',[Validators.required]),
+           // etablissementObt: new FormControl('',[Validators.required]),
+           // paysObtention: new FormControl('',[Validators.required]),
+           // Choixcentre: new FormControl('',[Validators.required]),
+           // AnneeObtentionB: new FormControl('',[Validators.required]),
          ]),
          this.formBuilder.group([
 
@@ -94,9 +107,16 @@ export class InscriptionComponent implements OnInit {
   onSubmit(): void{
     alert('Envoyer');
   }
-
-  affiche(): void{
-    console.log(this.informations.get([0]));
+  choixNiveau(elt1: any): void{
+    const name = $(elt1)[0].value;
+    // console.log(name)
+    const tab = this.cursus.cursus.filter((elt: any) => elt.nom === name);
+    // console.log(tab[0]);
+    this.niveau = tab[0].others.niveau;
+    this.filiere = tab[0].others.fileres;
+  }
+  choixFilire(elt: any): void{
+    console.log($(elt).value)
   }
 
 //  méthodes liée aux diplomes

@@ -142,17 +142,17 @@
             </div>
             <div class="buttons">
               <button type="button" class="prev" mat-raised-button matStepperPrevious><mat-icon>chevron_left</mat-icon>Precedent</button>
-              <button type="button" class="next" (click)="affiche()" mat-raised-button matStepperNext>Suivant<mat-icon>chevron_right</mat-icon></button>
+              <button type="button" class="next" mat-raised-button matStepperNext>Suivant<mat-icon>chevron_right</mat-icon></button>
             </div>
           </mat-step>
-         <mat-step formGroupName="1"  label="SPECIALISATION" state="rate_review">
+         <mat-step formGroupName="1" [stepControl]="informations"  label="SPECIALISATION" state="rate_review">
             <div class="parent">
               <div class="champs">
                 <mat-form-field appearance="outline">
                   <mat-icon matSuffix>train</mat-icon>
                   <mat-label>Cursus</mat-label>
-                  <mat-select>
-                    <mat-option value="BTS">BTS</mat-option>
+                  <mat-select id="niveau" formControlName="nomCursus" (selectionChange)="choixNiveau($event)"required>
+                    <mat-option value="BREVET DE TECHNICIEN SUPERIEUR">BTS</mat-option>
                     <mat-option value="FORMATION INITIAL">FORMATION INITIAL</mat-option>
                     <mat-option value="LICENCE DE TECHNOLOGIE">LICENCE DE TECHNOLOGIE</mat-option>
                     <mat-option value="FORMATION EN ALTERNANCE">FORMATION EN ALTERNANCE"</mat-option>
@@ -162,39 +162,24 @@
                   </mat-select>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
-                  <mat-icon matSuffix>translate</mat-icon>
-                  <mat-label>Langues</mat-label>
-                  <mat-select>
-                    <mat-option value="Français">Français</mat-option>
-                    <mat-option value="Anglais">Anglais</mat-option>
-                    <mat-option value="Espagnol">Espagnol</mat-option>
-                    <mat-option value="Italien">Italien</mat-option>
-                    <mat-option value="Chinois">Chinois</mat-option>
-                    <mat-option value="Japonais">Japonais</mat-option>
+                  <mat-icon matSuffix>work</mat-icon>
+                  <mat-label>Niveau Filires</mat-label>
+                  <mat-select formControlName="niveauFil" (SelectionChange)="choixFilire($event)" required>
+                    <mat-option *ngFor="let niv of niveau" [value]="niv.id">{{ niv.name }}</mat-option>
                   </mat-select>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
-                  <mat-icon matSuffix>translate</mat-icon>
-                  <mat-label>Langues</mat-label>
-                  <mat-select>
-                    <mat-option value="Français">Français</mat-option>
-                    <mat-option value="Anglais">Anglais</mat-option>
-                    <mat-option value="Espagnol">Espagnol</mat-option>
-                    <mat-option value="Italien">Italien</mat-option>
-                    <mat-option value="Chinois">Chinois</mat-option>
-                    <mat-option value="Japonais">Japonais</mat-option>
+                  <mat-icon matSuffix>work</mat-icon>
+                  <mat-label>1er choix filieres</mat-label>
+                  <mat-select formControlName="nomFil" required>
+                    <mat-option *ngFor="let fil of filiere" [value]="fil.id">{{ fil.name }}</mat-option>
                   </mat-select>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
-                  <mat-icon matSuffix>translate</mat-icon>
-                  <mat-label>Langues</mat-label>
-                  <mat-select>
-                    <mat-option value="Français">Français</mat-option>
-                    <mat-option value="Anglais">Anglais</mat-option>
-                    <mat-option value="Espagnol">Espagnol</mat-option>
-                    <mat-option value="Italien">Italien</mat-option>
-                    <mat-option value="Chinois">Chinois</mat-option>
-                    <mat-option value="Japonais">Japonais</mat-option>
+                  <mat-icon matSuffix>work</mat-icon>
+                  <mat-label>2 ieme choix filiere</mat-label>
+                  <mat-select required>
+                    <mat-option *ngFor="let fil of filiere" [value]="fil.id">{{ fil.name }}</mat-option>
                   </mat-select>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
