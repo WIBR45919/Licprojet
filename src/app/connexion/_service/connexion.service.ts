@@ -12,6 +12,6 @@ export class ConnexionService {
   constructor(private http: HttpClient, private global: GlobalinfoService) { }
 
   Login(user: loginModel): Observable<any>{
-    return this.http.post(this.global.getApiUrl(), user, {  });
+    return this.http.post(this.global.getApiUrl() + 'inscrit', user, {  });
   }
 }

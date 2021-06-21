@@ -40,7 +40,7 @@ export class ConnexionComponent implements OnInit {
   }
 
   restecturation(): loginModel{
-    return this.infoUser = {
+    return {
       username: this.loginForm.get('')?.value,
       password: this.loginForm.get('')?.value
     }

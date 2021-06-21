@@ -1,4 +1,16 @@
 import {Injectable, OnInit} from '@angular/core';
+import {Observable} from "rxjs";
+import {HttpClient} from "@angular/common/http";
+import {GlobalinfoService} from "../../_services/globalinfo.service";
+import {EtudiantModel} from "../../_models/etudiant.model";
+import {FormGroup} from "@angular/forms";
+import {CursusModel} from "../../_models/cursus.model";
+import {DiplomeAdmissionModel} from "../../_models/diplomeAdmission.model";
+import {DiplomeAutreModel} from "../../_models/diplomeAutre.model";
+import {FiliereModel} from "../../_models/filiere.model";
+import {TuteurModel} from "../../_models/tuteur.model";
+import {NiveauModel} from "../../_models/niveau.model";
+import {loginModel} from "../../_models/login.model";
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +37,7 @@ export class InfosService implements OnInit{
           name:  'Niveau 1'
          }
         ],
-        fileres: [
+        filieres: [
           {
             id: 1,
             name: 'Fabrication Mecanique'
@@ -69,7 +81,7 @@ export class InfosService implements OnInit{
               name:  'Niveau 1'
             }
           ],
-          fileres: [
+          filieres: [
             {
               id: 1,
               name: 'Biotechnologie Et Technologie Alimentaire'
@@ -157,7 +169,7 @@ export class InfosService implements OnInit{
             },
             {
               id: 5,
-              name: 'Economie d\'Energie Et Environnement'
+              name: "Economie d'Energie Et Environnement"
             },
             {
               id: 6,
@@ -227,7 +239,7 @@ export class InfosService implements OnInit{
               name:  'Niveau 6'
             }
           ],
-          fileres: [
+          filieres: [
             {
               id: 1,
               name: 'Doctorat/PHD 1 Laboratoire Des Technologies Et Sciences Appliquees'
@@ -248,7 +260,7 @@ export class InfosService implements OnInit{
               name:  'Niveau 5'
             }
           ],
-          fileres:[
+          filieres:[
         {
           id: 1,
           name: 'Laboratoire Des Technologies ET Sciences Appliquees'
@@ -269,7 +281,7 @@ export class InfosService implements OnInit{
               name:  'Niveau 4'
             }
           ],
-          fileres: [
+          filieres: [
             {
               id: 1,
               name: 'Master Professionnel en Eau, Dechets et Assainissement Liquide'
@@ -306,7 +318,7 @@ export class InfosService implements OnInit{
               name:  'Niveau 1'
             }
           ],
-          fileres: [
+          filieres: [
         {
           id: 1,
           name: 'Biotechnologie Et Technologie Alimentaire'
@@ -368,9 +380,12 @@ export class InfosService implements OnInit{
     }]
   };
 
-  constructor() { }
+  constructor(private http: HttpClient, private global: GlobalinfoService) { }
   ngOnInit(): void {
   }
+  //methode d'inscription
+  Inscription(user: EtudiantModel): Observable<any>{
+    return this.http.post(this.global.getApiUrl() + 'etudiant', user, {  });
+  }
 
-  getFiliereByCurcus(): void{}
 }

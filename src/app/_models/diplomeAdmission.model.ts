@@ -4,4 +4,6 @@ export interface DiplomeAdmissionModel {
   paysObtention: string;
   etablissement: string;
   centreExamen: string;
+  anneeObtentionAutre: string;
+  serieDiplome: string;
 }

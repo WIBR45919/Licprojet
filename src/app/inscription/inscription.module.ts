@@ -18,6 +18,7 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {InfosService} from "./__services/infos.service";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import {InfosService} from "./__services/infos.service";
     InscriptionRoutingModule,
     MatStepperModule, MatButtonModule, MatIconModule, MatFormFieldModule, MatInputModule, MatListModule,
     ReactiveFormsModule, FormsModule,MatDividerModule, MatSelectModule,
-    MatDatepickerModule,MatNativeDateModule, MatSnackBarModule
+    MatDatepickerModule,MatNativeDateModule, MatSnackBarModule,HttpClientModule
   ],
   exports: [
     HeaderComponent
