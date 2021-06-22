@@ -30,6 +30,8 @@ export class InscriptionComponent implements OnInit {
   mention!: string[];
   cursus!: any;
   tab!:any;
+  regions!: any;
+  pays!: any;
 
   //creation du gestionnaire de formulaire reactif
   formEtudiant!: FormGroup;
@@ -61,6 +63,8 @@ export class InscriptionComponent implements OnInit {
     this.annees = this.infos.annees;
     this.diplome = this.infos.diplome;
     this.cursus = this.infos.cursus;
+    this.regions = this.infos.Pays[0].regions;
+    this.pays = this.infos.Pays;
   }
 
   initForm(): void {
@@ -78,7 +82,7 @@ export class InscriptionComponent implements OnInit {
            address: new FormControl('',[Validators.required]),
            tel: new FormControl('',[Validators.required, Validators.pattern('[0-9]{9}')]),
            numCNI: new FormControl('',[Validators.required, Validators.minLength(8)]),
-           email: new FormControl('',[Validators.required, Validators.email,Validators.pattern('\\b[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}\\b')]),
+           email: new FormControl('xyz@gmail.com',[Validators.required, Validators.email,Validators.pattern('\\b[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}\\b')]),
            paysOrigine: new FormControl('République du Cameroun',[Validators.required]),
            regionOrigine: new FormControl('Littoral',[Validators.required]),
            langues: new FormControl(['Français'],[Validators.required]),
@@ -137,7 +141,10 @@ export class InscriptionComponent implements OnInit {
   choixFilire(elt: any): void{
     // console.log($(elt)[0].value)
   }
-
+  updateRegion(event: any){
+    const bet = this.infos.Pays.filter((pay: any) => pay.nom === $(event)[0].value);
+    this.regions = bet[0].regions;
+  }
 //  méthodes liée aux diplomes
 
   //  -- initialisation du formulaire d'ajout
@@ -167,7 +174,8 @@ export class InscriptionComponent implements OnInit {
     this.isVisible = !this.isVisible;
   }
   deleteDiplome(index: number):void{
-    this.listDiplomeAutre.splice(index-1, 1);
+    console.log(index);
+    this.listDiplomeAutre.splice(index, 1);
     this.ConfirmAjout('Suppression éffetuer');
   }
 //  verification des mots de passe

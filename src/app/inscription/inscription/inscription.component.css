@@ -186,6 +186,21 @@ mat-label{
   min-height: 50px;
   border-radius: 3px;
 }
+.lic-btn{
+  width: 135px;
+  height: 40px;
+  background-color: #0ce77e;
+  font-size: 15px;
+  color: white;
+  border: none;
+}
+.lic-btn-info{
+  background-color: darkturquoise;
+  border-radius: 5px;
+}
+.lic-btn-danger{
+  background-color: #ea2645;
+}
 /* Gestion du responsive */
 @media screen and (max-width: 398px){
   .buttons button{

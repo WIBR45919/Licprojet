@@ -12,7 +12,8 @@
                  <mat-divider></mat-divider>
                  <mat-list-item class="liste" role="listitem">Tous les champs sont obligatoires</mat-list-item>
                  <mat-divider></mat-divider>
-                 <mat-list-item class="liste" role="listitem"> Si vous etes deja préinscrit :</mat-list-item><button type="button" routerLink="/connexion" mat-raised-button color="primary">Connectez-vous</button>
+                 <mat-list-item class="liste" role="listitem"> Si vous etes deja préinscrit :</mat-list-item>
+                 <button type="button" routerLink="/connexion" mat-raised-button class="lic-btn">Connectez-vous</button>
                </mat-list>
              </div>
              <div class="imgaround">
@@ -89,39 +90,16 @@
                 <mat-form-field appearance="outline">
                     <mat-icon matSuffix>public</mat-icon>
                     <mat-label class="right">Pays d'origine</mat-label>
-                    <mat-select required formControlName="paysOrigine">
-                      <mat-option value="République du Cameroun" selected>République du Cameroun</mat-option>
-                      <mat-option value="Burkina Faso">Burkina Faso</mat-option>
-                      <mat-option value="Togo">Togo</mat-option>
-                      <mat-option value="Niger">Niger</mat-option>
-                      <mat-option value="États-Unis">États-Unis</mat-option>
-                      <mat-option value="Mali">Mali</mat-option>
-                      <mat-option value="Gabon">Gabon</mat-option>
-                      <mat-option value="Côte d'ivoire">Côte d'ivoire</mat-option>
-                      <mat-option value="Guinée Equatoriale">Guinée Equatoriale</mat-option>
-                      <mat-option value="Tchad">Tchad</mat-option>
-                      <mat-option value="République Centre Africaine">République Centre Africain</mat-option>
-                      <mat-option value="République du Congo">République du Congo</mat-option>
-                      <mat-option value="République Démocratique du Congo">République Démocratique du Congo</mat-option>
-                      <mat-option value="Autre">Autre</mat-option>
+                    <mat-select required formControlName="paysOrigine" (selectionChange)="updateRegion($event)">
+                      <mat-option *ngFor="let p of pays" [value]="p.nom">{{ p.nom }}</mat-option>
+
                     </mat-select>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                   <mat-icon matSuffix>outlined_flag</mat-icon>
                   <mat-label class="right">Region d'origine</mat-label>
                   <mat-select required formControlName="regionOrigine">
-                    <mat-option value="Littoral" selected>Littoral</mat-option>
-                    <mat-option value="Centre">Centre</mat-option>
-                    <mat-option value="Adamaoua">Adamaoua</mat-option>
-                    <mat-option value="Est">Est</mat-option>
-                    <mat-option value="Extreme Nord">Extreme Nord</mat-option>
-                    <mat-option value="Nord">Nord</mat-option>
-                    <mat-option value="Centre">Centre</mat-option>
-                    <mat-option value="Ouest">Ouest"</mat-option>
-                    <mat-option value="Nord Ouest">Nord Ouest</mat-option>
-                    <mat-option value="Sud">Sud</mat-option>
-                    <mat-option value="Sud Ouest">Sud Ouest</mat-option>
-                    <mat-option value="Autre">Autre</mat-option>
+                    <mat-option *ngFor="let reg of regions" [value]="reg" selected>{{ reg }}</mat-option>
                   </mat-select>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
@@ -294,13 +272,13 @@
                       <td>{{ elt.nomDiplome }}</td>
                       <td>{{ elt.etablissement }}</td>
                       <td>{{ elt.mention }}</td>
-                      <td><button type="button" class="btn btn-danger"  mat-stroked-button (click)="deleteDiplome(i)">
+                      <td><button type="button" class="lic-btn lic-btn-danger"  mat-stroked-button (click)="deleteDiplome(i)">
                         Supprimer</button></td>
                     </tr>
                     </tbody>
                   </table>
                   <div class="addDiplome">
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#addDiplomeModal" class="btn btn-info">Ajouter</button>
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#addDiplomeModal" class="lic-btn lic-btn-info">Ajouter</button>
                   </div>
                 </div>
               </div>
