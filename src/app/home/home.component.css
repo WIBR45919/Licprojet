@@ -128,7 +128,7 @@ ul{
 }
 .resp .navigue ul li{
     margin: 40px 20px;
-} 
+}
 .resp .navigue ul li a{
     text-decoration: none;
     text-transform: uppercase;
@@ -212,7 +212,7 @@ ul{
     }
   }
   @-moz-keyframes reveal{
-   
+
       100% {
         transform: translate(0,0);
       }
@@ -311,8 +311,8 @@ ul{
     border-radius: 5px;
 }
 .presentation .elt img{
-    height: 120px;
-    width: 120px;
+    height: 125px;
+    width: 125px;
     border-radius: 50%;
     border: 2px solid rgb(31, 30, 30);
     position: absolute;
@@ -356,7 +356,7 @@ ul{
 h2{
     padding: 9px;
     text-transform: uppercase;
-    font-family: 'Lato';
+    font-family: 'Roboto';
     margin: 0 auto;
     font-size: 15px;
     display: inline-block;
@@ -365,13 +365,13 @@ h2{
 .apropos ul li{
     list-style: none;
     padding: 9px;
-    font-family: 'Lucida Sans';
+    font-family: 'Roboto';
 }
 .apropos ul li a{
     text-decoration: none;
     color: white;
     text-transform: uppercase;
-    font-family: 'Lucida Sans';
+    font-family: 'Roboto';
     transition: all 0.5s;
     font-size: 13px;
 }
@@ -383,7 +383,7 @@ h2{
     font-size: 13px;
     font-style: italic;
     list-style: none;
-    font-family: 'Lucida Sans';
+    font-family: 'Roboto';
 }
 .perso ul{
     margin: 25px 0;
