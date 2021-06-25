@@ -1,0 +1,46 @@
+<header class="header">
+  <div class="content">
+    <nav class="menu">
+      <div class="logo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/25/Logo_IUT_Douala.png" alt="">
+        <span>Douala<sub>CMR</sub></span>
+      </div>
+      <div class="navigation">
+        <ul>
+          <li><a routerLink="/home" routerlinkactive="here">Acceuil</a></li>
+          <li><a routerLink="/inscription/help" routerlinkactive="here">Aide</a></li>
+          <li>
+            <div class="profil">
+              <div class="imgprofil" (click)="menuprofil()">W</div>
+            </div>
+            <div class="menuprofil" id="menuProfil">
+              <h3>Waffeu Ivany Botrel<b>
+                <span><a class="mail" href="mailto:waffeu120920012gmail.com">waffeu120920012gmail.com</a></span>
+              </b></h3>
+              <ul class="s-menu-profil">
+                <li><span></span><a routerLink="import">Importer les fichiers</a></li>
+                <li><span></span><a routerLink="">Se Déconnecter</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="responsive-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <!-- Menu responsive -->
+      <div class="resp">
+        <div class="navigue">
+          <ul>
+            <div class="imgprofil">W</div><span class="name">Waffeu Ivany Botrel</span>
+            <li><a routerLink="/home" routerlinkactive="here">Acceuil</a></li>
+            <li><a routerLink="/inscription/help" routerlinkactive="here">Aide</a></li>
+            <li><a routerLink="import" routerlinkactive="here">Importer les fichiers</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>

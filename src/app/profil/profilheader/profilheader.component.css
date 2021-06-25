@@ -1,0 +1,250 @@
+header{
+  width: 100%;
+  position: relative;
+  height: 100px;
+  /* max-height: 500px; */
+}
+ul{
+  padding: 0;
+  margin: 0;
+}
+.content{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.menu{
+  color: white;
+  width: 100%;
+  height: 90px;
+  padding: 15px;
+  background-color: rgba(27, 27, 27, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 4;
+  box-sizing: border-box;
+  border-bottom: 2px solid yellowgreen;
+}
+.menu .logo{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menu  .logo img{
+  object-fit: cover;
+  object-position: center;
+  height: 60px;
+  margin-right: 10px;
+  background: #fff;
+  border-radius: 50%;
+}
+.menu  .logo sub{
+  font-size: 10px;
+}
+.menu  .logo span,.menu  .logo span sub{
+  font-family: Roboto;
+}
+.navigation{
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navigation ul{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  padding: 10px;
+}
+.navigation ul li{
+  margin: 0 30px;
+}
+.navigation ul li a{
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: Roboto;
+  color: white;
+  transition: all 0.5s;
+}
+.navigation ul li a:hover{
+  color: yellowgreen;
+}
+
+/* Menu reponsive */
+
+.responsive-menu{
+  position: absolute;
+  right: 15px;
+  top: 20px;
+  width: 50px;
+  height: 50px;
+  z-index: 200;
+  cursor: pointer;
+  display: none;
+}
+.responsive-menu span{
+  display: inline-block;
+  height: 3px;
+  background-color: white;
+  width: 80%;
+  transition: all 0.6s;
+}
+.resp{
+  transform: translateY(-100%);
+  transition: all 0.6s;
+  position: absolute;
+  width: 100%;
+  height: 350px;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  background-color: rgb(32, 32, 32);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+.resp.active{
+  transform: translateY(0);
+}
+.resp .navigue ul{
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 400px;
+}
+.name{
+  margin: 8px 0;
+}
+.resp .navigue ul li{
+  margin: 20px;
+}
+.resp .navigue ul li a{
+  text-decoration: none;
+  text-transform: uppercase;
+  color: white;
+  font-family: Poppins;
+  transition: all 0.6s;
+}
+.resp .navigue ul li a:hover{
+  color: yellowgreen;
+}
+.responsive-menu.active span:first-child{
+  transform: translateY(18px) rotate(-45deg);
+}
+.responsive-menu.active span:nth-child(2){
+  display: none;
+}
+.responsive-menu.active span:last-child{
+  transform: translateY(0px) rotate(45deg);
+}
+/* partie profil de l'utilisateur */
+.menuprofil{
+  position: absolute;
+  background-color: #454545;
+  right: 10px;
+  top: 100px;
+  width: 200px;
+  border-radius: 10px;
+  padding: 25px 10px;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.6s;
+}
+/*--apres clic*/
+.menuprofil.activeprofil{
+  visibility: visible;
+  opacity: 1;
+  top: 85%;
+}
+/*---- arrow of user */
+.menuprofil::before{
+  position: absolute;
+  content: '';
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid #454545;
+  border-right: 10px solid transparent;
+  border-left: 10px solid transparent;
+  right: 25%;
+  top: -7%;
+}
+/*---- Affichage des lettres du nom du l'utilisateur */
+.imgprofil{
+  background-color: #50de50;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  cursor:pointer;
+}
+.menuprofil h3{
+  text-align: center;
+  font-weight: bold;
+  font-size: 22px;
+  word-spacing: 4px;
+  font-family:Poppins;
+}
+.menuprofil b{
+  display: block;
+}
+.menuprofil .mail{
+  font-weight: normal;
+  text-transform: lowercase!important;
+  font-size: 13px;
+  opacity: 0.5;
+  transition: .5s;
+  padding: 4px;
+  border: 1px solid #2a2828;
+  border-radius: 25px;
+}
+.menuprofil .mail:hover{
+  border-color: white;
+  color: white!important;
+  background-color: #232121;
+}
+/*---- Sous menu du profil */
+.s-menu-profil{
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+.s-menu-profil li{
+  margin: 7px 0!important;
+  border-bottom: 2px solid darkgray;
+  padding:7px 0;
+  transition: 0.5s;
+}
+.s-menu-profil li a{
+  font-size: 17px;
+  text-transform: initial!important;
+}
+
+/* responsive design */
+@media screen and (max-width: 600px) {
+  .navigation{
+    display: none;
+  }
+  .responsive-menu, .resp{
+    display: block;
+  }
+}
+@media screen and (max-width: 500px) {
+  .resp .navigue ul{
+    flex-direction: column;
+  }
+  .presentation{
+    margin-top: 0px;
+  }
+  .apropos{
+    display: none;
+  }
+}

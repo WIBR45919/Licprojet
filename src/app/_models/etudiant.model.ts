@@ -22,10 +22,10 @@ export  interface EtudiantModel {
   handicap: string;
   profession: string;
   cursus: CursusModel,
-  DiplomeAdmission: DiplomeAdmissionModel,
-  DiplomeAutre: DiplomeAutreModel[],
-  Filiere: FiliereModel,
-  Tuteur: TuteurModel,
-  Niveau: NiveauModel,
-  Inscrit: loginModel;
+  diplomeAdmission: DiplomeAdmissionModel,
+  diplomeAutres: DiplomeAutreModel[],
+  filiere: FiliereModel,
+  tuteur: TuteurModel,
+  niveau: NiveauModel,
+  inscrit: loginModel;
 }

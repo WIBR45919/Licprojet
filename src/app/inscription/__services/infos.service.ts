@@ -481,7 +481,11 @@ export class InfosService implements OnInit{
   }
   //methode d'inscription
   Inscription(user: EtudiantModel): Observable<any>{
-    return this.http.post(this.global.getApiUrl() + 'etudiant', user, {  });
+    return this.http.post(this.global.url + 'etudiant', user);
+  }
+
+  getCursus(): Observable<any>{
+    return this.http.get(this.global.url + 'cursus');
   }
 
 }

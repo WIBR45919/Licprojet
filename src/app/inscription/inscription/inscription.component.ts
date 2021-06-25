@@ -9,6 +9,8 @@ import {DiplomeAutreModel} from "../../_models/diplomeAutre.model";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {InfosService} from "../__services/infos.service";
 import {EtudiantModel} from "../../_models/etudiant.model";
+import {FiliereModel} from "../../_models/filiere.model";
+import {NiveauModel} from "../../_models/niveau.model";
 declare var $:any
 
 @Component({
@@ -37,8 +39,8 @@ export class InscriptionComponent implements OnInit {
   formEtudiant!: FormGroup;
   formDiplome!: FormGroup;
   isVisible = false;
-  filiere = [{id: 1, name:''}];
-  niveau = [{id: 1, name:''}];
+  filiere!: FiliereModel[];
+  niveau!: NiveauModel;
   isSame = false;
 
 
@@ -57,12 +59,16 @@ export class InscriptionComponent implements OnInit {
     this.script.responsiveMenu();
     this.initForm();
     this.initFormDiplome();
+    this.infos.getCursus().subscribe( (data) =>{
+      this.cursus = data;
+    }, error => {
+      console.log(error);
+    });
 
     //initialisations des valeurs a utiliser provenant du service
     this.mention = this.infos.mention;
     this.annees = this.infos.annees;
     this.diplome = this.infos.diplome;
-    this.cursus = this.infos.cursus;
     this.regions = this.infos.Pays[0].regions;
     this.pays = this.infos.Pays;
   }
@@ -133,10 +139,10 @@ export class InscriptionComponent implements OnInit {
   choixNiveau(elt1: any): void{
     const name = $(elt1)[0].value;
     // console.log(name)
-    this.tab = this.cursus.cursus.filter((elt: any) => elt.nom === name);
+    this.tab = this.cursus.filter((elt: any) => elt.nomCursus === name);
     // console.log(tab[0]);
-    this.niveau = this.tab[0].others.niveau;
-    this.filiere = this.tab[0].others.filieres;
+    this.niveau = this.tab[0].niveau.nomNiveau;
+    this.filiere = this.tab[0].filiereList;
   }
   choixFilire(elt: any): void{
     // console.log($(elt)[0].value)
@@ -183,10 +189,13 @@ export class InscriptionComponent implements OnInit {
     this.isSame = a!==b;
     return a !== b;
   }
-
-
+// Pour afficher les informations en as de besoin
+  affiche(): void{
+    console.log(this.informations.get([0])?.get('langues')?.value);
+  }
   //  restructuration du formulaire au format demande
   inscriptionModel(): EtudiantModel{
+    const langue = this.informations.get([0])?.get('langues')?.value;
     return {
       nom: this.informations.get([0])?.get('nom')?.value,
       prenom: this.informations.get([0])?.get('prenom')?.value,
@@ -199,13 +208,13 @@ export class InscriptionComponent implements OnInit {
       telephone: this.informations.get([0])?.get('tel')?.value,
       paysOrigine: this.informations.get([0])?.get('paysOrigine')?.value,
       regionOrigine: this.informations.get([0])?.get('regionOrigine')?.value,
-      langue: this.informations.get([0])?.get('langues')?.value,
+      langue: langue.toString(),
       handicap: this.informations.get([2])?.get('handicap')?.value,
       profession: this.informations.get([2])?.get('profession')?.value,
       cursus: {
         nomCursus: this.informations.get([1])?.get('nomCursus')?.value
       },
-      DiplomeAdmission: {
+      diplomeAdmission: {
         nomDiplome: this.informations.get([1])?.get('diplomeAdd')?.value,
         anneeObtention: this.informations.get([1])?.get('anneeObtention')?.value,
         paysObtention: this.informations.get([1])?.get('paysObtention')?.value,
@@ -214,19 +223,19 @@ export class InscriptionComponent implements OnInit {
         anneeObtentionAutre: this.informations.get([1])?.get('AnneeObtentionB')?.value,
         serieDiplome: this.informations.get([1])?.get('serieAdd')?.value
       },
-      DiplomeAutre: this.listDiplomeAutre,
-      Filiere: {
+      diplomeAutres: this.listDiplomeAutre,
+      filiere: {
         nomFiliere: this.informations.get([1])?.get('nomFil')?.value
       },
-      Tuteur: {
+      tuteur: {
         nomTuteur: this.informations.get([2])?.get('nomtuteur')?.value,
         telephoneTuteur: parseInt(this.informations.get([2])?.get('telephoneTuteur')?.value),
         emailTuteur: this.informations.get([2])?.get('emailTuteur')?.value
       },
-      Niveau: {
+      niveau: {
         nomNiveau: this.informations.get([1])?.get('niveauFil')?.value
       },
-      Inscrit: {
+      inscrit: {
         username: this.informations.get([3])?.get('username')?.value,
         password: this.informations.get([3])?.get('password')?.value
       }

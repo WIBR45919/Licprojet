@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import {GlobalinfoService} from "./_services/globalinfo.service";
 import {ScriptsService} from "./_services/scripts.service";
+import {ProfilModule} from "./profil/profil.module";
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import {ScriptsService} from "./_services/scripts.service";
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ProfilModule,
   ],
   providers: [
     GlobalinfoService, ScriptsService

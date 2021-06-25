@@ -130,34 +130,28 @@
                   <mat-icon matSuffix>train</mat-icon>
                   <mat-label>Cursus</mat-label>
                   <mat-select id="niveau" formControlName="nomCursus" (selectionChange)="choixNiveau($event)"required>
-                    <mat-option value="BREVET DE TECHNICIEN SUPERIEUR">BTS</mat-option>
-                    <mat-option value="FORMATION INITIAL">FORMATION INITIAL</mat-option>
-                    <mat-option value="LICENCE DE TECHNOLOGIE">LICENCE DE TECHNOLOGIE</mat-option>
-                    <mat-option value="FORMATION EN ALTERNANCE">FORMATION EN ALTERNANCE"</mat-option>
-                    <mat-option value="DOCTORAT/PHD 1">DOCTORAT/PHD 1</mat-option>
-                    <mat-option value="MASTER 1">MASTER 1</mat-option>
-                    <mat-option value="MASTER RECHERCHE 2">MASTER RECHERCHE 2</mat-option>
+                    <mat-option *ngFor="let c of cursus" [value]="c.nomCursus">{{ c.nomCursus }}</mat-option>
                   </mat-select>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                   <mat-icon matSuffix>work</mat-icon>
                   <mat-label>Niveau Filires</mat-label>
                   <mat-select formControlName="niveauFil" (SelectionChange)="choixFilire($event)" required>
-                    <mat-option *ngFor="let niv of niveau" [value]="niv.id">{{ niv.name }}</mat-option>
+                    <mat-option [value]="niveau">{{ niveau }}</mat-option>
                   </mat-select>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                   <mat-icon matSuffix>work</mat-icon>
                   <mat-label>1er choix filieres</mat-label>
                   <mat-select formControlName="nomFil" required>
-                    <mat-option *ngFor="let fil of filiere" [value]="fil.id">{{ fil.name }}</mat-option>
+                    <mat-option *ngFor="let fil of filiere" [value]="fil.nomFiliere">{{ fil.nomFiliere }}</mat-option>
                   </mat-select>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                   <mat-icon matSuffix>work</mat-icon>
                   <mat-label>2 ieme choix filiere</mat-label>
                   <mat-select required>
-                    <mat-option *ngFor="let fil of filiere" [value]="fil.id">{{ fil.name }}</mat-option>
+                    <mat-option *ngFor="let fil of filiere" [value]="fil.nomFiliere">{{ fil.nomFiliere }}</mat-option>
                   </mat-select>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
