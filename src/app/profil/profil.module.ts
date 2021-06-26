@@ -5,11 +5,13 @@ import { ProfilRoutingModule } from './profil-routing.module';
 import { ProfilheaderComponent } from './profilheader/profilheader.component';
 import {ProfilShellComponent} from "./profil-shell/profil-shell.component";
 import { ImportComponent } from './import/import.component';
+import {MatIconModule} from "@angular/material/icon";
+import {ProfilComponent} from "./profil/profil.component";
 
 
 @NgModule({
   declarations: [
-    ProfilheaderComponent,
+    ProfilComponent,
     ProfilShellComponent,
     ProfilheaderComponent,
     ImportComponent
@@ -19,7 +21,7 @@ import { ImportComponent } from './import/import.component';
   ],
   imports: [
     CommonModule,
-    ProfilRoutingModule
+    ProfilRoutingModule,MatIconModule
   ]
 })
 export class ProfilModule { }

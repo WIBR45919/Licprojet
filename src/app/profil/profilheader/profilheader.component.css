@@ -227,8 +227,7 @@ ul{
   font-size: 17px;
   text-transform: initial!important;
 }
-
-/* responsive design */
+ /*responsive design */
 @media screen and (max-width: 600px) {
   .navigation{
     display: none;
