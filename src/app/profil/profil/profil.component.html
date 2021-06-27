@@ -1,4 +1,4 @@
-<div class="import">
+<div class="profil">
   <div class="title">
     <h1 class="g-titre">Informations de l'inscrit et état d'avancement de sa candidature</h1>
   </div>
@@ -23,7 +23,7 @@
             <span>Date & lieu de naissance</span>
           </div>
           <div class="value">
-            12/09/2001
+            12/09/2001 à Ndoungue
           </div>
         </div>
         <div class="content">
@@ -37,20 +37,20 @@
         </div>
         <div class="content">
           <div class="p-title">
-            <mat-icon aria-hidden="false" aria-label="person icon">person</mat-icon>
-            <span>Nom Complet</span>
+            <mat-icon aria-hidden="false" aria-label="person icon">school</mat-icon>
+            <span>Diplome d'admission</span>
           </div>
           <div class="value">
-            Waffeu Ivany Botrel Rayn
+           BACCALAUREAT
           </div>
         </div>
         <div class="content">
           <div class="p-title">
-            <mat-icon aria-hidden="false" aria-label="person icon">person</mat-icon>
-            <span>Nom Complet</span>
+            <mat-icon aria-hidden="false" aria-label="person icon">supervisor_account</mat-icon>
+            <span>Nom Tuteur - Numéro</span>
           </div>
           <div class="value">
-            Waffeu Ivany Botrel Rayn
+            Mbiamou Teinkam - 676851235
           </div>
         </div>
       </div>
@@ -59,10 +59,71 @@
       <div class="all-title">
         <h3>Informations du cursus academique choisit</h3>
       </div>
+      <div class="personal">
+        <div class="content">
+          <div class="p-title">
+            <mat-icon aria-hidden="false" aria-label="person icon">diplome</mat-icon>
+            <span>Diplome d'admission</span>
+          </div>
+          <div class="value">
+            BACCALAUREAT C
+          </div>
+        </div>
+        <div class="content">
+          <div class="p-title">
+            <mat-icon aria-hidden="false" aria-label="person icon">train</mat-icon>
+            <span>Cursus Choisit</span>
+          </div>
+          <div class="value">
+            LICENCE TECHNOLOGIQUE
+          </div>
+        </div>
+        <div class="content">
+          <div class="p-title">
+            <mat-icon aria-hidden="false" aria-label="person icon">work</mat-icon>
+            <span>Filière</span>
+          </div>
+          <div class="value">
+            Genie Logiciel
+          </div>
+        </div>
+        <div class="content">
+          <div class="p-title">
+            <mat-icon aria-hidden="false" aria-label="person icon">school</mat-icon>
+            <span>Diplome d'admission</span>
+          </div>
+          <div class="value">
+            BACCALAUREAT
+          </div>
+        </div>
+        <div class="content">
+          <div class="p-title">
+            <mat-icon aria-hidden="false" aria-label="person icon">try</mat-icon>
+            <span>Serie du diplome admission</span>
+          </div>
+          <div class="value">
+           C
+          </div>
+        </div>
+      </div>
     </div>
     <div class="state">
       <div class="all-title">
         <h3>Etats de ma candicadure</h3>
+      </div>
+      <div class="personal">
+        <div class="content">
+          <div class="p-title">
+            <mat-icon aria-hidden="false" aria-label="person icon">pending</mat-icon>
+            <span>Etat de candidature</span>
+          </div>
+          <div class="value state-view">
+            <mat-icon aria-hidden="false" [ngClass]="{'invalid-icon': true, 'valid-icon': isValidate}" aria-label="person icon">
+              {{ !isValidate ? 'thumb_down' : 'thumb_up' }}
+            </mat-icon>
+            <span id="span-state">Non validé</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>

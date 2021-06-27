@@ -1,4 +1,4 @@
-.import{
+.profil{
   padding: 12px;
   font-family: Poppins;
 }
@@ -8,7 +8,7 @@
   font-weight: bold;
 }
 .infos-user{
-  background-color: #6aa713;
+  background-color: #11b371;
   min-width: 50%;
   border-radius: 3px;
   padding: 15px;
@@ -21,11 +21,12 @@
   font-family: Poppins;
   color: white;
   text-align: center;
+  position: relative;
 }
 /* principal div des contenus */
 .personal{
-  border: 1px solid aqua;
-  margin: 0 auto;
+  border-width: 2px;
+  margin: 30px auto;
   width: 50%;
 }
 /* champs et contenu */
@@ -33,22 +34,34 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 25px 10px;
+  padding: 25px 10px;
+  color: white;
+  border-bottom: 2px solid whitesmoke;
 }
-.content .p-title{
+.content .p-title, .state-view{
   display: flex;
   align-items: center;
-  font-weight: bolder;
+  font-weight: bold;
   margin-right: 20px;
 }
-.content .p-title span{
+.content .p-title span, .state-view span{
   padding-top: 7px;
 }
 .content .value{
-  font-weight: bold;
-  font-style: italic;
+  font-style: revert;
 }
 /*--les icones des contenus */
-.mat-icon{
-  color: #ffffff!important;
+.p-title .mat-icon{
+  margin-right: 10px;
+  color: #000!important;
+}
+.state-view .mat-icon{
+  margin-right: 10px;
+}
+/* icones valides et non valides */
+.state-view .mat-icon.valid-icon{
+  color: green!important;
+}
+.state-view .mat-icon.invalid-icon{
+  color: darkred!important;
 }
