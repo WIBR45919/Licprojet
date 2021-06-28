@@ -1,3 +1,25 @@
 <div class="import">
-
+  <div class="title">
+    <h1>Importez vos fichiers necessaires a la candidature ici</h1>
+  </div>
+  <form [formGroup]="sendImage" (ngSubmit)="sendTabImage()">
+    <div class="zones">
+      <h2>Visualisation de vos images chargées (cliquer sur le box ci-dessous pour sélectionner vos images)</h2>
+      <div class="custom-dropzone ngx-dz-hovered" ngx-dropzone accept="image/*"
+           [maxFileSize]=204800 [expandable]= true (change)="onSelect($event)">
+        <ngx-dropzone-label>
+           <div class="title-zone">
+             <h3>Déposer vos images ici!</h3>
+           </div>
+        </ngx-dropzone-label>
+        <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files"
+                                   [file]="f" [removable]="true" (removed)="onRemove(f)">
+          <ngx-dropzone-label>{{ f.name }}</ngx-dropzone-label>
+        </ngx-dropzone-image-preview>
+      </div>
+      <div class="send-images">
+        <button class="lic-btn" type="submit" [disabled]="files.length !== nbfile" >Envoyer</button>
+      </div>
+    </div>
+  </form>
 </div>

@@ -1,0 +1,52 @@
+.import{
+  padding: 15px;
+}
+.title{
+  font-family: Poppins;
+  font-weight: bolder;
+  font-size: 17px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+/* Conteneur de zone d'images */
+.zones{
+  padding: 15px;
+}
+.zones h2{
+  text-align: center;
+}
+.zones .title-zone h3{
+  font-style: italic;
+  font-weight: bold;
+}
+/* box d'image */
+.ngx-dz-hovered{
+  border-style: dashed!important;
+}
+.custom-dropzone{
+  min-height: 400px!important;
+  justify-content: flex-start!important;
+  align-items: flex-start!important;
+}
+.send-images{
+  margin: 20px 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* responsive */
+@media screen and (max-width: 430px){
+ .title{
+   font-size: 15px;
+ }
+  .zones h2{
+    font-size: 13px;
+  }
+  ngx-dropzone-image-preview{
+    width: 100%!important;
+  }
+  .lic-btn{
+    width: 100%;
+  }
+}

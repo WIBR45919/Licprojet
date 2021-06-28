@@ -18,3 +18,23 @@ body::-webkit-scrollbar {
     width: 12px;
     box-shadow: inset 0 0 6px rgba(0,0,0, 0.3);
 }
+/*style de mes boutons*/
+.lic-btn{
+  width: 135px;
+  height: 40px;
+  background-color: #0ce77e;
+  font-size: 15px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+.lic-btn:disabled{
+  background-color: rgba(12,231,126, 0.5);
+}
+.lic-btn-info{
+  background-color: darkturquoise;
+  border-radius: 5px;
+}
+.lic-btn-danger{
+  background-color: #ea2645;
+}
