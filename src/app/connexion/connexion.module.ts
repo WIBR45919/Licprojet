@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { ConnexionRoutingModule } from './connexion-routing.module';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { ConnexionShellComponent } from './connexion-shell/connexion-shell.component';
-import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ConnexionService} from "./_service/connexion.service";
 
@@ -15,7 +14,7 @@ import {ConnexionService} from "./_service/connexion.service";
   imports: [
     CommonModule,
     ConnexionRoutingModule,
-    HttpClientModule, ReactiveFormsModule, FormsModule
+    ReactiveFormsModule, FormsModule
   ],
   providers: [
     ConnexionService

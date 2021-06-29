@@ -11,6 +11,6 @@ export class ProfilService {
   constructor(private global: GlobalinfoService, private  http: HttpClient) { }
   //todo: ajouter le header pour le token d'authentification et le type de reponse attendu
   sendImageServer(tab: any): Observable<any>{
-    return this.http.post(this.global.url, tab);
+    return this.http.post(this.global.getApiUrl(), tab);
   }
 }

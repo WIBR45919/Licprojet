@@ -23,7 +23,7 @@ import {HttpClientModule} from "@angular/common/http";
     ProfilheaderComponent
   ],
   imports: [
-    CommonModule,ReactiveFormsModule,HttpClientModule,
+    CommonModule,ReactiveFormsModule,
     ProfilRoutingModule,MatIconModule,NgxDropzoneModule
   ]
 })

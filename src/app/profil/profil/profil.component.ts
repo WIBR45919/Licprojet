@@ -8,6 +8,7 @@ declare var $: any;
 export class ProfilComponent implements OnInit {
 
   isValidate = false;
+  date = new Date().getUTCFullYear();
 
   constructor() { }
 

@@ -7,7 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import {GlobalinfoService} from "./_services/globalinfo.service";
 import {ScriptsService} from "./_services/scripts.service";
-import {ProfilModule} from "./profil/profil.module";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -18,8 +18,7 @@ import {ProfilModule} from "./profil/profil.module";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
-    ProfilModule,
+    BrowserAnimationsModule,HttpClientModule
   ],
   providers: [
     GlobalinfoService, ScriptsService

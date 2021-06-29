@@ -36,6 +36,8 @@ export class ConnexionComponent implements OnInit {
           break;
         default:
       }
+    }, error => {
+      console.log(error);
     });
   }
 

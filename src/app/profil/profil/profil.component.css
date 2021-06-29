@@ -41,7 +41,6 @@
 .content .p-title, .state-view{
   display: flex;
   align-items: center;
-  font-weight: bold;
   margin-right: 20px;
 }
 .content .p-title span, .state-view span{
