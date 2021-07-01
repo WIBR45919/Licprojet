@@ -3,6 +3,7 @@ import {ScriptsService} from "../../_services/scripts.service";
 import {ConnexionService} from "../_service/connexion.service";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {loginModel} from "../../_models/login.model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-connexion',
@@ -12,9 +13,10 @@ import {loginModel} from "../../_models/login.model";
 export class ConnexionComponent implements OnInit {
 
   loginForm!: FormGroup;
-  infoUser!: loginModel;
+  message!: string;
 
-  constructor(private script: ScriptsService,private login: ConnexionService, private build: FormBuilder) { }
+  constructor(private script: ScriptsService,private login: ConnexionService, private build: FormBuilder,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.script.hideShowpass();
@@ -26,13 +28,13 @@ export class ConnexionComponent implements OnInit {
       console.log(response);
       switch (response.status) {
         case 200:
-          //message
+         this.router.navigate(['/profil']);
           break;
-        case 404:
-          //message
+        case 404 || 403 || 401:
+         this.message = "utilisateur inexistant";
           break;
         case 500:
-          //message
+          this.message = "erreur du serveur veuillez-reéssayer";
           break;
         default:
       }
@@ -43,8 +45,8 @@ export class ConnexionComponent implements OnInit {
 
   restecturation(): loginModel{
     return {
-      username: this.loginForm.get('')?.value,
-      password: this.loginForm.get('')?.value
+      username: this.loginForm.get('username')?.value,
+      password: this.loginForm.get('password')?.value
     }
   }
   initForm(): void{

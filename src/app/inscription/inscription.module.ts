@@ -18,7 +18,9 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {InfosService} from "./__services/infos.service";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {SpinnerComponent} from "../spinner/spinner.component";
+import {AppModule} from "../app.module";
 
 @NgModule({
   declarations: [
@@ -31,14 +33,19 @@ import {HttpClientModule} from "@angular/common/http";
     CommonModule,
     InscriptionRoutingModule,
     MatStepperModule, MatButtonModule, MatIconModule, MatFormFieldModule, MatInputModule, MatListModule,
-    ReactiveFormsModule, FormsModule,MatDividerModule, MatSelectModule,
-    MatDatepickerModule,MatNativeDateModule, MatSnackBarModule,HttpClientModule
+    ReactiveFormsModule, FormsModule, MatDividerModule, MatSelectModule,
+    MatDatepickerModule, MatNativeDateModule, MatSnackBarModule, HttpClientModule
   ],
   exports: [
     HeaderComponent
   ],
   providers:[
-    InfosService
+    InfosService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: SpinnerComponent,
+      multi: true
+    }
   ]
 })
 export class InscriptionModule { }

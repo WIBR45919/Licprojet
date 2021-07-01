@@ -5,6 +5,18 @@
   <form [formGroup]="sendImage" (ngSubmit)="sendTabImage()">
     <div class="zones">
       <h2>Visualisation de vos images chargées (cliquer sur le box ci-dessous pour sélectionner vos images)</h2>
+      <div class="ordre">
+        <h4>--> Ordre de chargement des fichiers</h4>
+        <ul class="instruction">
+          <li>Certificat Médical</li>
+          <li>Acte de naissance certifiée</li>
+          <li>Baccalauréat Certifié ou probatoire certifiée</li>
+          <li>Fiche de préinscription certifiée</li>
+          <li>Photo 4x4</li>
+          <li>Certifiat de scolarité</li>
+          <li>Recus de payement</li>
+        </ul>
+      </div>
       <div class="custom-dropzone ngx-dz-hovered" ngx-dropzone accept="image/*"
            [maxFileSize]=204800 [expandable]= true (change)="onSelect($event)">
         <ngx-dropzone-label>

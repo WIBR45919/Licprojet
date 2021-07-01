@@ -11,11 +11,13 @@ export class ImportComponent implements OnInit {
 
   files: File[] = [];
   sendImage!: FormGroup;
-  nbfile = 2;
+  nbfile = 7;
+  formData!: FormData;
 
   constructor(private buid: FormBuilder, private profil: ProfilService) { }
 
   ngOnInit(): void {
+    this.formData = new FormData();
     this.initFormimg();
   }
 
@@ -53,9 +55,15 @@ export class ImportComponent implements OnInit {
     });
   }
 //  Envoie du formulaire
-  sendTabImage():void{
-    //todo: charger le champs d'image du formulaire des images contenu dans la variable file (voir DD)
-    this.profil.sendImageServer(this.sendImage).subscribe((data) =>{
+  sendTabImage(): void{
+    //chargement des fichiers dans le formData object
+
+    for (let i = 0; i < this.files.length; i++) {
+      if (this.files[i].type.match('image.*')){
+        this.formData.append(`files[${i}]`, this.files[i], this.files[i].name);
+      }
+    }
+    this.profil.sendImageServer(this.formData).subscribe((data) =>{
       console.log(data);
     }, error => {
       console.log(error);

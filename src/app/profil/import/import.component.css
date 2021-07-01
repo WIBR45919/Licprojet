@@ -24,7 +24,7 @@
   border-style: dashed!important;
 }
 .custom-dropzone{
-  min-height: 400px!important;
+  min-height: 380px!important;
   justify-content: flex-start!important;
   align-items: flex-start!important;
 }
@@ -34,7 +34,16 @@
   justify-content: flex-end;
   align-items: center;
 }
-
+/*Ordre de chargement de fichiers*/
+h4{
+  font-weight: bold;
+}
+.instruction{
+  display: flex;
+  list-style: decimal;
+  justify-content: space-between;
+  font-style: italic;
+}
 /* responsive */
 @media screen and (max-width: 430px){
  .title{

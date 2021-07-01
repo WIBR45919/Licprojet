@@ -8,21 +8,26 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import {GlobalinfoService} from "./_services/globalinfo.service";
 import {ScriptsService} from "./_services/scripts.service";
 import {HttpClientModule} from "@angular/common/http";
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    NotfoundComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,HttpClientModule
-  ],
-  providers: [
-    GlobalinfoService, ScriptsService
-  ],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HomeComponent,
+        NotfoundComponent,
+        SpinnerComponent,
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule, HttpClientModule
+    ],
+    providers: [
+        GlobalinfoService, ScriptsService
+    ],
+    exports: [
+        SpinnerComponent
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
