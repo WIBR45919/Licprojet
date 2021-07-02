@@ -11,6 +11,7 @@ import {InfosService} from "../__services/infos.service";
 import {EtudiantModel} from "../../_models/etudiant.model";
 import {FiliereModel} from "../../_models/filiere.model";
 import {NiveauModel} from "../../_models/niveau.model";
+import {Router} from "@angular/router";
 declare var $:any
 
 @Component({
@@ -45,7 +46,8 @@ export class InscriptionComponent implements OnInit {
 
 
   constructor(private breakpoint: BreakpointObserver, private script: ScriptsService,
-               private formBuilder: FormBuilder, private snack: MatSnackBar, private infos: InfosService) {
+               private formBuilder: FormBuilder, private snack: MatSnackBar, private infos: InfosService,
+              private router: Router) {
     this.stepperOrientation = breakpoint.observe('(min-width: 1000px)').pipe(
       map(({matches}) => matches ? 'horizontal' : 'vertical')
     );
@@ -129,7 +131,8 @@ export class InscriptionComponent implements OnInit {
   onSubmit(): void{ //-------------------------terminer la souscription--------------------------------
    this.infos.Inscription(this.inscriptionModel()).subscribe(
      data => {
-       console.log(data)
+       console.log(data);
+       this.router.navigate(['/pdf-file']);
      },
      error => {
        console.log(error)

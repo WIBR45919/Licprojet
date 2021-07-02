@@ -1,3 +1,5 @@
+import { Injectable } from '@angular/core';
+import {SpinnerService} from "../_services/spinner.service";
 import {
   HttpErrorResponse,
   HttpEvent,
@@ -7,12 +9,12 @@ import {
   HttpResponse
 } from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Injectable} from "@angular/core";
-import {SpinnerService} from "../_services/spinner.service";
 import {tap} from "rxjs/operators";
 
-@Injectable()
-export class SpinnerInterceptor implements HttpInterceptor{
+@Injectable({
+  providedIn: 'root'
+})
+export class SpinnerInterceptorService implements HttpInterceptor{
 
   constructor(private spinnerService: SpinnerService) { }
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -37,5 +39,4 @@ export class SpinnerInterceptor implements HttpInterceptor{
         ),
       );
   }
-
 }

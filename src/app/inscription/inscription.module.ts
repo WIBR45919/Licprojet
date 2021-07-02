@@ -19,15 +19,14 @@ import {MatNativeDateModule} from "@angular/material/core";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {InfosService} from "./__services/infos.service";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
-import {SpinnerComponent} from "../spinner/spinner.component";
-import {AppModule} from "../app.module";
+import {SpinnerInterceptorService} from "../http-interceptor/spinner-interceptor.service";
 
 @NgModule({
   declarations: [
     InscriptionComponent,
     InscriptionShellComponent,
     HelpComponent,
-    HeaderComponent
+    HeaderComponent,
   ],
   imports: [
     CommonModule,
@@ -43,7 +42,7 @@ import {AppModule} from "../app.module";
     InfosService,
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: SpinnerComponent,
+      useClass: SpinnerInterceptorService,
       multi: true
     }
   ]

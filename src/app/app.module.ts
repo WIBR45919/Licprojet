@@ -9,6 +9,7 @@ import {GlobalinfoService} from "./_services/globalinfo.service";
 import {ScriptsService} from "./_services/scripts.service";
 import {HttpClientModule} from "@angular/common/http";
 import { SpinnerComponent } from './spinner/spinner.component';
+import {PdfComponent} from "./pdf/pdf.component";
 
 @NgModule({
     declarations: [
@@ -16,6 +17,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
         HomeComponent,
         NotfoundComponent,
         SpinnerComponent,
+        PdfComponent
     ],
     imports: [
         BrowserModule,

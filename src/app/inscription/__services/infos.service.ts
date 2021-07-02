@@ -3,14 +3,6 @@ import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {GlobalinfoService} from "../../_services/globalinfo.service";
 import {EtudiantModel} from "../../_models/etudiant.model";
-import {FormGroup} from "@angular/forms";
-import {CursusModel} from "../../_models/cursus.model";
-import {DiplomeAdmissionModel} from "../../_models/diplomeAdmission.model";
-import {DiplomeAutreModel} from "../../_models/diplomeAutre.model";
-import {FiliereModel} from "../../_models/filiere.model";
-import {TuteurModel} from "../../_models/tuteur.model";
-import {NiveauModel} from "../../_models/niveau.model";
-import {loginModel} from "../../_models/login.model";
 
 @Injectable({
   providedIn: 'root'
