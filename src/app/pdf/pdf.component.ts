@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import  { jsPDF } from 'jspdf';
 import html2canvas from "html2canvas";
-import {ExportAsConfig, ExportAsService} from "ngx-export-as";
 
 @Component({
   selector: 'app-pdf',
@@ -10,11 +9,7 @@ import {ExportAsConfig, ExportAsService} from "ngx-export-as";
 })
 export class PdfComponent implements OnInit {
 
-  exportAsConfig: ExportAsConfig = {
-    type: 'png',
-    elementIdOrContent: 'content'
-  }
-  constructor(private exportAsService: ExportAsService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
@@ -28,9 +23,10 @@ export class PdfComponent implements OnInit {
 
          var doc = new jsPDF();
 
-         var imgHeight = canvas.height * 250 / canvas.width;
-
-         doc.addImage(imgData,0,0,250, imgHeight);
+         var imgHeight = canvas.height * 200 / (canvas.width - 400);
+         console.log(canvas.width);
+         console.log(canvas.height);
+         doc.addImage(imgData,'PNG',0,0,200, imgHeight);
 
          doc.save('fiche-inscription.pdf');
       });

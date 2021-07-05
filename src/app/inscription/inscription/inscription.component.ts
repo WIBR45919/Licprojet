@@ -132,7 +132,7 @@ export class InscriptionComponent implements OnInit {
    this.infos.Inscription(this.inscriptionModel()).subscribe(
      data => {
        console.log(data);
-       this.router.navigate(['/pdf-file']);
+       this.router.navigate(['/pdf']);
      },
      error => {
        console.log(error)
