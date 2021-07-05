@@ -1,9 +1,3 @@
-#content{
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-}
 .field{
   display: flex;
   justify-content: center;
@@ -11,6 +5,17 @@
   flex-wrap: wrap;
   text-align: center;
   line-height: 40px;
+}
+.infos-user{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+/*image*/
+.header img{
+  width: 100%;
+  height: 190px;
 }
 .field strong{
   margin: 10px;
@@ -65,20 +70,24 @@ ul li i{
 }
 .head{
   display: flex;
+  justify-content: center;
+  justify-content: center;
   margin: 20px;
 }
 
 .box{
   border: 2px solid #171616;
-  height: 120px;
+  height: 130px;
   margin-right: 1px;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 10px;
 }
+
 button{
- position: absolute;
-  left: 20px;
+ position: fixed;
+  right: 20px;
   bottom: 20px;
+  border-radius: 3px;
 }

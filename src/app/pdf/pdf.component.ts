@@ -11,10 +11,9 @@ export class PdfComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
-  downloadpdf(){
+  downloadpdf(): void{
     var element = document.getElementById('content');
     if (element) {
        html2canvas(element).then((canvas) => {
@@ -23,11 +22,10 @@ export class PdfComponent implements OnInit {
 
          var doc = new jsPDF();
 
-         var imgHeight = canvas.height * 200 / (canvas.width - 400);
+         var imgHeight = canvas.height * 200 / canvas.width;
          console.log(canvas.width);
          console.log(canvas.height);
-         doc.addImage(imgData,'PNG',0,0,200, imgHeight);
-
+         doc.addImage(imgData,'PNG',0,0,210, 240);
          doc.save('fiche-inscription.pdf');
       });
     }
