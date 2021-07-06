@@ -16,6 +16,8 @@ export  interface EtudiantModel {
   numCNI: string;
   email: string;
   telephone: number;
+  adresse: string;
+  centre: string;
   paysOrigine: string;
   regionOrigine: string;
   langue: string;

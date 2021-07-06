@@ -18,27 +18,27 @@
       <div class="info-1 w-75">
         <h3>Informations Personnelles/Personnal Informations</h3>
         <div class="field">
-          <div><strong>Nom: </strong>name</div>
-          <div><strong>Prénom: </strong>prenom</div>
-          <div><strong>Date Naissance: </strong>12/09/2001</div>
-          <div><strong>Lieu naissance: </strong>Douala</div>
-          <div><strong>Sexe: </strong>Maxculin</div>
-          <div><strong>Nationalité: </strong>CMR</div>
-          <div><strong>Région d'origine: </strong>Littoral</div>
-          <div><strong>N°CNI: </strong>100911554478</div>
-          <div><strong>Adresse: </strong>Makepe</div>
-          <div><strong>Numéro de Tel: </strong>689754123</div>
+          <div><strong>Nom: </strong>{{ Etudiant.nom }}</div>
+          <div><strong>Prénom: </strong>{{ Etudiant.prenom }}</div>
+          <div><strong>Date Naissance: </strong>{{ Etudiant.dateNaissance }}</div>
+          <div><strong>Lieu naissance: </strong>{{ Etudiant.lieu }}</div>
+          <div><strong>Sexe: </strong>{{ Etudiant.sexe }}</div>
+          <div><strong>Nationalité: </strong>{{ Etudiant.paysOrigine }}</div>
+          <div><strong>Région d'origine: </strong>{{ Etudiant.regionOrigine }}</div>
+          <div><strong>N°CNI: </strong>{{ Etudiant.numCNI }}</div>
+          <div><strong>Adresse: </strong>{{ Etudiant.adresse }}</div>
+          <div><strong>Numéro de Tel: </strong>{{ Etudiant.telephone }}</div>
         </div>
       </div>
       <div class="info-2 w-75">
-        <h3>Détails Concours/Entrance Details: <span class="green">Cursus</span></h3>
+        <h3>Détails Concours/Entrance Details: <span class="green">{{ Etudiant.cursus.nomCursus }}</span></h3>
         <div class="field">
-          <div><strong>Session :</strong>2021/2022</div>
-          <div><strong>Concours du :</strong>Niveau 1</div>
-          <div><strong>Diplôme d'éntrée :</strong>DUT</div>
-          <div><strong>Choix Filière :</strong>Genie Logiciel</div>
-          <div><strong>Centre Examen :</strong>Douala</div>
-          <div><strong>Langue Examen :</strong>Francais</div>
+          <div><strong>Session :</strong>{{ anne }} / {{ (anne + 1) }}</div>
+          <div><strong>Concours du :</strong>{{ Etudiant.niveau.nomNiveau }}</div>
+          <div><strong>Diplôme d'éntrée :</strong>{{ Etudiant.diplomeAdmission.nomDiplome }}</div>
+          <div><strong>Choix Filière :</strong>{{ Etudiant.filiere.nomFiliere }}</div>
+          <div><strong>Centre Examen :</strong>{{ Etudiant.centre }}</div>
+          <div><strong>Langue Examen :</strong>{{ Etudiant.langue }}</div>
         </div>
       </div>
       <div class="info-3 w-75">
@@ -50,23 +50,11 @@
             <div>Diplôme :</div>
             <div>Mention/Grade</div>
           </div>
-            <div class="one">
-              <div>Collége De L'AGAPE</div>
-              <div>2015</div>
-              <div>BEPC</div>
-              <div>ASSEZ-BIEN</div>
-            </div>
-            <div class="one">
-              <div>Collége De L'AGAPE</div>
-              <div>2017</div>
-              <div>PROBATOIRE</div>
-              <div>ASSEZ-BIEN</div>
-            </div>
-            <div class="one">
-              <div>Collége De L'AGAPE</div>
-              <div>2018</div>
-              <div>BAccalauréat</div>
-              <div>PAssable</div>
+            <div class="one" *ngFor="let dip of Etudiant.diplomeAutres">
+              <div>{{ dip.etablissement }}</div>
+              <div>{{ dip.anneeObtention }}</div>
+              <div>{{ dip.nomDiplome }}</div>
+              <div>{{ dip.mention }}</div>
             </div>
         </div>
       </div>

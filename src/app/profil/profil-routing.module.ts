@@ -9,8 +9,8 @@ const routes: Routes = [
   {
     path: '', component: ProfilShellComponent, children: [
       {path: '', component: ProfilComponent},
-      {path: 'profil', component: ProfilComponent},
-      {path: 'import', component: ImportComponent},
+      {path: 'profil/:id', component: ProfilComponent},
+      {path: 'import/:id', component: ImportComponent},
       {path: 'help', component: HelpComponent},
     ]
   }

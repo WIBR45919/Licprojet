@@ -14,7 +14,7 @@
             <span>Nom Complet</span>
           </div>
           <div class="value">
-            Waffeu Ivany Botrel Rayn
+            {{ Etudiant.prenom + Etudiant.prenom }}
           </div>
         </div>
         <div class="content">
@@ -23,7 +23,7 @@
             <span>Date & lieu de naissance</span>
           </div>
           <div class="value">
-            12/09/2001 à Ndoungue
+           {{ Etudiant.dateNaissance }} à {{ Etudiant.lieu }}
           </div>
         </div>
         <div class="content">
@@ -32,7 +32,7 @@
             <span>Address email</span>
           </div>
           <div class="value">
-            Waffeu@gmail.com
+            {{ Etudiant.email }}
           </div>
         </div>
         <div class="content">
@@ -41,7 +41,7 @@
             <span>Diplome d'admission</span>
           </div>
           <div class="value">
-           BACCALAUREAT
+          {{ Etudiant.diplomeAdmission.nomDiplome }}
           </div>
         </div>
         <div class="content">
@@ -50,7 +50,7 @@
             <span>Nom Tuteur - Numéro</span>
           </div>
           <div class="value">
-            Mbiamou Teinkam - 676851235
+           {{ Etudiant.tuteur.nomTuteur }} - {{ Etudiant.tuteur.telephoneTuteur }}
           </div>
         </div>
       </div>
@@ -75,7 +75,7 @@
             <span>Cursus Choisit</span>
           </div>
           <div class="value">
-            LICENCE TECHNOLOGIQUE
+           {{ Etudiant.cursus.nomCursus }}
           </div>
         </div>
         <div class="content">
@@ -84,7 +84,7 @@
             <span>Filière</span>
           </div>
           <div class="value">
-            Genie Logiciel
+           {{ Etudiant.filiere.nomFiliere }}
           </div>
         </div>
         <div class="content">
@@ -93,7 +93,7 @@
             <span>Diplome d'admission</span>
           </div>
           <div class="value">
-            BACCALAUREAT
+            {{ Etudiant.diplomeAdmission.nomDiplome }}
           </div>
         </div>
         <div class="content">
@@ -102,7 +102,7 @@
             <span>Serie du diplome admission</span>
           </div>
           <div class="value">
-           C
+            {{ Etudiant.diplomeAdmission.serieDiplome }}
           </div>
         </div>
       </div>

@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ScriptsService} from "../../_services/scripts.service";
+import {ActivatedRoute} from "@angular/router";
+import {EtudiantModel} from "../../_models/etudiant.model";
+import {PdfService} from "../../pdf/pdf.service";
 declare var $:any
 
 @Component({
@@ -9,7 +12,12 @@ declare var $:any
 })
 export class ProfilheaderComponent implements OnInit {
 
-  constructor(private script: ScriptsService) { }
+  @Input() fullname!: string;
+  @Input() email!: string;
+  @Input() id!: number;
+
+  constructor(private script: ScriptsService) {
+  }
 
   ngOnInit(): void {
     this.script.responsiveMenu();

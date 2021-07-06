@@ -132,7 +132,7 @@ export class InscriptionComponent implements OnInit {
    this.infos.Inscription(this.inscriptionModel()).subscribe(
      data => {
        console.log(data);
-       this.router.navigate(['/pdf']);
+       this.router.navigate(['/pdf'],{ queryParams: { id: data}});
      },
      error => {
        console.log(error)
@@ -204,6 +204,8 @@ export class InscriptionComponent implements OnInit {
       prenom: this.informations.get([0])?.get('prenom')?.value,
       sexe: this.informations.get([0])?.get('sexe')?.value,
       situationFamilial: this.informations.get([0])?.get('situation')?.value,
+      adresse: this.informations.get([0])?.get('adresse')?.value,
+      centre: this.informations.get([1])?.get('Choixcentre')?.value,
       dateNaissance: this.informations.get([0])?.get('date')?.value,
       lieu: this.informations.get([0])?.get('lieuNaiss')?.value,
       numCNI: this.informations.get([0])?.get('numCNI')?.value,
