@@ -5,8 +5,14 @@ import { ConnexionComponent } from './connexion/connexion.component';
 import { ConnexionShellComponent } from './connexion-shell/connexion-shell.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ConnexionService} from "./_service/connexion.service";
-import {HTTP_INTERCEPTORS} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/http";
 import {SpinnerInterceptorService} from "../http-interceptor/spinner-interceptor.service";
+import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
+
+export function createTranslateLoader(http: HttpClient){
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json')
+}
 
 @NgModule({
   declarations: [
@@ -15,8 +21,15 @@ import {SpinnerInterceptorService} from "../http-interceptor/spinner-interceptor
   ],
   imports: [
     CommonModule,
-    ConnexionRoutingModule,
-    ReactiveFormsModule, FormsModule
+    ConnexionRoutingModule,HttpClientModule,
+    ReactiveFormsModule, FormsModule, TranslateModule.forChild({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
+      },
+      isolate: true
+    })
   ],
   providers: [
     {

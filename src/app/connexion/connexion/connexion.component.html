@@ -4,19 +4,19 @@
        <div class="login">
            <div class="school">
                <img src="https://upload.wikimedia.org/wikipedia/commons/2/25/Logo_IUT_Douala.png" alt="">
-               <h1 style="color: black;font-size:38px;margin:5px 0px;font-weight:bold">Login</h1>
+               <h1 style="color: black;font-size:38px;margin:5px 0px;font-weight:bold">LOGIN</h1>
            </div>
            <div class="form">
             <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
 
                 <div class="mb-4">
-                  <input type="text" placeholder="Username" formControlName="username" class="form-control" id="username" required>
+                  <input type="text" placeholder="{{ 'HOME.LOGIN.FIELD_1'| translate }}" formControlName="username" class="form-control" id="username" required>
                    <div *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched" id="firstHelp" class="form-text error">Veuillez remplir votre username</div>
                 </div>
 
                 <div class="mb-4" style="position: relative;">
                   <div class="fac" style="position: relative;">
-                    <input type="password" placeholder="Password" formControlName="password" class="form-control" id="InputPassword1" required>
+                    <input type="password" placeholder="{{ 'HOME.LOGIN.FIELD_2'| translate }}" formControlName="password" class="form-control" id="InputPassword1" required>
 
                     <span class="sh s">
                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye-off"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
@@ -31,14 +31,14 @@
 
                 </div>
 
-                <button type="submit" class="btn btn-success mb-4 w-100" [disabled]="loginForm.invalid" >Se Connecter</button>
+                <button type="submit" class="btn btn-success mb-4 w-100" [disabled]="loginForm.invalid" >{{ 'HOME.LOGIN.BTN'| translate }}</button>
                 <div class="mb-3 form-check w-100">
-                    <span style="">Inscrivez-vous ici
-                         <a routerLink = "/inscription" style="margin-left: 1em;">S'inscrire</a> | <a routerLink="/home">Accueil</a>
+                    <span style="">{{ 'HOME.LOGIN.LATER'| translate }}
+                         <a routerLink = "/inscription" style="margin-left: 1em;">{{ 'HOME.LINKS.LINK_2'| translate }}</a> | <a routerLink="/home">{{ 'HOME.LINKS.LINK_1'| translate }}</a>
                     </span>
                  </div>
                 <div class="mb-3 form-check w-100">
-                   <a href="" class="" data-bs-toggle="modal" data-bs-target="#forgotpass" style="float: right;">Mot de passe oublié</a>
+                   <a href="" class="" data-bs-toggle="modal" data-bs-target="#forgotpass" style="float: right;">{{ 'HOME.LOGIN.FORGOT'| translate }}</a>
                 </div>
               </form>
            </div>

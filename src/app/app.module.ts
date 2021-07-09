@@ -29,13 +29,14 @@ export function createTranslateLoader(http: HttpClient){
         BrowserModule,
         AppRoutingModule,
         BrowserAnimationsModule,
-        HttpClientModule, TranslateModule.forRoot({
+        HttpClientModule,
+        TranslateModule.forRoot({
         loader: {
           provide: TranslateLoader,
-          useFactory: (createTranslateLoader),
+          useFactory: createTranslateLoader,
           deps: [HttpClient]
         },
-        defaultLanguage: 'en'
+          extend: true
       })
     ],
     providers: [

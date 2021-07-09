@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConnexionShellComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

@@ -13,9 +13,8 @@ declare var $:any;
 export class HomeComponent implements OnInit {
 
   constructor(private scripts: ScriptsService,translate: TranslateService) {
-    translate.setDefaultLang('en');
-
-    translate.use('fr');
+    translate.setDefaultLang('fr');
+    translate.use('en');
   }
 
   ngOnInit(): void {
