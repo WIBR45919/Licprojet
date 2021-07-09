@@ -18,7 +18,7 @@
         </ul>
       </div>
       <div class="custom-dropzone ngx-dz-hovered" ngx-dropzone accept="image/*"
-           [maxFileSize]=204800 [expandable]= true (change)="onSelect($event)">
+           [maxFileSize]=204800 [expandable]= true (change)="onSelect($event)" [disabled]= actif [disableClick]= actif >
         <ngx-dropzone-label>
            <div class="title-zone">
              <h3>Déposer vos images ici!</h3>

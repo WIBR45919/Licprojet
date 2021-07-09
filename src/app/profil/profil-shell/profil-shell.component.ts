@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {EtudiantModel} from "../../_models/etudiant.model";
 import {ActivatedRoute} from "@angular/router";
-import {PdfService} from "../../pdf/pdf.service";
+import {GlobalinfoService} from "../../_services/globalinfo.service";
 
 @Component({
   selector: 'app-profil-shell',
@@ -13,16 +13,14 @@ export class ProfilShellComponent implements OnInit {
   Etudiant!: EtudiantModel;
   id!: number;
 
-  constructor(private route: ActivatedRoute, private pdf: PdfService) {
-    this.route.queryParams.subscribe(params =>{
-      this.id = params.id;
-    });
+  constructor(private route: ActivatedRoute, private global: GlobalinfoService) {
+      this.id = this.route.snapshot.params.id;
   }
 
   ngOnInit(): void {
-    this.pdf.getUserByID(this.id).subscribe((etu: EtudiantModel) => {
-      if(etu !== null && etu !== undefined){
-        this.Etudiant = etu;
+    this.global.getUserByID().subscribe((etudiant: EtudiantModel) => {
+      if(etudiant !== null && etudiant !== undefined){
+        this.Etudiant = etudiant;
       }
     });
   }

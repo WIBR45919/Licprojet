@@ -12,6 +12,7 @@ export class ImportComponent implements OnInit {
   files: File[] = [];
   sendImage!: FormGroup;
   nbfile = 7;
+  actif = true;
   formData!: FormData;
 
   constructor(private buid: FormBuilder, private profil: ProfilService) { }
@@ -25,13 +26,14 @@ export class ImportComponent implements OnInit {
     //On verifie si le nom existe déja
     // Si oui on notifie l'utilisateur
     //Si nom on ajoute
-
+    console.log(event);
     if(this.files.length !==0){
       let trigger = this.files.filter((elt: File) => elt.name === event.addedFiles[0].name);
       if(trigger.length !== 0){
         console.log('Nom déja existant');
       }
       else if(this.files.length > this.nbfile){
+        this.actif = false;
         console.log('Nbre de fichier atteint' + this.files.length);
       }
       else{

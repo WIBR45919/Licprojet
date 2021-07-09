@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import  { jsPDF } from 'jspdf';
 import html2canvas from "html2canvas";
-import {ActivatedRoute, Router} from "@angular/router";
-import {PdfService} from "./pdf.service";
+import {Router} from "@angular/router";
 import {EtudiantModel} from "../_models/etudiant.model";
+import {GlobalinfoService} from "../_services/globalinfo.service";
 
 @Component({
   selector: 'app-pdf',
@@ -12,18 +12,14 @@ import {EtudiantModel} from "../_models/etudiant.model";
 })
 export class PdfComponent implements OnInit {
 
-  id!: number;
   Etudiant!: EtudiantModel;
   anne = new Date().getUTCFullYear();
 
-  constructor(private route: ActivatedRoute, private router: Router, private pdf: PdfService) {
-    this.route.queryParams.subscribe(params =>{
-      this.id = params.id;
-    });
+  constructor(private router: Router, private global: GlobalinfoService) {
   }
 
   ngOnInit(): void {
-    this.pdf.getUserByID(this.id).subscribe((etu: EtudiantModel) => {
+    this.global.getUserByID().subscribe((etu: EtudiantModel) => {
       if(etu !== null && etu !== undefined){
         this.Etudiant = etu;
       }
@@ -45,7 +41,7 @@ export class PdfComponent implements OnInit {
          doc.addImage(imgData,'PNG',0,0,210, 240);
          doc.save('fiche-inscription.pdf');
          //redirection apres telechargement
-         this.router.navigate(['/profil'],{ queryParams: { id: this.id}});
+         this.router.navigate(['/connexion']);
       });
     }
   }

@@ -71,6 +71,7 @@ ul{
   font-family: Roboto;
   color: white;
   transition: all 0.5s;
+  cursor: pointer;
 }
 .navigation ul li a:hover{
   color: yellowgreen;

@@ -1,0 +1,15 @@
+{
+  "HOME": {
+    "LINKS": {
+      "LINK_1": "Acceuil",
+      "LINK_2": "Se Connecter",
+      "LINK_3": "S'inscrire",
+      "LINK_4": "Aide"
+    },
+    "HOOK": {
+      "TITLE_1": "PREPAREZ-VOUS POUR UN ",
+      "TITLE_2": "SUCCÈS FUTUR",
+      "SUB_TITLE": "Entre nos mains, vous donnerez le meilleur de vous meme pour une reussite assurer"
+    }
+  }
+}

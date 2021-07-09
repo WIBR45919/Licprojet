@@ -123,3 +123,15 @@ h3{
   width: 12px;
   box-shadow: inset 0 0 6px rgba(0,0,0, 0.3);
 }
+
+@media screen and (max-width: 700px){
+  .mainbox{
+    display: inline-block;
+  }
+  .box{
+    width: 95%;
+  }
+  .awnser{
+    margin-left: 20px;
+  }
+}

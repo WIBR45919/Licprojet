@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ScriptsService} from "../../_services/scripts.service";
-import {ActivatedRoute} from "@angular/router";
-import {EtudiantModel} from "../../_models/etudiant.model";
-import {PdfService} from "../../pdf/pdf.service";
+import {ConnexionService} from "../../connexion/_service/connexion.service";
+import {Router} from "@angular/router";
+
 declare var $:any
 
 @Component({
@@ -16,7 +16,7 @@ export class ProfilheaderComponent implements OnInit {
   @Input() email!: string;
   @Input() id!: number;
 
-  constructor(private script: ScriptsService) {
+  constructor(private script: ScriptsService, private con: ConnexionService, private  router: Router) {
   }
 
   ngOnInit(): void {
@@ -25,5 +25,10 @@ export class ProfilheaderComponent implements OnInit {
 
   menuprofil(): void{
     $('#menuProfil').toggleClass('activeprofil');
+  }
+
+  logout(): void{
+    this.con.logout();
+    this.router.navigate(['/connexion']);
   }
 }

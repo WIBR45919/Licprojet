@@ -7,9 +7,15 @@ import { HomeComponent } from './home/home.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import {GlobalinfoService} from "./_services/globalinfo.service";
 import {ScriptsService} from "./_services/scripts.service";
-import {HttpClientModule} from "@angular/common/http";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { SpinnerComponent } from './spinner/spinner.component';
 import {PdfComponent} from "./pdf/pdf.component";
+import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
+import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+
+export function createTranslateLoader(http: HttpClient){
+  return new TranslateHttpLoader(http, './assets/i18n/home/', '.json')
+}
 
 @NgModule({
     declarations: [
@@ -22,7 +28,15 @@ import {PdfComponent} from "./pdf/pdf.component";
     imports: [
         BrowserModule,
         AppRoutingModule,
-        BrowserAnimationsModule, HttpClientModule
+        BrowserAnimationsModule,
+        HttpClientModule, TranslateModule.forRoot({
+        loader: {
+          provide: TranslateLoader,
+          useFactory: (createTranslateLoader),
+          deps: [HttpClient]
+        },
+        defaultLanguage: 'en'
+      })
     ],
     providers: [
         GlobalinfoService, ScriptsService

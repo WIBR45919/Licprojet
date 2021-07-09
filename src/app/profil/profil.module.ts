@@ -9,7 +9,6 @@ import {MatIconModule} from "@angular/material/icon";
 import {ProfilComponent} from "./profil/profil.component";
 import {NgxDropzoneModule} from "ngx-dropzone";
 import {ReactiveFormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({

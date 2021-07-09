@@ -131,8 +131,7 @@ export class InscriptionComponent implements OnInit {
   onSubmit(): void{ //-------------------------terminer la souscription--------------------------------
    this.infos.Inscription(this.inscriptionModel()).subscribe(
      data => {
-       console.log(data);
-       this.router.navigate(['/pdf'],{ queryParams: { id: data}});
+       this.router.navigate(['/pdf']);
      },
      error => {
        console.log(error)

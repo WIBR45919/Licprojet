@@ -1,0 +1,18 @@
+{
+  "HOME": {
+    "LINKS": {
+      "LINK_1": "Home",
+      "LINK_2": "Login",
+      "LINK_3": "Register",
+      "LINK_4": "Help"
+    },
+    "HOOK": {
+      "TITLE_1": "PREPARE YOURSELVES FOR A ",
+      "TITLE_2": "FUTURE SUCCESS",
+      "SUB_TITLE": "In our hands, you will give the best of yourself for a guaranteed success"
+    },
+    "BUTTON": {
+      "MORE": "See More"
+    }
+  }
+}

@@ -17,9 +17,9 @@
                 <span><a class="mail" href="mailto:waffeu120920012gmail.com">{{ email }}</a></span>
               </b></h3>
               <ul class="s-menu-profil">
-                <li><span></span><a [routerLink]="['/profil/'+ id +'import', id]">Importer les fichiers</a></li>
-                <li><span></span><a [routerLink]="['/profil', id]">Voir Mon profil</a></li>
-                <li><a routerLink="/connexion">Se Déconnecter</a></li>
+                <li><span></span><a routerLink="import">Importer les fichiers</a></li>
+                <li><a routerLink="/profil">Voir Mon profil</a></li>
+                <li><a routerLinkActive="here" (click)="logout()">Se Déconnecter</a></li>
               </ul>
             </div>
           </li>
@@ -38,7 +38,7 @@
             <li><a routerLink="/inscription/help" routerlinkactive="here">Aide</a></li>
             <li><a routerLink="import" routerlinkactive="here">Importer les fichiers</a></li>
             <li><a routerLink="/profil" routerlinkactive="here">IVoir mon profil</a></li>
-            <li><a routerLink="" routerlinkactive="here">Se Déconnecter</a></li>
+            <li><a (click)="logout()" routerlinkactive="here">Se Déconnecter</a></li>
           </ul>
         </div>
       </div>

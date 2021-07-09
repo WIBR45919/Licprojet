@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import {PdfService} from "../../pdf/pdf.service";
 import {EtudiantModel} from "../../_models/etudiant.model";
+import {GlobalinfoService} from "../../_services/globalinfo.service";
 declare var $: any;
 
 @Component({
@@ -12,16 +12,14 @@ declare var $: any;
 export class ProfilComponent implements OnInit {
 
   isValidate = false;
-  id!: number;
   Etudiant!: EtudiantModel;
   date = new Date().getUTCFullYear();
 
-  constructor(private route:ActivatedRoute, private pdf: PdfService) { }
+  constructor(private global: GlobalinfoService) { }
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.params.id;
     this.state();
-    this.pdf.getUserByID(this.id).subscribe((etu: EtudiantModel) => {
+    this.global.getUserByID().subscribe((etu: EtudiantModel) => {
       if(etu !== null && etu !== undefined){
         this.Etudiant = etu;
       }
