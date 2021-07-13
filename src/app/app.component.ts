@@ -10,14 +10,12 @@ declare var $: any;
 export class AppComponent  implements OnInit{
 
   constructor(private translate: TranslateService, private  i18nService: I18nServiceService){
-    translate.setDefaultLang('fr');
-    translate.use('en');
   }
 
   ngOnInit(): void {
     this.i18nService.localEvent.subscribe((local: string) => {
       this.translate.use(local);
-      console.log(local);
+      // console.log(local);
     });
   }
 
@@ -26,10 +24,10 @@ export class AppComponent  implements OnInit{
     // console.log(vel);
     if(vel === 'FR'){
       $('.internalisation span').text('EN');
-      this.i18nService.changeLocale('fr');
+      this.changeLocale('fr');
     }else{
       $('.internalisation span').text('FR');
-      this.i18nService.changeLocale('en');
+      this.changeLocale('en');
     }
   }
   changeLocale(local: string){

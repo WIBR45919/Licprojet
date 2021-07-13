@@ -1,13 +1,6 @@
 import { Injectable } from '@angular/core';
 import {SpinnerService} from "../_services/spinner.service";
-import {
-  HttpErrorResponse,
-  HttpEvent,
-  HttpHandler, HttpHeaders,
-  HttpInterceptor,
-  HttpRequest,
-  HttpResponse
-} from "@angular/common/http";
+import { HttpErrorResponse, HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest, HttpResponse } from "@angular/common/http";
 import {Observable} from "rxjs";
 import {tap} from "rxjs/operators";
 import {ConnexionService} from "../connexion/_service/connexion.service";

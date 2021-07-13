@@ -5,8 +5,6 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {loginModel} from "../../_models/login.model";
 import {Router} from "@angular/router";
 import {GlobalinfoService} from "../../_services/globalinfo.service";
-import {TranslateService} from "@ngx-translate/core";
-import {I18nServiceService} from "../../i18n-service/i18n-service.service";
 
 @Component({
   selector: 'app-connexion',
@@ -19,19 +17,12 @@ export class ConnexionComponent implements OnInit {
   message!: string;
 
   constructor(private script: ScriptsService,private login: ConnexionService, private build: FormBuilder,
-              private router: Router, private global: GlobalinfoService, private translate: TranslateService,
-              private i18nserice: I18nServiceService) {
-    translate.setDefaultLang('en');
-    translate.use('en');
+              private router: Router, private global: GlobalinfoService) {
   }
 
   ngOnInit(): void {
     this.script.hideShowpass();
     this.initForm();
-    this.i18nserice.localEvent.subscribe((local: string) => {
-      this.translate.use(local);
-      console.log(local);
-    });
   }
 
   onLogin():void{

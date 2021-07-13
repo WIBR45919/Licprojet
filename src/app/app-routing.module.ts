@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'inscription', loadChildren: () => import('./inscription/inscription.module').then(w => w.InscriptionModule) },
   { path: 'profil', loadChildren: () => import('./profil/profil.module').then(p => p.ProfilModule), canActivate: [GuardService]
     , canActivateChild: [GuardService]},
-  { path: 'pdf', component: PdfComponent, canActivate: [GuardService] },
+  { path: 'pdf', component: PdfComponent/*, canActivate: [GuardService] */},
   { path: '**', component: NotfoundComponent}
 ];
 

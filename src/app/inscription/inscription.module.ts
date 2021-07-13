@@ -18,8 +18,10 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {InfosService} from "./__services/infos.service";
-import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/http";
 import {SpinnerInterceptorService} from "../http-interceptor/spinner-interceptor.service";
+import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
+import {createTranslateLoader} from "../connexion/connexion.module";
 
 @NgModule({
   declarations: [
@@ -33,7 +35,16 @@ import {SpinnerInterceptorService} from "../http-interceptor/spinner-interceptor
     InscriptionRoutingModule,
     MatStepperModule, MatButtonModule, MatIconModule, MatFormFieldModule, MatInputModule, MatListModule,
     ReactiveFormsModule, FormsModule, MatDividerModule, MatSelectModule,
-    MatDatepickerModule, MatNativeDateModule, MatSnackBarModule, HttpClientModule
+    MatDatepickerModule, MatNativeDateModule, MatSnackBarModule, HttpClientModule,
+    TranslateModule.forChild({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
+      },
+      isolate: true,
+      extend: true
+    })
   ],
   exports: [
     HeaderComponent

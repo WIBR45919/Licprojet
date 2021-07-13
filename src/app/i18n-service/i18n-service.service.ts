@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Subject} from "rxjs";
+import {BehaviorSubject, Subject} from "rxjs";
 import {TranslateService} from "@ngx-translate/core";
 
 @Injectable({
@@ -7,7 +7,7 @@ import {TranslateService} from "@ngx-translate/core";
 })
 export class I18nServiceService {
 
-  localEvent = new Subject<string>();
+  localEvent = new BehaviorSubject<string>('en');
 
   constructor(private translate: TranslateService) { }
 

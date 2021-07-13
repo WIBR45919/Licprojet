@@ -8,7 +8,10 @@ import { ImportComponent } from './import/import.component';
 import {MatIconModule} from "@angular/material/icon";
 import {ProfilComponent} from "./profil/profil.component";
 import {NgxDropzoneModule} from "ngx-dropzone";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
+import {createTranslateLoader} from "../connexion/connexion.module";
 
 
 @NgModule({
@@ -23,7 +26,16 @@ import {ReactiveFormsModule} from "@angular/forms";
   ],
   imports: [
     CommonModule,ReactiveFormsModule,
-    ProfilRoutingModule,MatIconModule,NgxDropzoneModule
+    ProfilRoutingModule,MatIconModule,NgxDropzoneModule,HttpClientModule,
+    TranslateModule.forChild({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
+      },
+      isolate: true,
+      extend: true
+    })
   ]
 })
 export class ProfilModule { }
