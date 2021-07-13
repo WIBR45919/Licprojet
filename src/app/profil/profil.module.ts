@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { ProfilRoutingModule } from './profil-routing.module';
 import { ProfilheaderComponent } from './profilheader/profilheader.component';
 import {ProfilShellComponent} from "./profil-shell/profil-shell.component";
@@ -11,8 +10,11 @@ import {NgxDropzoneModule} from "ngx-dropzone";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
-import {createTranslateLoader} from "../connexion/connexion.module";
+import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 
+export function createTranslateLoader(http: HttpClient){
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json')
+}
 
 @NgModule({
   declarations: [
@@ -25,7 +27,7 @@ import {createTranslateLoader} from "../connexion/connexion.module";
     ProfilheaderComponent
   ],
   imports: [
-    CommonModule,ReactiveFormsModule,
+    CommonModule,ReactiveFormsModule,FormsModule,
     ProfilRoutingModule,MatIconModule,NgxDropzoneModule,HttpClientModule,
     TranslateModule.forChild({
       loader: {

@@ -7,7 +7,7 @@
       </div>
       <div class="navigation">
         <ul>
-          <li><a routerLink="help" routerlinkactive="here">Aide</a></li>
+          <li><a routerLink="/inscription/help">{{ 'HOME.LINKS.LINK_4' | translate }}</a></li>
           <li>
             <div class="profil">
               <div class="imgprofil" (click)="menuprofil()">{{ fullname.charAt(0) }}</div>
@@ -17,9 +17,9 @@
                 <span><a class="mail" href="mailto:waffeu120920012gmail.com">{{ email }}</a></span>
               </b></h3>
               <ul class="s-menu-profil">
-                <li><span></span><a routerLink="import">Importer les fichiers</a></li>
-                <li><a routerLink="/profil">Voir Mon profil</a></li>
-                <li><a routerLinkActive="here" (click)="logout()">Se Déconnecter</a></li>
+                <li><span></span><a routerLink="import">{{ 'HOME.LINKS.LINK_4' | translate }}</a></li>
+                <li><a routerLink="/profil">{{ 'HOME.LINKS.LINK_4' | translate }}</a></li>
+                <li><a routerLinkActive="here" (click)="logout()">{{ 'HOME.LINKS.LINK_4' | translate }}</a></li>
               </ul>
             </div>
           </li>
@@ -34,11 +34,11 @@
       <div class="resp">
         <div class="navigue">
           <ul>
-            <div class="imgprofil">W</div><span class="name">Waffeu Ivany Botrel</span>
-            <li><a routerLink="/inscription/help" routerlinkactive="here">Aide</a></li>
-            <li><a routerLink="import" routerlinkactive="here">Importer les fichiers</a></li>
-            <li><a routerLink="/profil" routerlinkactive="here">IVoir mon profil</a></li>
-            <li><a (click)="logout()" routerlinkactive="here">Se Déconnecter</a></li>
+            <div class="imgprofil" (click)="menuprofil()">{{ fullname.charAt(0) }}</div>
+            <li><a routerLink="/inscription/help" routerlinkactive="here">{{ 'HOME.LINKS.LINK_4' | translate }}</a></li>
+            <li><a routerLink="import" routerlinkactive="here">{{ 'HOME.LINKS.PI' | translate }}</a></li>
+            <li><a routerLink="/profil" routerlinkactive="here">{{ 'HOME.LINKS.VP' | translate }}</a></li>
+            <li><a (click)="logout()" routerlinkactive="here">{{ 'HOME.LINKS.OUT' | translate }}</a></li>
           </ul>
         </div>
       </div>

@@ -21,8 +21,11 @@ import {InfosService} from "./__services/infos.service";
 import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/http";
 import {SpinnerInterceptorService} from "../http-interceptor/spinner-interceptor.service";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
-import {createTranslateLoader} from "../connexion/connexion.module";
+import {TranslateHttpLoader} from "@ngx-translate/http-loader"
 
+export function createTranslateLoader(http: HttpClient){
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json')
+}
 @NgModule({
   declarations: [
     InscriptionComponent,

@@ -4,7 +4,10 @@
       "LINK_1": "Home",
       "LINK_2": "Login",
       "LINK_3": "Register",
-      "LINK_4": "Help"
+      "LINK_4": "Help",
+      "PI": "Import files",
+      "VP": "See my profile",
+      "OUT": "Sign out"
     },
     "HOOK": {
       "TITLE_1": "PREPARE YOURSELVES FOR A ",
@@ -21,6 +24,128 @@
       "FIELD_2": "password",
       "BTN": "Sign up",
       "FORGOT": "Forgot password"
+    },
+    "REGISTER": {
+      "TITLE": "Please follow the different steps below to pre-register.",
+      "STEPS": {
+        "ONE": "Recommendation",
+        "TWO": "Identification",
+        "THREE": "Specialization",
+        "FOUR": "academic curriculum",
+        "FIVE": "other info and contacts",
+        "SIX": "FINISH"
+      },
+      "BTN": {
+        "next": "Next",
+        "prev": "Prev"
+      },
+      "PAGE_1": {
+        "REC_1": "Fill in the information correctly",
+        "REC_2": "If you were born around (1990 for example), choose 01/01/1990 as date of birth",
+        "REC_3": "All fields are mandatory",
+        "REC_4": "If you are already pre-registered",
+        "BTN": "LOGIN"
+      },
+      "PAGE_2": {
+        "name": "last name",
+        "last": "first name",
+        "sex": "sex",
+        "date": "Date of Birth",
+        "place": "place of birth",
+        "situation": "marital status",
+        "adress": "Address",
+        "phone": "Phone Number",
+        "cni": "N° of CNI",
+        "email": "email address",
+        "native": "Native Country",
+        "region": "region of origin",
+        "lang": "Languages"
+      },
+      "PAGE_3": {
+        "cursus": "Curriculum",
+        "level": "sector level",
+        "first": "1st choice course",
+        "second": "2nd choice of sector",
+        "qualification": "admission diplomas",
+        "round": "diploma series",
+        "mention": "admission diploma mention",
+        "y_graduation": "Year of graduation",
+        "obtain": "obtaining institution",
+        "country": "country of acquisition",
+        "examination": "examination center choice",
+        "y_obtain": "year of obtaining Bac / GCEAL / equiv"
+      },
+      "PAGE_4": {
+        "avert": "Warning",
+        "advise": "You must add at least the last 3 diplomas of your school career !!! If level 1 you must provide the BAC, PROBATORY, BEPC, or others If level 3 you must provide either LICENSE, DEUG, DUT, or others.",
+        "table": {
+          "col1": "Year",
+          "col2": "Institution",
+          "col3": "Diploma",
+          "col4": "Mention",
+          "col5": "Delete",
+          "BTN": "ADD"
+        }
+      },
+      "PAGE_5": {
+        "hobby": "1st hobby",
+        "activity": "Sports activity",
+        "Handicap": "Handicap",
+        "prof": "Profession",
+        "guardian": "Guardian's name",
+        "tutor_p": "Tutor telephone",
+        "mail": "Tutor email"
+      },
+      "PAGE_6": {
+        "username": "Username",
+        "password": "Password",
+        "confirm": "Confirm Password",
+        "field_w": "Passwords are not the same",
+        "BTN": "Finish"
+      },
+      "DIP": "Add a new Diploma"
+    },
+    "HELP": {
+      "GTITLE": "Help elements for pre-registration at the IUT of Douala",
+      "TITLE1": "Application usage video.",
+      "TITLE2": "Elements to be used after the candidate's pre-registration",
+      "TITLE3": "Download the competition decree in pdf",
+      "TITLE4": "Frequently Asked Questions (FAQ)",
+      "IND1": "The pre-registration number is on your pre-registration form obtained on the IUT platform",
+      "IND2": "Please keep the same password and username you chose during pre-registration",
+      "IND3": "The CNI number is unique and mandatory",
+      "IND4": "If you have received it, please enter its number without problem and check that it is correct",
+      "IND5": "For the 4 * 4 photo a cutout of the image is given to you at the time of import",
+      "MORE": "For more questions join us on our"
+    },
+    "PROFIL": {
+      "TITLE": "Information of the registrant and progress of his application",
+      "TITLE1": "Personal informations",
+      "TITLE2": "Information of the chosen academic course",
+      "TITLE3": "States of my candicadura",
+      "FILED": {
+        "full": "Full Name",
+        "date": "Date and place of birth",
+        "mail": "E-mail Adress",
+        "tutor": "Tutor name - number",
+        "A_cur": "Year of the course",
+        "choise_cur": "Course chooses",
+        "fac": "Faculty",
+        "valdid": "Invalid"
+      }
+    },
+    "IMPORT": {
+      "TITLE": "Import your files necessary for the application here",
+      "SUBTITLE1": "Viewing your loaded images (click on the box below to select your images)",
+      "SUBTITLE2": "File upload order",
+      "SUBTITLE3": "Upload your images here",
+      "img1": "Medical certificate",
+      "img2": "Certified birth certificate",
+      "img3": "Certified Baccalaureate or certified Probationary",
+      "img4": "Certified pre-registration form",
+      "img5": "4x4 photo",
+      "img6": "Tuition certificate",
+      "img7": "Receipt of payment"
     }
   }
 }

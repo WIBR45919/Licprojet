@@ -4,7 +4,10 @@
       "LINK_1": "Acceuil",
       "LINK_2": "Se Connecter",
       "LINK_3": "S'inscrire",
-      "LINK_4": "Aide"
+      "LINK_4": "Aide",
+      "PI": "Importer les fichiers",
+      "VP": "Voir Mon profil",
+      "OUT": "Se Déconnecter"
     },
     "HOOK": {
       "TITLE_1": "PREPAREZ-VOUS POUR UN ",
@@ -17,10 +20,132 @@
     "LOGIN": {
       "TITLE": "Se Connecter",
       "LATER": "Inscrivez-vous ici",
-      "FIELD_1": "username",
-      "FIELD_2": "password",
+      "FIELD_1": "Nom d'utilisateur",
+      "FIELD_2": "Mot de passe",
       "BTN": "Se Connecter",
       "FORGOT": "Mot de passe oubliée"
+    },
+    "REGISTER": {
+      "TITLE": "Veuillez suivre les différentes étapes suivantes pour vous préinscrire.",
+      "STEPS": {
+        "ONE": "Recommendation",
+        "TWO": "Identification",
+        "THREE": "Specialisation",
+        "FOUR": "Cursus academique",
+        "FIVE": "Autres infos et contacts",
+        "SIX": "FIN"
+      },
+      "BTN": {
+        "next": "Suivant",
+        "prev": "Précédent"
+      },
+      "PAGE_1": {
+        "REC_1": "Remplir correctement les informations",
+        "REC_2": "Si vous etes née vers (1990 par exempls), choisir 01/01/1990 comme date de naissance",
+        "REC_3": "Tous les champs sont obligatoires",
+        "REC_4": "Si vous etes deja préinscrit",
+        "BTN": "Connectez-vous"
+      },
+      "PAGE_2": {
+        "name": "Nom",
+        "last": "Prénom",
+        "sex": "Sexe",
+        "date": "Date de Naissance",
+        "place": "Lieu de Naissance",
+        "situation": "Situation Matrimoniale",
+        "adress": "Adresse",
+        "phone": "Numéro de Téléphone",
+        "cni": "N° de CNI",
+        "email": "Adresse Email",
+        "native": "Pays d'origine",
+        "region": "Region d'origine",
+        "lang": "Langues"
+      },
+      "PAGE_3": {
+        "cursus": "Cursus",
+        "level": "Niveau Filière",
+        "first": "1er choix Filière",
+        "second": "2ème choix Filière",
+        "qualification": "Diplome d'Admission",
+        "round": "Serie diplome d'admission",
+        "mention": "Mention diplome d'admission",
+        "y_graduation": "Année Obtention",
+        "obtain": "Etablissement d'obtention",
+        "country": "Pays d'obtention",
+        "examination": "CHoix du centre d'exament",
+        "y_obtain": "Année d'obtention du Bac / GCEAL / equiv"
+      },
+      "PAGE_4": {
+        "avert": "ATTENTION",
+        "advise": " Vous devez ajouter au moins les 3 derniers diplômes de votre parcours scolaire !!! Si niveau 1 vous devez fournir le BAC, PROBATOIRE, BEPC, ou autres. Si niveau 3 vous devez fournir soit LICENCE, DEUG, DUT, ou autres.",
+        "table": {
+          "col1": "Année",
+          "col2": "Etablissement",
+          "col3": "Diplome",
+          "col4": "Mention",
+          "col5": "Supprimer",
+          "BTN": "AJOUTER"
+        }
+      },
+      "PAGE_5": {
+        "hobby": "1st loisir",
+        "activity": "Activité Sportive",
+        "Handicap": "Handicap",
+        "prof": "Profession",
+        "guardian": "Nom du Tuteur/tutrice",
+        "tutor_p": "Téléphone du tuteur/tutrice",
+        "mail": "Email du tuteur"
+      },
+      "PAGE_6": {
+        "username": "Nom d'utilisateur",
+        "password": "Mot de passe",
+        "confirm": "Confirme ton mot de passe",
+        "field_w": "Les mots de passes ne sont pas identiques",
+        "BTN": "Terminer"
+      },
+      "DIP": "Ajouter un nouveau Diplome"
+    },
+    "HELP": {
+      "GTITLE": "Eléments d'aide pour la préinscription a l'IUT de Douala",
+      "TITLE1": "Vidéo d'utisation de l'application.",
+      "TITLE2": "Eléments a utiliser apres la préinscription du candidat",
+      "TITLE3": "Télécharger l'arrêté du concours en pdf",
+      "TITLE4": "Foire aux questions (FAQ)",
+      "IND1": "Le numéro de préinscription est sur votre fiche de préinscription obtenu sur la plateforme de l'IUT",
+      "IND2": "Veuillez garder le même mot de passe et l'identifiant que vous avez choisit lors de la préinscription",
+      "IND3": "Le N° de la CNI est unique et obligatoire",
+      "IND4": "Si vouss avez le recipisez veuillez entrer son numéro sans problème et verifiez qu'il est correct",
+      "IND5": "Pour la photo 4*4 une découpe de l'image vous est donnée au moment de l'import",
+      "MORE": "Pour plus de questions rejoignons-nous sur notre"
+    },
+    "PROFIL": {
+      "TITLE": "Informations de l'inscrit et état d'avancement de sa candidature",
+      "TITLE1": "Informations Personnelles",
+      "TITLE2": "Informations du cursus academique choisit",
+      "TITLE3": "Etats de ma candicadure",
+      "FILED": {
+        "full": "Nom Complet",
+        "date": "Date et lieu de naissance",
+        "mail": "Adresse email",
+        "tutor": "TNom Tuteur - Numéro",
+        "A_cur": "Année du cursus",
+        "choise_cur": "Cursus Choisit",
+        "fac": "Filière",
+        "valdid": "Non Validé"
+      }
+    },
+    "IMPORT": {
+      "TITLE": "Importez vos fichiers necessaires a la candidature ici",
+      "SUBTITLE1": "Visualisation de vos images chargées (cliquer sur le box ci-dessous pour sélectionner vos images)",
+      "SUBTITLE2": "Ordre de chargement des fichiers",
+      "SUBTITLE3": "Déposer vos images ici",
+      "img1": "Certificat Médical",
+      "img2": "Acte de naissance certifiée",
+      "img3": "Baccalauréat Certifié ou probatoire certifiée",
+      "img4": "Fiche de préinscription certifiée",
+      "img5": "Photo 4x4",
+      "img6": "Certifiat de scolarité",
+      "img7": "Recus de payement"
     }
   }
 }
