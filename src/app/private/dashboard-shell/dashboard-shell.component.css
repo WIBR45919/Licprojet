@@ -1,0 +1,141 @@
+:root{
+  --main-color: #8bc20c;
+  --color-dark: #1D2231;
+  --text-grey: #8390A2;
+}
+/* todo: voir le probleme de variable en css sur phpstorm */
+
+*{
+  list-style-type: none;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+.logo img{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+.logo sub{
+  font-size: 10px;
+}
+.logo span{
+  margin-right: 0.4rem;
+  font-size: 17px;
+}
+.logo span, .logo span sub{
+  font-family: Roboto;
+}
+/* sidebar */
+
+.sidebar{
+  width: 310px;
+  position: fixed;
+  z-index: 5000;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: #8bc20c;
+}
+.sidebar-brand{
+  height: 150px;
+  padding: 1rem 0rem 1rem 2rem;
+  color: #fff;
+}
+.sidebar-brand span{
+  display: inline-block;
+  padding-right: 1rem;
+}
+.sidebar-menu li{
+  width: 100%;
+  margin-bottom: 1.9rem;
+  padding-left: 2rem;
+}
+.sidebar-menu a{
+  display: block;
+  color: #ffffff;
+  font-size: 0.8rem;
+  padding-left: 0.5rem;
+  text-transform: uppercase;
+}
+.sidebar-menu  a span:first-child{
+  font-size: 1.5rem;
+  padding: 0 0.8rem 0 1.3rem;
+}
+.sidebar-menu  a span:last-child{
+  display: inline-block;
+}
+.main-content{
+  margin-left: 310px;
+}
+.sidebar-menu  a.active{
+  background-color: #fff;
+  padding:  1rem 0 1rem 0;
+  color:  #8bc20c;
+  border-radius: 30px 0 0 30px;
+}
+.main-content header{
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  box-shadow: 4px 4px 10px rgba(0,0,0,0.2);
+  position: fixed;
+  left: 310px;
+  z-index: 9000;
+  width: calc(100% - 310px);
+  top: 0;
+}
+.main-content header h2{
+  color: #222;
+}
+.main-content header label span{
+  font-size: 1.7rem;
+  padding-right: 1rem;
+}
+.main-content .main{
+  position: relative;
+  z-index: 3;
+}
+.search-wrapper{
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  overflow-x: hidden;
+}
+.search-wrapper span{
+  display: inline-block;
+  padding: 0rem 1rem;
+  font-size: 1.5rem;
+}
+.search-wrapper input{
+  height: 100%;
+  padding: .5rem;
+  border: none;
+  outline: none;
+}
+.user-wrapper{
+  display: flex;
+  align-items: center;
+}
+.user-wrapper span{
+  border-radius: 50px;
+  margin-right: 1rem;
+  background-color: #959393;
+  padding: 10px;
+  border: 1px solid #827d7d;
+}
+.user-wrapper small{
+  display: inline-block;
+  color: #8390A2;
+}
+.user-wrapper h4{
+  margin-bottom: 0rem !important;
+  margin-top: -10px!important;
+}
+
+.main-content .main{
+  position: relative;
+  z-index: 100;
+}
