@@ -40,9 +40,6 @@ export class PdfComponent implements OnInit {
          console.log(canvas.height);
          doc.addImage(imgData,'PNG',0,0,210, 240);
          doc.save('fiche-inscription.pdf');
-
-         //redirection apres telechargement
-         this.router.navigate(['/connexion']);
       });
     }
   }
