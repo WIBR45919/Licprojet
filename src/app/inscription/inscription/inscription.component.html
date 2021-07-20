@@ -25,7 +25,7 @@
              <button type="button" class="next" mat-raised-button matStepperNext>{{ 'HOME.REGISTER.BTN.next'| translate }}<mat-icon>chevron_right</mat-icon></button>
            </div>
          </mat-step>
-         <mat-step formGroupName="0" [stepControl]="informations.get([0])!" label="{{ 'HOME.REGISTER.STEPS.ONE'| translate | uppercase }}" state="person">
+         <mat-step formGroupName="0" [stepControl]="informations.get([0])!" label="{{ 'HOME.REGISTER.STEPS.TWO'| translate | uppercase }}" state="person">
             <div class="parent">
               <div class="champs">
                 <mat-form-field appearance="outline">
@@ -123,7 +123,7 @@
               <button type="button" class="next" mat-raised-button matStepperNext>{{ 'HOME.REGISTER.BTN.next'| translate }} <mat-icon>chevron_right</mat-icon></button>
             </div>
           </mat-step>
-         <mat-step formGroupName="1" [stepControl]="informations.get([1])!" label="{{ 'HOME.REGISTER.STEPS.TWO'| translate | uppercase }}" state="rate_review">
+         <mat-step formGroupName="1" [stepControl]="informations.get([1])!" label="{{ 'HOME.REGISTER.STEPS.THREE'| translate | uppercase }}" state="rate_review">
             <div class="parent">
               <div class="champs">
                 <mat-form-field appearance="outline">
@@ -230,7 +230,7 @@
               <button type="button" class="next" mat-raised-button matStepperNext>{{ 'HOME.REGISTER.BTN.next'| translate }} <mat-icon>chevron_right</mat-icon></button>
             </div>
           </mat-step>
-         <mat-step label="{{ 'HOME.REGISTER.STEPS.THREE'| translate | uppercase }}" state="school">
+         <mat-step label="{{ 'HOME.REGISTER.STEPS.FOUR'| translate | uppercase }}" state="school">
             <div class="parent others">
               <div class="champs">
                 <div class="message-warn">
@@ -239,7 +239,7 @@
                   </div>
                   <div class="text">
                     <p>{{ 'HOME.REGISTER.PAGE_4.avert'| translate }} !</p>
-                    <p>{{ 'HOME.REGISTER.PAGE_4.advice'| translate }}</p>
+                    <p>{{ 'HOME.REGISTER.PAGE_4.advise'| translate }}</p>
                   </div>
                 </div>
                 <div class="add">
@@ -280,7 +280,7 @@
               <button type="button" class="next" [disabled]="listDiplomeAutre.length < 3" mat-raised-button matStepperNext>{{ 'HOME.REGISTER.BTN.next'| translate }}<mat-icon>chevron_right</mat-icon></button>
             </div>
           </mat-step>
-         <mat-step formGroupName="2" [stepControl]="informations.get([2])!" label="{{ 'HOME.REGISTER.STEPS.FOUR'| translate | uppercase }}" state="contact_phone">
+         <mat-step formGroupName="2" [stepControl]="informations.get([2])!" label="{{ 'HOME.REGISTER.STEPS.FIVE'| translate | uppercase }}" state="contact_phone">
              <div class="parent">
                <div class="champs">
                  <mat-form-field appearance="outline">
@@ -350,7 +350,7 @@
                <button type="button" class="next" mat-raised-button matStepperNext>{{ 'HOME.REGISTER.BTN.next'| translate }} <mat-icon>chevron_right</mat-icon></button>
              </div>
            </mat-step>
-         <mat-step formGroupName="3" [stepControl]="informations.get([3])!" label="{{ 'HOME.REGISTER.STEPS.FIVE'| translate | uppercase }}" state="flight_land">
+         <mat-step formGroupName="3" [stepControl]="informations.get([3])!" label="{{ 'HOME.REGISTER.STEPS.SIX'| translate | uppercase }}" state="flight_land">
            <div class="parent">
              <div class="champsaround">
                <mat-form-field class="w-100" appearance="outline">
@@ -419,7 +419,7 @@
         </div>
         <div class="modal-footer">
           <button type="submit" mat-stroked-button (click)="ConfirmAjout('Ajout éffectuer')"
-                  [disabled]="formDiplome?.invalid" class="btn btn-primary w-100">{{ 'HOME.REGISTER.PAGE_4.BTN'| translate }}</button>
+                  [disabled]="formDiplome?.invalid" class="btn btn-primary w-100">{{ 'HOME.REGISTER.PAGE_4.table.BTN'| translate }}</button>
         </div>
       </form>
     </div>

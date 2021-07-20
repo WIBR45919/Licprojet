@@ -1,5 +1,5 @@
 #content-main{
-  position: inherit;
+  position: relative;
 }
 main{
   position: relative;
@@ -20,6 +20,7 @@ main{
   padding: 2rem;
   border-radius: 2px;
   transition: 0.5s;
+  cursor: pointer;
 }
 .card-single:hover{
   box-shadow: 0 3px 22px rgba(0, 0, 0 ,0.2);
