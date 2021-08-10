@@ -166,7 +166,8 @@ export class InscriptionComponent implements OnInit {
       mention: new FormControl('Bien',[Validators.required]),
     });
   }
-  ConfirmAjout(message: string): void{
+  ConfirmAjout(message: any): void{
+    message = message.toString();
     this.snack.open(message, 'OK');
   }
   addDiplome(): void{

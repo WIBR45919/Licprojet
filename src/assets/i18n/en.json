@@ -5,6 +5,12 @@
       "LINK_2": "Login",
       "LINK_3": "Register",
       "LINK_4": "Help",
+      "IN_SIG": "Platforms of Information and Digital Technologies",
+      "TT_SIG": "Tertiary Technology Platforms",
+      "TI_SIG": "Platforms of Industrial Technologies",
+      "PFTIN": "Platforms of Information and Digital Technologies is a platform comprising various digital sectors such as Computer Engineering (GI), Electrical Engineering and Industrial Computing (GEII), Biomedical Engineering (GBM), Network Engineering and Telecom (GRT) as well as License program such as Software Engineering (GL), Network System Administration (ASR)",
+      "PFTT": "Tertiary Technology Platforms is a platform specializing in the various business areas comprising different sectors such as Management applied to Small and Medium Enterprises (GAPMO), Logistics and Transport Engineering (GLT), Organization and Administrative Management (OGA), and the same for License courses.",
+      "PFTI": "Platforms of Industrial Technologies is a platform comprising different industrial sectors such as Industrial Engineering and Maintenance (GIM), Mechanical and Productive Engineering (GMP), Thermal and Energy Engineering (GTE), Mining Engineering (GMI), Metallurgical Engineering (GME) and Engineering Civil (GC) and the same for the License courses.",
       "PI": "Import files",
       "VP": "See my profile",
       "OUT": "Sign out"
@@ -123,22 +129,23 @@
       "TITLE1": "Personal informations",
       "TITLE2": "Information of the chosen academic course",
       "TITLE3": "States of my candicadura",
-      "FILED": {
+      "FIELD": {
         "full": "Full Name",
         "date": "Date and place of birth",
         "mail": "E-mail Adress",
         "tutor": "Tutor name - number",
         "A_cur": "Year of the course",
         "choise_cur": "Course chooses",
-        "fac": "Faculty",
-        "valdid": "Invalid"
+        "state": "Application status",
+        "invalid": "Invalid",
+        "valid": "Valid"
       }
     },
     "IMPORT": {
       "TITLE": "Import your files necessary for the application here",
       "SUBTITLE1": "Viewing your loaded images (click on the box below to select your images)",
       "SUBTITLE2": "File upload order",
-      "SUBTITLE3": "Upload your images here",
+      "SUBTITLE3": "Upload your images here!",
       "img1": "Medical certificate",
       "img2": "Certified birth certificate",
       "img3": "Certified Baccalaureate or certified Probationary",

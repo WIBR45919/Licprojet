@@ -1,27 +1,27 @@
 <div class="import">
   <div class="title">
-    <h1>Importez vos fichiers necessaires a la candidature ici</h1>
+    <h1>{{ 'HOME.IMPORT.TITLE' | translate }}</h1>
   </div>
   <form [formGroup]="sendImage" (ngSubmit)="sendTabImage()">
     <div class="zones">
-      <h2>Visualisation de vos images chargées (cliquer sur le box ci-dessous pour sélectionner vos images)</h2>
+      <h2>{{ 'HOME.IMPORT.SUBTITLE1' | translate }}</h2>
       <div class="ordre">
-        <h4>--> Ordre de chargement des fichiers</h4>
+        <h4>--> {{ 'HOME.IMPORT.SUBTITLE2' | translate }} <--</h4>
         <ul class="instruction">
-          <li>Certificat Médical</li>
-          <li>Acte de naissance certifiée</li>
-          <li>Baccalauréat Certifié ou probatoire certifiée</li>
-          <li>Fiche de préinscription certifiée</li>
-          <li>Photo 4x4</li>
-          <li>Certifiat de scolarité</li>
-          <li>Recus de payement</li>
+          <li>{{ 'HOME.IMPORT.img1' | translate }}</li>
+          <li>{{ 'HOME.IMPORT.img2' | translate }}</li>
+          <li>{{ 'HOME.IMPORT.img3' | translate }}</li>
+          <li>{{ 'HOME.IMPORT.img4' | translate }}</li>
+          <li>{{ 'HOME.IMPORT.img5' | translate }}</li>
+          <li>{{ 'HOME.IMPORT.img6' | translate }}</li>
+          <li>{{ 'HOME.IMPORT.img7' | translate }}</li>
         </ul>
       </div>
       <div class="custom-dropzone ngx-dz-hovered" ngx-dropzone accept="image/*"
            [maxFileSize]=204800 [expandable]= true (change)="onSelect($event)" [disabled]= actif [disableClick]= actif >
         <ngx-dropzone-label>
            <div class="title-zone">
-             <h3>Déposer vos images ici!</h3>
+             <h3>{{ 'HOME.IMPORT.SUBTITLE3' | translate }}</h3>
            </div>
         </ngx-dropzone-label>
         <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files"

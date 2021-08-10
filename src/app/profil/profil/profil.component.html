@@ -1,17 +1,17 @@
 <div class="profil">
   <div class="title">
-    <h1 class="g-titre">Informations de l'inscrit et état d'avancement de sa candidature</h1>
+    <h1 class="g-titre">{{ 'HOME.PROFIL.TITLE' | translate }}</h1>
   </div>
   <div class="infos-user">
     <div class="personal-infos">
       <div class="all-title">
-        <h3>Informations Personnelles</h3>
+        <h3>{{ 'HOME.PROFIL.TITLE1' | translate }}</h3>
       </div>
       <div class="personal">
         <div class="content">
           <div class="p-title">
             <mat-icon aria-hidden="false" aria-label="person icon">person</mat-icon>
-            <span>Nom Complet</span>
+            <span>{{ 'HOME.PROFIL.FIELD.full' | translate }}</span>
           </div>
           <div class="value">
             {{ Etudiant.prenom + Etudiant.prenom }}
@@ -20,7 +20,7 @@
         <div class="content">
           <div class="p-title">
             <mat-icon aria-hidden="false" aria-label="person icon">date_range</mat-icon>
-            <span>Date & lieu de naissance</span>
+            <span>{{ 'HOME.PROFIL.FIELD.date' | translate }}</span>
           </div>
           <div class="value">
            {{ Etudiant.dateNaissance }} à {{ Etudiant.lieu }}
@@ -29,7 +29,7 @@
         <div class="content">
           <div class="p-title">
             <mat-icon aria-hidden="false" aria-label="person icon">mail</mat-icon>
-            <span>Address email</span>
+            <span>{{ 'HOME.PROFIL.FIELD.mail' | translate }}</span>
           </div>
           <div class="value">
             {{ Etudiant.email }}
@@ -38,7 +38,7 @@
         <div class="content">
           <div class="p-title">
             <mat-icon aria-hidden="false" aria-label="person icon">school</mat-icon>
-            <span>Diplome d'admission</span>
+            <span>{{ 'HOME.PROFIL.REGISTER.PAGE_3.qualification' | translate }}</span>
           </div>
           <div class="value">
           {{ Etudiant.diplomeAdmission.nomDiplome }}
@@ -47,7 +47,7 @@
         <div class="content">
           <div class="p-title">
             <mat-icon aria-hidden="false" aria-label="person icon">supervisor_account</mat-icon>
-            <span>Nom Tuteur - Numéro</span>
+            <span>{{ 'HOME.PROFIL.REGISTER.PAGE_2.phone' | translate }} - {{ 'HOME.PROFIL.REGISTER.PAGE_5.guardian' | translate }}</span>
           </div>
           <div class="value">
            {{ Etudiant.tuteur.nomTuteur }} - {{ Etudiant.tuteur.telephoneTuteur }}
@@ -57,13 +57,13 @@
     </div>
     <div class="choix-cursus">
       <div class="all-title">
-        <h3>Informations du cursus academique choisit</h3>
+        <h3>{{ 'HOME.PROFIL.TITLE2' | translate }}</h3>
       </div>
       <div class="personal">
         <div class="content">
           <div class="p-title">
             <mat-icon aria-hidden="false" aria-label="person icon">calendar_today</mat-icon>
-            <span>Année du cursus</span>
+            <span>{{ 'HOME.PROFIL.FIELD.A_cur' | translate }}</span>
           </div>
           <div class="value">
             {{ date +'/'+ (date + 1) }}
@@ -72,7 +72,7 @@
         <div class="content">
           <div class="p-title">
             <mat-icon aria-hidden="false" aria-label="person icon">train</mat-icon>
-            <span>Cursus Choisit</span>
+            <span>{{ 'HOME.PROFIL.FIELD.choise_cur' | translate }}</span>
           </div>
           <div class="value">
            {{ Etudiant.cursus.nomCursus }}
@@ -81,7 +81,7 @@
         <div class="content">
           <div class="p-title">
             <mat-icon aria-hidden="false" aria-label="person icon">work</mat-icon>
-            <span>Filière</span>
+            <span>{{ 'HOME.PROFIL.FIELD.fac' | translate }}</span>
           </div>
           <div class="value">
            {{ Etudiant.filiere.nomFiliere }}
@@ -90,7 +90,7 @@
         <div class="content">
           <div class="p-title">
             <mat-icon aria-hidden="false" aria-label="person icon">school</mat-icon>
-            <span>Diplome d'admission</span>
+            <span>{{ 'HOME.PROFIL.REGISTER.PAGE_3.qualification' | translate }}</span>
           </div>
           <div class="value">
             {{ Etudiant.diplomeAdmission.nomDiplome }}
@@ -99,7 +99,7 @@
         <div class="content">
           <div class="p-title">
             <mat-icon aria-hidden="false" aria-label="person icon">try</mat-icon>
-            <span>Serie du diplome admission</span>
+            <span>{{ 'HOME.PROFIL.REGISTER.PAGE_3.round' | translate }}</span>
           </div>
           <div class="value">
             {{ Etudiant.diplomeAdmission.serieDiplome }}
@@ -109,19 +109,19 @@
     </div>
     <div class="state">
       <div class="all-title">
-        <h3>Etats de ma candicadure</h3>
+        <h3>{{ 'HOME.PROFIL.TITLE3' | translate }}</h3>
       </div>
       <div class="personal">
         <div class="content">
           <div class="p-title">
             <mat-icon aria-hidden="false" aria-label="person icon">pending</mat-icon>
-            <span>Etat de candidature</span>
+            <span>{{ 'HOME.PROFIL.FIELD.state' | translate }}</span>
           </div>
           <div class="value state-view">
             <mat-icon aria-hidden="false" [ngClass]="{'invalid-icon': true, 'valid-icon': isValidate}" aria-label="person icon">
               {{ !isValidate ? 'thumb_down' : 'thumb_up' }}
             </mat-icon>
-            <span id="span-state">Non validé</span>
+            <span id="span-state">{{ !isValidate ? ('HOME.PROFIL.FIELD.invalid' | translate) :  ('HOME.PROFIL.FIELD.valid' | translate) }}</span>
           </div>
         </div>
       </div>

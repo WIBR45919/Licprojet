@@ -389,7 +389,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title" id="exampleModalLabel">Ajouter un nouveau Diplome</h1>
+        <h1 class="modal-title" id="exampleModalLabel">{{ 'HOME.REGISTER.PAGE_4.table.AB'| translate }}</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <form [formGroup]="formDiplome" (ngSubmit)="addDiplome()">
@@ -418,7 +418,7 @@
             </div>
         </div>
         <div class="modal-footer">
-          <button type="submit" mat-stroked-button (click)="ConfirmAjout('Ajout éffectuer')"
+          <button type="submit" mat-stroked-button (click)="ConfirmAjout('AJout effectué')"
                   [disabled]="formDiplome?.invalid" class="btn btn-primary w-100">{{ 'HOME.REGISTER.PAGE_4.table.BTN'| translate }}</button>
         </div>
       </form>

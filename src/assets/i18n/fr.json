@@ -5,6 +5,12 @@
       "LINK_2": "Se Connecter",
       "LINK_3": "S'inscrire",
       "LINK_4": "Aide",
+      "IN_SIG": "Plateformes Des Technologies De L'Information Et Du Numérique",
+      "TT_SIG": "Plateformes des Technologies du Tertiaire",
+      "TI_SIG": "Plateformes Des Technologies Industrielles",
+      "PFTIN": "Plateformes Des Technologies De L'Information Et Du Numérique est une plateforme comportant diffrentes filières du numérique telque Genie Informatique (GI), Genie Electrique et Informatique Industrielle (GEII), Genie Biomedical (GBM), Genie Réseau et Télecom (GRT) ainsi que les filière de licence telque Genie Logiciel (GL), Administration des Systeme Reseaux (ASR)",
+      "PFTT": "Plateformes des Technologies du Tertiaire est une plateforme spécialise dans le différentes domaines en entreprise comportant diffrentes filières telque Gestion appliqué aux Petites et Moyennes Entreprises (GAPMO), Genie Logistique et Transport (GLT), Organisation et Gestion Administrative (OGA), et de mêmê pour les filières de Licence.",
+      "PFTI": "Plateformes Des Technologies Industrielles est une plateforme comportant diffrentes filières industrielles telque Genie Industrielle et Maintenance (GIM), Genie Mécanique et Productique (GMP), Genie Thermique et Energie (GTE), Genie des Mines (GMI), Génie Metallurgique (GME) et Génie Civil (GC) et de mêmê pour les filières de Licence.",
       "PI": "Importer les fichiers",
       "VP": "Voir Mon profil",
       "OUT": "Se Déconnecter"
@@ -123,22 +129,24 @@
       "TITLE1": "Informations Personnelles",
       "TITLE2": "Informations du cursus academique choisit",
       "TITLE3": "Etats de ma candicadure",
-      "FILED": {
+      "FIELD": {
         "full": "Nom Complet",
         "date": "Date et lieu de naissance",
         "mail": "Adresse email",
-        "tutor": "TNom Tuteur - Numéro",
+        "tutor": "Nom Tuteur - Numéro",
         "A_cur": "Année du cursus",
         "choise_cur": "Cursus Choisit",
         "fac": "Filière",
-        "valdid": "Non Validé"
+        "state": "Etat de la candidature",
+        "invalid": "Non Validé",
+        "valid": "Validé"
       }
     },
     "IMPORT": {
       "TITLE": "Importez vos fichiers necessaires a la candidature ici",
       "SUBTITLE1": "Visualisation de vos images chargées (cliquer sur le box ci-dessous pour sélectionner vos images)",
       "SUBTITLE2": "Ordre de chargement des fichiers",
-      "SUBTITLE3": "Déposer vos images ici",
+      "SUBTITLE3": "Déposer vos images ici!",
       "img1": "Certificat Médical",
       "img2": "Acte de naissance certifiée",
       "img3": "Baccalauréat Certifié ou probatoire certifiée",

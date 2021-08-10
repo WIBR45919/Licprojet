@@ -4,22 +4,36 @@ import { HomeComponent } from './home/home.component';
 import {NotfoundComponent} from './notfound/notfound.component';
 import {PdfComponent} from "./pdf/pdf.component";
 import {GuardService} from "./_services/guard.service";
+import {PreloadService} from "./_services/preload.service";
 
 const routes: Routes = [
-  { path: '', component: HomeComponent,  pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
-  { path: 'connexion', loadChildren: () => import('./connexion/connexion.module').then(m => m.ConnexionModule)},
-  { path: 'inscription', loadChildren: () => import('./inscription/inscription.module').then(w => w.InscriptionModule) },
-  { path: 'profil', loadChildren: () => import('./profil/profil.module').then(p => p.ProfilModule), canActivate: [GuardService]
+  {
+    path: '', component: HomeComponent,  pathMatch: 'full',
+  },
+  {
+    path: 'home', component: HomeComponent ,
+  },
+  { path: 'connexion', loadChildren: () => import('./connexion/connexion.module').then(m => m.ConnexionModule),
+    data: {
+      shouldPreload: true
+    }},
+  { path: 'inscription', loadChildren: () => import('./inscription/inscription.module').then(w => w.InscriptionModule),
+    data: {
+      shouldPreload: true
+    } },
+  { path: 'profil', loadChildren: () => import('./profil/profil.module').then(p => p.ProfilModule),
+    canActivate: [GuardService]
     , canActivateChild: [GuardService]},
   { path: 'pdf', component: PdfComponent, canActivate: [GuardService] },
-  { path: 'admin', loadChildren: ()=>import('./private/dashboard.module').then(admin => admin.DashboardModule)
+  { path: 'admin', loadChildren: ()=>import('./private/dashboard.module').then(admin => admin.DashboardModule),
     /*, canActivate: [GuardService] */},
   { path: '**', component: NotfoundComponent}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{
+    preloadingStrategy: PreloadService
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
