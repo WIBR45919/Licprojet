@@ -3,26 +3,26 @@
     <div class="sidebar-brand">
       <h1 class="logo">
         <img src="https://upload.wikimedia.org/wikipedia/commons/2/25/Logo_IUT_Douala.png" alt="">
-        <span>Douala<sub>CMR</sub></span>
+        <span class="mx-2">Douala<sub>CMR</sub></span>
       </h1>
     </div>
 
     <div class="sidebar-menu">
       <ul>
         <li>
-          <a href="" class="active"><span class="material-icons">home</span><span>Home</span></a>
+          <a routerLink="admin" routerLinkActive="active"><span class="material-icons">home</span><span>Home</span></a>
         </li>
         <li>
-          <a href=""><span class="material-icons">recommend</span><span>ADMIS</span></a>
+          <a routerLink="admis"  routerLinkActive="active"><span class="material-icons">recommend</span><span>ADMIS</span></a>
         </li>
         <li>
-          <a href=""><span class="material-icons">thumb_down_alt</span><span>REFUSE</span></a>
+          <a routerLink="refused"  routerLinkActive="active"><span class="material-icons">thumb_down_alt</span><span>REFUSE</span></a>
         </li>
         <li>
-          <a href=""><span class="material-icons">school</span><span>Gestion des Filière</span></a>
+          <a routerLink="school"  routerLinkActive="active"><span class="material-icons">school</span><span>Gestion des Filière</span></a>
         </li>
         <li>
-          <a href=""><span class="material-icons">edit_calendar</span><span>Gestion des Période</span></a>
+          <a routerLink="time"  routerLinkActive="active"><span class="material-icons">edit_calendar</span><span>Gestion des Période</span></a>
         </li>
       </ul>
     </div>
@@ -30,14 +30,14 @@
   <div class="main-content">
     <header>
       <h2>
-        <label for="">
+        <label>
           <span class="material-icons">menu</span>
         </label>
         Dashboard
       </h2>
       <div class="search-wrapper">
         <span class="material-icons">search</span>
-        <input type="search" placeholder="Search here" />
+        <input type="search" placeholder="Search here">
       </div>
       <div class="user-wrapper">
         <span class="material-icons">person</span>
