@@ -34,3 +34,18 @@ main{
 .card-single div:first-child span{
   color: #8390A2;
 }
+@media only screen and (max-width: 960px){
+  .cards{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media only screen and (max-width: 710px){
+  .cards{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media only screen and (max-width: 680px){
+  .cards{
+    grid-template-columns: 100%;
+  }
+}

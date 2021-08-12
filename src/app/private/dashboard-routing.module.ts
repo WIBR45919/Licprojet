@@ -7,6 +7,7 @@ import {FilieresComponent} from "./filieres/filieres.component";
 import {PeriodeComponent} from "./periode/periode.component";
 import {RefusedComponent} from "./refused/refused.component";
 
+//todo: enlever les commentaires sur la securisation de la route de DashboardComponent
 const routes: Routes = [
   {
     path: '', component: DashboardShellComponent/*, canActivate: [GuardService]*/,
