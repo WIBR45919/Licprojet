@@ -48,7 +48,49 @@
         </div>
       </div>
     </header>
-    <div class="main">
+    <div class="main" id="content-main">
+      <main>
+        <div class="cards">
+          <div class="card-single">
+            <div>
+              <h1>{{ All }}</h1>
+              <span>Candidats</span>
+
+              <span class="material-icons">groups</span>
+            </div>
+          </div>
+
+          <div class="card-single">
+            <div>
+              <h1>{{ Women }}</h1>
+              <span>Femmes</span>
+            </div>
+            <div>
+              <span class="material-icons">female</span>
+            </div>
+          </div>
+
+          <div class="card-single">
+            <div>
+              <h1>{{ Men }}</h1>
+              <span>Hommes</span>
+            </div>
+            <div>
+              <span class="material-icons">male</span>
+            </div>
+          </div>
+
+          <div class="card-single">
+            <div>
+              <h1>{{ Sick }}</h1>
+              <span>Handicapé</span>
+            </div>
+            <div>
+              <span class="material-icons">accessible</span>
+            </div>
+          </div>
+        </div>
+      </main>
       <!--  Presentation des cards  -->
       <router-outlet></router-outlet>
     </div>

@@ -9,6 +9,7 @@ import {AdmisComponent} from "./admis/admis.component";
 import { RefusedComponent } from './refused/refused.component';
 import { FilieresComponent } from './filieres/filieres.component';
 import { PeriodeComponent } from './periode/periode.component';
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -23,7 +24,7 @@ import { PeriodeComponent } from './periode/periode.component';
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    MatIconModule
-  ]
+    MatIconModule,HttpClientModule
+  ],
 })
 export class DashboardModule { }
