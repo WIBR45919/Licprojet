@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {TranslateService} from "@ngx-translate/core";
 import {I18nServiceService} from "./i18n-service/i18n-service.service";
-declare var $: any;
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -19,18 +19,12 @@ export class AppComponent  implements OnInit{
     });
   }
 
-  changeLanguage(){
-    const vel = $('.internalisation > span').text();
-    // console.log(vel);
-    if(vel === 'FR'){
-      $('.internalisation span').text('EN');
-      this.changeLocale('fr');
-    }else{
-      $('.internalisation span').text('FR');
-      this.changeLocale('en');
-    }
+  changeLanguage(lang: HTMLElement): void{
+    if(lang.textContent === 'FR') lang.innerText = 'EN'
+    else lang.innerText = 'FR';
+    lang.textContent === 'EN'? this.changeLocale('en'): this.changeLocale('fr');
   }
-  changeLocale(local: string){
+  changeLocale(local: string): void{
     this.i18nService.changeLocale(local);
   }
 }

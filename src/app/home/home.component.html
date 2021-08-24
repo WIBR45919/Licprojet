@@ -14,13 +14,13 @@
                         <li><a routerLink="/inscription/help">{{ 'HOME.LINKS.LINK_4' | translate }}</a></li>
                     </ul>
                 </div>
-                <div class="responsive-menu">
+                <div class="responsive-menu" #burger (click)="OpenBurger(burger, responsive)">
                     <span></span>
                     <span></span>
                     <span></span>
                 </div>
                 <!-- Menu responsive -->
-                  <div class="resp" id="menures">
+                  <div class="resp" id="menures" #responsive>
                     <div class="navigue">
                         <ul>
                             <li><a routerLink="/home" routerLinkActive='here'>{{ 'HOME.LINKS.LINK_1' | translate }}</a></li>
@@ -49,7 +49,7 @@
     <div class="presentation">
         <div class="elt">
            <div class="position-img">
-                <img src="https://iut-dla.cm/sites/default/files/styles/medium/public/services/WhatsApp%20Image%202021-04-08%20at%2007.34.03.jpeg?itok=w-NBbtzE " alt="">
+                <img src="../../assets/images/GI.jpeg" alt="">
            </div>
             <div class="box">
                 <div class="bt">
@@ -62,7 +62,7 @@
         </div>
         <div class="elt">
                <div class="position-img">
-                    <img src="https://iut-dla.cm/sites/default/files/services/depatement%20gim.jpg" alt="">
+                    <img src="../../assets/images/TI.jpeg" alt="">
                </div>
             <div class="box">
                 <div class="bt">
@@ -75,7 +75,7 @@
         </div>
         <div class="elt">
                <div class="position-img">
-                    <img src="https://iut-dla.cm/sites/default/files/services/logo%20glt_0.jpg" alt="">
+                    <img src="../../assets/images/TT.jpeg" alt="">
                </div>
             <div class="box">
                 <div class="bt">

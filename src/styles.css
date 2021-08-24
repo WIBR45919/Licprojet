@@ -38,3 +38,6 @@ body::-webkit-scrollbar {
 .lic-btn-danger{
   background-color: #ea2645;
 }
+.navigation ul li a:hover, .navigation ul li a.here{
+  color: yellowgreen;
+}

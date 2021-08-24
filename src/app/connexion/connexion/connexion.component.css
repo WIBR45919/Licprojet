@@ -87,7 +87,7 @@ span.sh.h{
 }
 
 #exampleModalLabel{
-    text-align: center;
+    text-align: left;
     font-size: 30px;
 }
 .start{
@@ -98,4 +98,17 @@ span.sh.h{
   font-size: 14px;
 }
 
-
+@media screen and (max-width: 410px) {
+    .form{
+        width: 100%;
+        padding: 0 1rem;
+    }
+    #exampleModalLabel{
+        text-align: left;
+        font-size: 22px;
+    }
+    .btn-close{
+        width: 30px;
+        height: 20px;
+    }
+}

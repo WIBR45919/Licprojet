@@ -7,7 +7,7 @@
       </div>
       <div class="navigation">
         <ul>
-          <li><a routerLink="/inscription/help">{{ 'HOME.LINKS.LINK_4' | translate }}</a></li>
+          <li><a routerLink="/inscription/help" routerLinkActive='here'>{{ 'HOME.LINKS.LINK_4' | translate }}</a></li>
           <li>
             <div class="profil">
               <div class="imgprofil" (click)="menuprofil()">{{ fullname.charAt(0) }}</div>
@@ -17,21 +17,21 @@
                 <span><a class="mail" href="mailto:waffeu120920012gmail.com">{{ email }}</a></span>
               </b></h3>
               <ul class="s-menu-profil">
-                <li><span></span><a routerLink="import">{{ 'HOME.LINKS.LINK_4' | translate }}</a></li>
-                <li><a routerLink="/profil">{{ 'HOME.LINKS.LINK_4' | translate }}</a></li>
+                <li><span></span><a routerLink="import" routerLinkActive='here'>{{ 'HOME.LINKS.LINK_4' | translate }}</a></li>
+                <li><a routerLink="/profil" routerLinkActive='here'>{{ 'HOME.LINKS.LINK_4' | translate }}</a></li>
                 <li><a routerLinkActive="here" (click)="logout()">{{ 'HOME.LINKS.LINK_4' | translate }}</a></li>
               </ul>
             </div>
           </li>
         </ul>
       </div>
-      <div class="responsive-menu">
+      <div class="responsive-menu" #burger (click)="OpenBurger(burger, responsive)">
         <span></span>
         <span></span>
         <span></span>
       </div>
       <!-- Menu responsive -->
-      <div class="resp">
+      <div class="resp"  id="menures" #responsive>
         <div class="navigue">
           <ul>
             <div class="imgprofil" (click)="menuprofil()">{{ fullname.charAt(0) }}</div>

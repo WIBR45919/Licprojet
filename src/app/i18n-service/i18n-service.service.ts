@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject, Subject} from "rxjs";
 import {TranslateService} from "@ngx-translate/core";
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +11,7 @@ export class I18nServiceService {
 
   constructor(private translate: TranslateService) { }
 
-  changeLocale(local: string){
+  changeLocale(local: string): void{
     this.translate.use(local);
     this.localEvent.next(local);
   }

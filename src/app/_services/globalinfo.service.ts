@@ -8,7 +8,7 @@ import {EtudiantModel} from "../_models/etudiant.model";
 })
 export class GlobalinfoService {
 
- private url = 'http://192.168.137.92:8080/';
+ private url = 'http://192.168.137.74:8080/';
  private idUser!: number;
 
   constructor(private  http: HttpClient) { }

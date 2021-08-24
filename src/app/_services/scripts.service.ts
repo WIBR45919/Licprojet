@@ -9,22 +9,14 @@ export class ScriptsService {
 
   constructor() { }
 //  Gestion du responsive menu
-  responsiveMenu(): void{
-    let resp = $('.resp');
-    let doc = $('.responsive-menu');
-    // menu du site
+  responsiveMenu(burger: any, responsive: any): void{
+    
     gsap.set('.navigue ul li', {opacity: 0, y: 100, scale: 0, delay: 0.2});
-    // end
-    doc.click(()=>{
-      resp.toggleClass('active');
-      doc.toggleClass('active');
-      if($('#menures:contains(active)')){
-        gsap.to('.navigue ul li', {opacity: 1, ease: 'back.In', y: 0, scale: 1, delay: .2, stagger: 0.3});
-      }else{
-        gsap.set('.navigue ul li', {opacity: 0, y: 100, scale: 0});
-      }
-    })
-  }
+    $(burger).toggleClass('active');
+    $(responsive).toggleClass('active');
+    if($("div#menures").hasClass('active')) gsap.to('.navigue ul li', {opacity: 1, ease: 'back.In', y: 0, scale: 1, delay: .2, stagger: 0.3});
+    else gsap.set('.navigue ul li', {opacity: 0, y: 100, scale: 0});
+}
 
 //  animation du menu
    corpsHome(){
@@ -59,5 +51,6 @@ export class ScriptsService {
       $('.sh.s').css('display', 'block');
     }
   })
+  }
 }
-}
+//todo: gerer le click sur les liens et la monte du menu

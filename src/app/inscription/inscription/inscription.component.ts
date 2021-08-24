@@ -45,7 +45,7 @@ export class InscriptionComponent implements OnInit {
   isSame = false;
 
 
-  constructor(private breakpoint: BreakpointObserver, private script: ScriptsService,
+  constructor(private breakpoint: BreakpointObserver,
                private formBuilder: FormBuilder, private snack: MatSnackBar, private infos: InfosService,
               private router: Router) {
     this.stepperOrientation = breakpoint.observe('(min-width: 1000px)').pipe(
@@ -58,7 +58,6 @@ export class InscriptionComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.script.responsiveMenu();
     this.initForm();
     this.initFormDiplome();
     this.infos.getCursus().subscribe( (data) =>{

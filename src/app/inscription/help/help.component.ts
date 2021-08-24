@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {ScriptsService} from "../../_services/scripts.service";
 
 @Component({
   selector: 'app-help',
@@ -8,8 +7,8 @@ import {ScriptsService} from "../../_services/scripts.service";
 })
 export class HelpComponent implements OnInit {
 
-  constructor(private script: ScriptsService) {
-    this.script.responsiveMenu();
+  constructor() {
+    
   }
 
   ngOnInit(): void {

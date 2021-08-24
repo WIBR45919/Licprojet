@@ -161,3 +161,6 @@ ul{
     display: none;
   }
 }
+.navigation ul li a:hover, .navigation ul li a.here{
+  color: yellowgreen;
+}

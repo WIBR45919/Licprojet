@@ -12,6 +12,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
 import {PdfComponent} from "./pdf/pdf.component";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+
 export function createTranslateLoader(http: HttpClient){
   return new TranslateHttpLoader(http, './assets/i18n/home/', '.json')
 }
@@ -38,9 +39,7 @@ export function createTranslateLoader(http: HttpClient){
           isolate: false
       })
     ],
-    providers: [
-        GlobalinfoService, ScriptsService
-    ],
+    providers: [],
     exports: [
         SpinnerComponent
     ],

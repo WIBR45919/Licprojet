@@ -20,8 +20,11 @@ export class ProfilheaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.script.responsiveMenu();
   }
+
+  OpenBurger(burger: any, responsive: any): void{
+    this.script.responsiveMenu(burger, responsive);
+   }
 
   menuprofil(): void{
     $('#menuProfil').toggleClass('activeprofil');
