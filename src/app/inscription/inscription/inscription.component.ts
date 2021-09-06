@@ -119,7 +119,7 @@ export class InscriptionComponent implements OnInit {
          //FINISH && LOGIN
          this.formBuilder.group({
            username: new FormControl('',[Validators.required]),
-           password: new FormControl('',[Validators.required, Validators.minLength(4)])
+           password: new FormControl('',[Validators.required, Validators.minLength(8), Validators.pattern('\\w{8,}')])
          }),
        ]),
       }

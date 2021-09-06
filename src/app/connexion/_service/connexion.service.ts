@@ -17,7 +17,7 @@ export class ConnexionService {
 
   Login(user: loginModel): Observable<any>{
     this.user = user;
-    return this.http.post(this.global.getApiUrl() + 'inscrit', {observe: 'body'});
+    return this.http.post(this.global.getApiUrl() + 'auth', user, {observe: 'body'});
   }
 
   registerSuccessfulLogin(token: string) {

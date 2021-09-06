@@ -13,7 +13,7 @@ export class SpinnerInterceptorService implements HttpInterceptor{
   constructor(private spinnerService: SpinnerService, private authenticationService: ConnexionService) { }
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-    if (!this.authenticationService.isUserLoggedIn() && req.url.indexOf('inscrit/') === -1) {
+    if (!this.authenticationService.isUserLoggedIn() && req.url.indexOf('auth/') === -1) {
       const authReq = req.clone({
         headers: new HttpHeaders({
           'Content-Type': 'application/json',
@@ -24,8 +24,6 @@ export class SpinnerInterceptorService implements HttpInterceptor{
     } else {
       return next.handle(req);
     }
-    this.spinnerService.requestStarted();
-    return this.handler(next, req);
   }
 
   handler(next: HttpHandler, request: HttpRequest<any>){

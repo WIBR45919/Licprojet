@@ -7,6 +7,9 @@
                <h1 style="color: black;font-size:38px;margin:5px 0px;font-weight:bold">LOGIN</h1>
            </div>
            <div class="form">
+             <div [ngClass]="{'font-weight-bold text-dark text-center alert': true, 'alert-danger': msgerr, 'alert-warning': msgwar}" role="alert">
+               {{ message }}
+             </div>
               <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
 
                   <div class="mb-4">
@@ -33,7 +36,7 @@
 
                   <button type="submit" class="btn btn-success mb-4 w-100" [disabled]="loginForm.invalid" >{{ 'HOME.LOGIN.BTN'| translate }}</button>
                   <div class="mb-3 form-check w-100">
-                      <span style="">{{ 'HOME.LOGIN.LATER'| translate }}
+                      <span>{{ 'HOME.LOGIN.LATER'| translate }}
                           <a routerLink = "/inscription" style="margin-left: 1em;">{{ 'HOME.LINKS.LINK_3'| translate }}</a> | <a routerLink="/home">{{ 'HOME.LINKS.LINK_1'| translate }}</a>
                       </span>
                   </div>

@@ -15,6 +15,9 @@ export class ConnexionComponent implements OnInit {
 
   loginForm!: FormGroup;
   message!: string;
+  msgerr = false;
+  msgwar = false;
+  
 
   constructor(private script: ScriptsService,private login: ConnexionService, private build: FormBuilder,
               private router: Router, private global: GlobalinfoService) {
@@ -26,28 +29,32 @@ export class ConnexionComponent implements OnInit {
   }
 
   onLogin():void{
-    this.login.Login(this.restecturation()).subscribe((response: any) => {
+    console.table(this.restructuration());
+    this.login.Login(this.restructuration()).subscribe((response: any) => {
       console.log(response);
-      switch (response.status) {
-        case 200:
+      if (response.token) {
           this.global.setidUder(response.id);
-          this.login.registerSuccessfulLogin(response.token);
+          this.login.registerSuccessfulLogin('Bearer '+response.token);
           this.router.navigate(['/profil']);
-           break;
-        case 404 || 403 || 401:
-         this.message = "utilisateur inexistant";
-          break;
-        case 500:
-          this.message = "erreur du serveur veuillez-reéssayer";
-          break;
-        default:
       }
     }, error => {
       console.log(error);
+      switch (error.status) {
+        case 401:
+         this.message = "utilisateur inexistant";
+         this.msgwar = true;
+          break;
+        case 500:
+          this.message = "Erreur du serveur veuillez-reéssayer";
+          this.msgerr = true;
+          break;
+        default: this.message = "Veuillez réessayer SVP";
+        this.msgerr = true;
+      }
     });
   }
 
-  restecturation(): loginModel{
+  restructuration(): loginModel{
     return {
       username: this.loginForm.get('username')?.value,
       password: this.loginForm.get('password')?.value
