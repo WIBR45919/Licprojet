@@ -19,13 +19,15 @@ export class ProfilShellComponent implements OnInit {
   ngOnInit(): void {
     this.i18nserice.localEvent.subscribe((local: string) => {
       this.translate.use(local);
-      console.log(local)
     });
 
-    this.global.getUserByID().subscribe((etudiant: EtudiantModel) => {
+    this.global.getUserByID().subscribe((etudiant) => {
+      console.log(etudiant);
       if(etudiant !== null && etudiant !== undefined){
         this.Etudiant = etudiant;
       }
+    }, error => {
+      console.log(error);
     });
   }
 

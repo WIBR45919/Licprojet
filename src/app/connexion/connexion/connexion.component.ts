@@ -29,12 +29,12 @@ export class ConnexionComponent implements OnInit {
   }
 
   onLogin():void{
-    console.table(this.restructuration());
     this.login.Login(this.restructuration()).subscribe((response: any) => {
       console.log(response);
-      if (response.token) {
-          this.global.setidUder(response.id);
-          this.login.registerSuccessfulLogin('Bearer '+response.token);
+      if (response.status === "200") {
+          this.global.setidUder(response.idEtudiant);
+          this.login.decodeToken(response.jwtToken);
+          this.login.registerSuccessfulLogin('Bearer '+response.jwtToken);
           this.router.navigate(['/profil']);
       }
     }, error => {

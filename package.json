@@ -29,6 +29,7 @@
     "html2canvas": "^1.0.0-rc.7",
     "jquery": "^3.6.0",
     "jspdf": "^2.3.1",
+    "jwt-decode": "^3.1.2",
     "ngx-dropzone": "^3.0.0",
     "popper.js": "^1.16.1",
     "rxjs": "~6.6.0",

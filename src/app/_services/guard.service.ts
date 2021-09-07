@@ -13,7 +13,7 @@ export class GuardService implements CanActivate{
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree>
     | Promise<boolean | UrlTree> | boolean | UrlTree {
     if (this.auth.isUserLoggedIn()){
-      return  true;
+        return  true;
     }else{
       this.router.navigateByUrl('/connexion');
       return false;

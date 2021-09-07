@@ -1,7 +1,10 @@
-FROM node:14.17.4-alpine
+FROM node:latest as builder
 WORKDIR /app
-COPY package.json .
-RUN npm install
 COPY . .
-EXPOSE 4200 49153
-CMD npm run start
+RUN npm install && npm run build
+COPY . .
+FROM nginx:alpine
+WORKDIR /usr/share/nginx/html
+RUN rm -fr ./*
+COPY --from=builder /app/dist/licenceiut .
+ENTRYPOINT [ "nginx", "-g", "daemon off;" ]
