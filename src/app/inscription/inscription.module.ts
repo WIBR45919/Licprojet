@@ -22,6 +22,7 @@ import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/h
 import {SpinnerInterceptorService} from "../http-interceptor/spinner-interceptor.service";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader"
+import { WebcamModule } from 'ngx-webcam';
 
 export function createTranslateLoader(http: HttpClient){
   return new TranslateHttpLoader(http, './assets/i18n/', '.json')
@@ -38,7 +39,7 @@ export function createTranslateLoader(http: HttpClient){
     InscriptionRoutingModule,
     MatStepperModule, MatButtonModule, MatIconModule, MatFormFieldModule, MatInputModule, MatListModule,
     ReactiveFormsModule, FormsModule, MatDividerModule, MatSelectModule,
-    MatDatepickerModule, MatNativeDateModule, MatSnackBarModule, HttpClientModule,
+    MatDatepickerModule, MatNativeDateModule, MatSnackBarModule, HttpClientModule,WebcamModule,
     TranslateModule.forChild({
       loader: {
         provide: TranslateLoader,

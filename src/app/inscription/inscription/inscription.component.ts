@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {BreakpointObserver} from "@angular/cdk/layout";
-import {Observable} from "rxjs";
+import {Observable, Subject} from "rxjs";
 import {STEPPER_GLOBAL_OPTIONS, StepperOrientation} from "@angular/cdk/stepper";
 import {map} from "rxjs/operators";
-import {ScriptsService} from "../../_services/scripts.service";
 import {FormBuilder, FormArray, FormGroup, FormControl, Validators, AbstractControl} from "@angular/forms";
 import {DiplomeAutreModel} from "../../_models/diplomeAutre.model";
 import {MatSnackBar} from "@angular/material/snack-bar";
@@ -12,6 +11,8 @@ import {EtudiantModel} from "../../_models/etudiant.model";
 import {FiliereModel} from "../../_models/filiere.model";
 import {NiveauModel} from "../../_models/niveau.model";
 import {Router} from "@angular/router";
+import { WebcamImage, WebcamInitError, WebcamUtil } from 'ngx-webcam';
+import { ContentService } from 'src/app/pdf/content.service';
 declare var $:any
 
 @Component({
@@ -44,10 +45,32 @@ export class InscriptionComponent implements OnInit {
   niveau!: NiveauModel;
   isSame = false;
 
+  //variable de la webcam
+  // toggle webcam on/off
+  public showWebcam = true;
+  public allowCameraSwitch = true;
+  public multipleWebcamsAvailable = false;
+  public deviceId!: string;
+  mirror = '';
+  public videoOptions: MediaTrackConstraints = {
+    // width: {ideal: 1024},
+    // height: {ideal: 576}
+  };
+  public errors: WebcamInitError[] = [];
+
+  // latest snapshot
+  public webcamImage!: WebcamImage;
+
+  // webcam snapshot trigger
+  private trigger: Subject<void> = new Subject<void>();
+  // switch to next / previous / specific webcam; true/false: forward/backwards, string: deviceId
+  private nextWebcam: Subject<boolean|string> = new Subject<boolean|string>();
+
+
 
   constructor(private breakpoint: BreakpointObserver,
-               private formBuilder: FormBuilder, private snack: MatSnackBar, private infos: InfosService,
-              private router: Router) {
+               private formBuilder: FormBuilder,private snack: MatSnackBar, private infos: InfosService,
+              private router: Router, private cont: ContentService) {
     this.stepperOrientation = breakpoint.observe('(min-width: 1000px)').pipe(
       map(({matches}) => matches ? 'horizontal' : 'vertical')
     );
@@ -72,6 +95,15 @@ export class InscriptionComponent implements OnInit {
     this.diplome = this.infos.diplome;
     this.regions = this.infos.Pays[0].regions;
     this.pays = this.infos.Pays;
+
+    //webcam
+  }
+
+  useWebcam(): void{
+    WebcamUtil.getAvailableVideoInputs()
+    .then((mediaDevices: MediaDeviceInfo[]) => {
+      this.multipleWebcamsAvailable = mediaDevices && mediaDevices.length > 1;
+    });
   }
 
   initForm(): void {
@@ -89,7 +121,7 @@ export class InscriptionComponent implements OnInit {
            address: new FormControl('',[Validators.required]),
            tel: new FormControl('',[Validators.required, Validators.pattern('[0-9]{9}')]),
            numCNI: new FormControl('',[Validators.required, Validators.minLength(8)]),
-           email: new FormControl('xyz@gmail.com',[Validators.required, Validators.email,Validators.pattern('\\b[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}\\b')]),
+           email: new FormControl('xyz@gmail.com',[Validators.email,Validators.pattern('\\b[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}\\b')]),
            paysOrigine: new FormControl('République du Cameroun',[Validators.required]),
            regionOrigine: new FormControl('Littoral',[Validators.required]),
            langues: new FormControl(['Français'],[Validators.required]),
@@ -130,7 +162,10 @@ export class InscriptionComponent implements OnInit {
   onSubmit(): void{ //-------------------------terminer la souscription--------------------------------
    this.infos.Inscription(this.inscriptionModel()).subscribe(
      data => {
-       window.open('/pdf/' + this.inscriptionModel());
+       this.cont.setInfos(
+        this.inscriptionModel()
+      );
+       window.open('/pdf');
        this.router.navigate(['/connexion']);
      },
      error => {
@@ -246,6 +281,36 @@ export class InscriptionComponent implements OnInit {
       }
     };
   }
+
+  public triggerSnapshot(): void {
+    this.trigger.next();
+  }
+
+  public toggleWebcam(): void {
+    this.showWebcam = !this.showWebcam;
+  }
+
+  public handleInitError(error: WebcamInitError): void {
+    this.errors.push(error);
+  }
+
+  public handleImage(webcamImage: WebcamImage): void {
+    console.info('received webcam image', webcamImage);
+    this.webcamImage = webcamImage;
+  }
+
+  public cameraWasSwitched(deviceId: string): void {
+    this.deviceId = deviceId;
+  }
+
+  public get triggerObservable(): Observable<void> {
+    return this.trigger.asObservable();
+  }
+
+  public get nextWebcamObservable(): Observable<boolean|string> {
+    return this.nextWebcam.asObservable();
+  }
+
 }
 //Validators.pattern('([1-9]|1[0-2])/([1-9]|1[0-9]|2[0-9]|3[01])/(19|20)[0-9]{2}')
 //Validators.pattern('\\b[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}\\b')]),

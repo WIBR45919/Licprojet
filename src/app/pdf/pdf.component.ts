@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import  { jsPDF } from 'jspdf';
 import html2canvas from "html2canvas";
 import {ActivatedRoute, Router} from "@angular/router";
-import {EtudiantModel} from "../_models/etudiant.model";
+import { ContentService } from './content.service';
+declare var $: any;
 
 @Component({
   selector: 'app-pdf',
@@ -11,14 +12,18 @@ import {EtudiantModel} from "../_models/etudiant.model";
 })
 export class PdfComponent implements OnInit {
 
-  Etudiant!: EtudiantModel;
+  Etudiant!: any;
   anne = new Date().getUTCFullYear();
 
-  constructor(private router: Router, private activate: ActivatedRoute ) {
+  @ViewChild('box') box!: ElementRef;
+
+  constructor(private router: Router, private activate: ActivatedRoute, private content: ContentService) {
   }
 
   ngOnInit(): void {
-    this.Etudiant = this.activate.snapshot.params.objEtudiant;
+    console.log(this.content.getInfos())
+    this.Etudiant = this.content.getInfos();
+    $(this.box).css("background-image", "url(" + this.Etudiant.image+ ")")
   }
 
   downloadpdf(): void{

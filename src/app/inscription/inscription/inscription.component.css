@@ -186,6 +186,38 @@ mat-label{
   min-height: 50px;
   border-radius: 3px;
 }
+/* style de la webcam */
+.btn-capture{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+.actionBtn{
+  outline: none;
+  width: 150px;
+  height: 50px;
+  border: 1px solid whitesmoke;
+  font-family: 'Roboto';
+  border-radius: 5px;
+}
+.web{
+  display: flex;
+  justify-content: center;
+}
+.snapshot {
+  display: flex;
+  justify-content: center;
+}
+.snapshot img{
+  width: 300px;
+  height: 250px;
+}
+.actionBtn:first-child{
+  background-color: rgb(20, 209, 178);
+}
+.actionBtn:last-child{
+  background-color: rgb(42, 233, 90);
+}
 /* Gestion du responsive */
 @media screen and (max-width: 398px){
   .buttons button{
