@@ -9,7 +9,8 @@ import {AdmisComponent} from "./admis/admis.component";
 import { RefusedComponent } from './refused/refused.component';
 import { FilieresComponent } from './filieres/filieres.component';
 import { PeriodeComponent } from './periode/periode.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HttpClientModule, HTTP_INTERCEPTORS} from "@angular/common/http";
+import { SpinnerInterceptorService } from '../http-interceptor/spinner-interceptor.service';
 
 
 @NgModule({
@@ -26,5 +27,12 @@ import {HttpClientModule} from "@angular/common/http";
     DashboardRoutingModule,
     MatIconModule,HttpClientModule
   ],
+  providers:[
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: SpinnerInterceptorService,
+      multi: true
+    }
+  ]
 })
 export class DashboardModule { }

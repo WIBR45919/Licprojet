@@ -31,12 +31,12 @@
         </div>
       </div>
       <div class="info-2 w-75">
-        <h3>Détails Concours/Entrance Details: <span class="green">{{ Etudiant.cursus.nomCursus }}</span></h3>
+        <h3>Détails Concours/Entrance Details: <span class="green">{{ Etudiant.cursus !== null && Etudiant.cursus !== undefined ?  Etudiant.cursus.nomCursus : '/' }}</span></h3>
         <div class="field">
           <div><strong>Session :</strong>{{ anne }} / {{ (anne + 1) }}</div>
-          <div><strong>Concours du :</strong>{{ Etudiant.niveau.nomNiveau }}</div>
-          <div><strong>Diplôme d'éntrée :</strong>{{ Etudiant.diplomeAdmission.nomDiplome }}</div>
-          <div><strong>Choix Filière :</strong>{{ Etudiant.filiere.nomFiliere }}</div>
+          <div><strong>Concours du :</strong>{{ Etudiant.niveau !== null && Etudiant.niveau !== undefined ? Etudiant.niveau.nomNiveau: '/' }}</div>
+          <div><strong>Diplôme d'éntrée :</strong>{{ Etudiant.diplomeAdmission !== null && Etudiant.diplomeAdmission !== undefined? Etudiant.diplomeAdmission.nomDiplome:'/' }}</div>
+          <div><strong>Choix Filière :</strong>{{ Etudiant.filiere !== null && Etudiant.filiere !== undefined ? Etudiant.filiere.nomFiliere: '/' }}</div>
           <div><strong>Centre Examen :</strong>{{ Etudiant.centre }}</div>
           <div><strong>Langue Examen :</strong>{{ Etudiant.langue }}</div>
         </div>
@@ -50,12 +50,17 @@
             <div>Diplôme :</div>
             <div>Mention/Grade</div>
           </div>
+          <ng-template *ngIf="Etudiant.diplomeAutres.length !== 0 && Etudiant.diplomeAutres !== undefined|| Etudiant.diplomeAutres !== null;then error">
             <div class="one" *ngFor="let dip of Etudiant.diplomeAutres">
               <div>{{ dip.etablissement }}</div>
               <div>{{ dip.anneeObtention }}</div>
               <div>{{ dip.nomDiplome }}</div>
               <div>{{ dip.mention }}</div>
             </div>
+          </ng-template>
+          <ng-template #error>
+            <h1 class="text-black text-center display-2 p-1"> Aucun diplome</h1>
+          </ng-template>
         </div>
       </div>
       <div class="elmts w-75">

@@ -30,12 +30,11 @@ export class ConnexionComponent implements OnInit {
 
   onLogin():void{
     this.login.Login(this.restructuration()).subscribe((response: any) => {
-      console.log(response);
       if (response.status === "200") {
-          this.global.setidUder(response.idEtudiant);
           this.login.decodeToken(response.jwtToken);
-          this.login.registerSuccessfulLogin('Bearer '+response.jwtToken);
-          this.router.navigate(['/profil']);
+          this.login.registerSuccessfulLogin('Bearer '+response.jwtToken, response.idEtudiant);
+          if(response.role === 'ROLE_USER') this.router.navigate(['/profil']);
+          else this.router.navigate(['/admin']);
       }
     }, error => {
       console.log(error);

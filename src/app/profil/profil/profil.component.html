@@ -14,7 +14,7 @@
             <span>{{ 'HOME.PROFIL.FIELD.full' | translate }}</span>
           </div>
           <div class="value">
-            {{ Etudiant.prenom + Etudiant.prenom }}
+            {{ Etudiant.nom }} <span> </span> {{ Etudiant.nom }}
           </div>
         </div>
         <div class="content">
@@ -23,7 +23,7 @@
             <span>{{ 'HOME.PROFIL.FIELD.date' | translate }}</span>
           </div>
           <div class="value">
-           {{ Etudiant.dateNaissance }} à {{ Etudiant.lieu }}
+           {{ Etudiant.dateNaissance ?? '/' }} à {{ Etudiant.lieu ?? '/' }}
           </div>
         </div>
         <div class="content">
@@ -32,25 +32,25 @@
             <span>{{ 'HOME.PROFIL.FIELD.mail' | translate }}</span>
           </div>
           <div class="value">
-            {{ Etudiant.email }}
+            {{ Etudiant.email ?? '/' }}
           </div>
         </div>
         <div class="content">
           <div class="p-title">
             <mat-icon aria-hidden="false" aria-label="person icon">school</mat-icon>
-            <span>{{ 'HOME.PROFIL.REGISTER.PAGE_3.qualification' | translate }}</span>
+            <span>{{ 'HOME.REGISTER.PAGE_3.qualification' | translate }}</span>
           </div>
           <div class="value">
-          {{ Etudiant.diplomeAdmission.nomDiplome }}
+          {{  Etudiant.diplomeAdmission!== null && Etudiant.diplomeAdmission !== undefined  ? Etudiant.diplomeAdmission.nomDiplome :  '/' }}
           </div>
         </div>
         <div class="content">
           <div class="p-title">
             <mat-icon aria-hidden="false" aria-label="person icon">supervisor_account</mat-icon>
-            <span>{{ 'HOME.PROFIL.REGISTER.PAGE_2.phone' | translate }} - {{ 'HOME.PROFIL.REGISTER.PAGE_5.guardian' | translate }}</span>
+            <span>{{ 'HOME.REGISTER.PAGE_2.phone' | translate }} - {{ 'HOME.REGISTER.PAGE_5.guardian' | translate }}</span>
           </div>
           <div class="value">
-           {{ Etudiant.tuteur.nomTuteur }} - {{ Etudiant.tuteur.telephoneTuteur }}
+           {{ Etudiant.tuteur!== null && Etudiant.tuteur !== undefined ? Etudiant.tuteur.nomTuteur :'/' }} - {{ Etudiant.tuteur!== null && Etudiant.tuteur !== undefined ? Etudiant.tuteur.telephoneTuteur : '/' }}
           </div>
         </div>
       </div>
@@ -75,7 +75,7 @@
             <span>{{ 'HOME.PROFIL.FIELD.choise_cur' | translate }}</span>
           </div>
           <div class="value">
-           {{ Etudiant.cursus.nomCursus }}
+           {{  Etudiant.cursus !== null && Etudiant.cursus !== undefined ? Etudiant.cursus.nomCursus : '/'}}
           </div>
         </div>
         <div class="content">
@@ -84,25 +84,25 @@
             <span>{{ 'HOME.PROFIL.FIELD.fac' | translate }}</span>
           </div>
           <div class="value">
-           {{ Etudiant.filiere.nomFiliere }}
+           {{  Etudiant.filiere!== null && Etudiant.filiere !== undefined ? Etudiant.filiere.nomFiliere : '/' }}
           </div>
         </div>
         <div class="content">
           <div class="p-title">
             <mat-icon aria-hidden="false" aria-label="person icon">school</mat-icon>
-            <span>{{ 'HOME.PROFIL.REGISTER.PAGE_3.qualification' | translate }}</span>
+            <span>{{ 'HOME.REGISTER.PAGE_3.qualification' | translate }}</span>
           </div>
           <div class="value">
-            {{ Etudiant.diplomeAdmission.nomDiplome }}
+            {{ Etudiant.diplomeAdmission!== null && Etudiant.diplomeAdmission !== undefined ? Etudiant.diplomeAdmission.nomDiplome :  '/' }}
           </div>
         </div>
         <div class="content">
           <div class="p-title">
             <mat-icon aria-hidden="false" aria-label="person icon">try</mat-icon>
-            <span>{{ 'HOME.PROFIL.REGISTER.PAGE_3.round' | translate }}</span>
+            <span>{{ 'HOME.REGISTER.PAGE_3.round' | translate }}</span>
           </div>
           <div class="value">
-            {{ Etudiant.diplomeAdmission.serieDiplome }}
+            {{ Etudiant.diplomeAdmission!== null && Etudiant.diplomeAdmission !== undefined ? Etudiant.diplomeAdmission.serieDiplome : '/' }}
           </div>
         </div>
       </div>

@@ -25,12 +25,14 @@ export class ConnexionService {
     return this.http.post(this.global.getApiUrl() + 'auth', user, {observe: 'body'});
   }
 
-  registerSuccessfulLogin(token: string): void{
+  registerSuccessfulLogin(token: string, ID: string): void{
     localStorage.setItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME, token);
+    localStorage.setItem('ID', ID);
   }
 
   logout(): void{
-    localStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME);
+    localStorage.clear();
+    localStorage.removeItem('USER_INFOS');
     this.router.navigate(['/connexion']);
   }
 

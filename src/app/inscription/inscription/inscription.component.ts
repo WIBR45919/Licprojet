@@ -130,7 +130,7 @@ export class InscriptionComponent implements OnInit {
   onSubmit(): void{ //-------------------------terminer la souscription--------------------------------
    this.infos.Inscription(this.inscriptionModel()).subscribe(
      data => {
-       window.open('/pdf');
+       window.open('/pdf/' + this.inscriptionModel());
        this.router.navigate(['/connexion']);
      },
      error => {

@@ -12,18 +12,18 @@ export class SpinnerInterceptorService implements HttpInterceptor{
 
   constructor(private spinnerService: SpinnerService, private authenticationService: ConnexionService) { }
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-   
+
     if (req.url.indexOf('auth') === -1 && this.authenticationService.isUserLoggedIn()) {
+      
       const authReq = req.clone({
         headers: new HttpHeaders({
           'Content-Type': 'application/json',
           Authorization: this.authenticationService.getLoggedInUserName()
         })
       });
-      console.log(authReq);
+  
       return next.handle(authReq)
     } else {
-      console.log(req);
       return next.handle(req);
     }
   }

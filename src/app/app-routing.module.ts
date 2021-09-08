@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import {NotfoundComponent} from './notfound/notfound.component';
 import {PdfComponent} from "./pdf/pdf.component";
+import { ProfilresolveService } from './profil/__service/profilresolve.service';
 import {GuardService} from "./_services/guard.service";
 import { GuardchildService } from './_services/guardchild.service';
 import {PreloadService} from "./_services/preload.service";
@@ -28,9 +29,13 @@ const routes: Routes = [
     } },
 
   { path: 'profil', loadChildren: () => import('./profil/profil.module').then(p => p.ProfilModule),
-    canActivate: [GuardService], canActivateChild: [GuardchildService]},
+    canActivate: [GuardService], canActivateChild: [GuardchildService],
+    resolve: {
+      Etudiant: ProfilresolveService
+    }
+  },
 
-  { path: 'pdf', component: PdfComponent, canActivate: [GuardService] },
+  { path: 'pdf/:objEtudiant', component: PdfComponent, canActivate: [GuardService] },
 
   { path: 'admin', loadChildren: ()=>import('./private/dashboard.module').then(admin => admin.DashboardModule),
     /*, canActivate: [GuardService], canActivateChild: [GuardchildService] */},

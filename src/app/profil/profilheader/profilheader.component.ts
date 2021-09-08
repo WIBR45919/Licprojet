@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {ScriptsService} from "../../_services/scripts.service";
 import {ConnexionService} from "../../connexion/_service/connexion.service";
 import {Router} from "@angular/router";
+import { EtudiantModel } from 'src/app/_models/etudiant.model';
 
 declare var $:any
 
@@ -12,14 +13,17 @@ declare var $:any
 })
 export class ProfilheaderComponent implements OnInit {
 
-  @Input() fullname!: string;
-  @Input() email!: string;
-  @Input() id!: number;
+  fullname!: string;
+  email!: string;
+  Etudiant!: EtudiantModel;
 
   constructor(private script: ScriptsService, private con: ConnexionService, private  router: Router) {
   }
 
   ngOnInit(): void {
+    this.Etudiant = JSON.parse(localStorage['USER_INFOS']).Etudiant; 
+    this.fullname = this.Etudiant.nom + ' ' + this.Etudiant.prenom
+    this.email = this.Etudiant.email
   }
 
   OpenBurger(burger: any, responsive: any): void{

@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
 import {EtudiantModel} from "../../_models/etudiant.model";
 import {GlobalinfoService} from "../../_services/globalinfo.service";
 declare var $: any;
@@ -19,11 +18,7 @@ export class ProfilComponent implements OnInit {
 
   ngOnInit(): void {
     this.state();
-    this.global.getUserByID().subscribe((etu: EtudiantModel) => {
-      if(etu !== null && etu !== undefined){
-        this.Etudiant = etu;
-      }
-    });
+    this.Etudiant = JSON.parse(localStorage['USER_INFOS']).Etudiant;
   }
 
   state():void{

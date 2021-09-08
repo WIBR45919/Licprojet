@@ -7,11 +7,12 @@ import { HomeComponent } from './home/home.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import {GlobalinfoService} from "./_services/globalinfo.service";
 import {ScriptsService} from "./_services/scripts.service";
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {HttpClient, HttpClientModule, HTTP_INTERCEPTORS} from "@angular/common/http";
 import { SpinnerComponent } from './spinner/spinner.component';
 import {PdfComponent} from "./pdf/pdf.component";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+import { SpinnerInterceptorService } from './http-interceptor/spinner-interceptor.service';
 
 export function createTranslateLoader(http: HttpClient){
   return new TranslateHttpLoader(http, './assets/i18n/home/', '.json')
@@ -39,7 +40,13 @@ export function createTranslateLoader(http: HttpClient){
           isolate: false
       })
     ],
-    providers: [],
+    providers: [
+      {
+        provide: HTTP_INTERCEPTORS,
+        useClass: SpinnerInterceptorService,
+        multi: true
+      }
+    ],
     exports: [
         SpinnerComponent
     ],

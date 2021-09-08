@@ -14,12 +14,12 @@
             </div>
             <div class="menuprofil" id="menuProfil">
               <h3>{{ fullname }}<b>
-                <span><a class="mail" href="mailto:waffeu120920012gmail.com">{{ email }}</a></span>
+                <span><a class="mail" href="mailto:{{ email }}">{{ email }}</a></span>
               </b></h3>
               <ul class="s-menu-profil">
-                <li><span></span><a routerLink="import" routerLinkActive='here'>{{ 'HOME.LINKS.LINK_4' | translate }}</a></li>
-                <li><a routerLink="/profil" routerLinkActive='here'>{{ 'HOME.LINKS.LINK_4' | translate }}</a></li>
-                <li><a routerLinkActive="here" (click)="logout()">{{ 'HOME.LINKS.LINK_4' | translate }}</a></li>
+                <li><span></span><a routerLink="import" routerLinkActive='here'>{{ 'HOME.LINKS.PI' | translate }}</a></li>
+                <li><a routerLink="/profil" routerLinkActive='here'>{{ 'HOME.LINKS.VP' | translate }}</a></li>
+                <li><a routerLinkActive="here" (click)="logout()">{{ 'HOME.LINKS.OUT' | translate }}</a></li>
               </ul>
             </div>
           </li>
@@ -35,10 +35,10 @@
         <div class="navigue">
           <ul>
             <div class="imgprofil" (click)="menuprofil()">{{ fullname.charAt(0) }}</div>
-            <li><a routerLink="/inscription/help" routerlinkactive="here">{{ 'HOME.LINKS.LINK_4' | translate }}</a></li>
-            <li><a routerLink="import" routerlinkactive="here">{{ 'HOME.LINKS.PI' | translate }}</a></li>
-            <li><a routerLink="/profil" routerlinkactive="here">{{ 'HOME.LINKS.VP' | translate }}</a></li>
-            <li><a (click)="logout()" routerlinkactive="here">{{ 'HOME.LINKS.OUT' | translate }}</a></li>
+            <li><a routerLink="/inscription/help" routerlinkActive="here">{{ 'HOME.LINKS.LINK_4' | translate }}</a></li>
+            <li><a routerLink="import" routerlinkActive="here">{{ 'HOME.LINKS.PI' | translate }}</a></li>
+            <li><a routerLink="/profil" routerlinkActive="here">{{ 'HOME.LINKS.VP' | translate }}</a></li>
+            <li><a (click)="logout()" routerlinkActive="here">{{ 'HOME.LINKS.OUT' | translate }}</a></li>
           </ul>
         </div>
       </div>
