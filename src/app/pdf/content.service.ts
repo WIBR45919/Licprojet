@@ -1,19 +1,22 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContentService {
 
-  PdfElt!: any; 
+  infos!: Subject<any>;
+  PdfElt =  new Array<any>(); 
+
   constructor() { }
 
-  setInfos(elt: any){
-    this.PdfElt = elt;
-    console.log(this.PdfElt);
+  setInfos(elt: any): void{
+    this.PdfElt.push(elt);
+    this.emitInfos();
   }
 
-  getInfos(): any{
-    return this.PdfElt;
+  emitInfos(): void{
+    this.infos.next(this.PdfElt.slice());
   }
 }

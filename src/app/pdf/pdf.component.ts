@@ -1,8 +1,8 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, OnDestroy, OnInit } from '@angular/core';
 import  { jsPDF } from 'jspdf';
 import html2canvas from "html2canvas";
-import {ActivatedRoute, Router} from "@angular/router";
-import { ContentService } from './content.service';
+import { Router} from "@angular/router";
+import { Subscription } from 'rxjs';
 declare var $: any;
 
 @Component({
@@ -10,20 +10,20 @@ declare var $: any;
   templateUrl: './pdf.component.html',
   styleUrls: ['./pdf.component.css']
 })
-export class PdfComponent implements OnInit {
+export class PdfComponent implements OnInit, OnDestroy {
 
   Etudiant!: any;
+  Image!: any;
   anne = new Date().getUTCFullYear();
+  subscription!: Subscription;
 
-  @ViewChild('box') box!: ElementRef;
-
-  constructor(private router: Router, private activate: ActivatedRoute, private content: ContentService) {
+  constructor(private router: Router) {
   }
 
   ngOnInit(): void {
-    console.log(this.content.getInfos())
-    this.Etudiant = this.content.getInfos();
-    $(this.box).css("background-image", "url(" + this.Etudiant.image+ ")")
+    this.Etudiant = JSON.parse(sessionStorage['USER_FORM']).infos;
+    this.Image = JSON.parse(sessionStorage['USER_FORM']).image;
+    $('#box').css("background-image", "url(" + this.Image+ ")")
   }
 
   downloadpdf(): void{
@@ -43,4 +43,9 @@ export class PdfComponent implements OnInit {
       });
     }
   }
+
+  ngOnDestroy(): void {
+    sessionStorage.clear();
+  }
+
 }

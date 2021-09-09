@@ -3,13 +3,14 @@ import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {EtudiantModel} from "../_models/etudiant.model";
 import { retry } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GlobalinfoService {
 
- private url = 'http://192.168.137.82:8080/';
+ private url = environment.URL_IUT_CONCOURS;
  private idUser!: number;
 
   constructor(private  http: HttpClient) { }

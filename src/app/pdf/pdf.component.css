@@ -64,9 +64,8 @@ ul li i{
 }
 .one div{
   width: 25%;
-  border: 1px solid gray;
   text-align: center;
-  margin: 10px 0;
+  margin: 5px 0;
 }
 .head{
   display: flex;

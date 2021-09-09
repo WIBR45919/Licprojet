@@ -4,7 +4,7 @@
       <img src="../../assets/images/headeriut.png">
     </div>
     <div class="head">
-      <div class="box" #box style="width: 20%;">
+      <div class="box" id="box" style="width: 20%;">
         
       </div>
       <div class="box w-50">
@@ -50,7 +50,8 @@
             <div>Diplôme :</div>
             <div>Mention/Grade</div>
           </div>
-          <ng-template *ngIf="Etudiant.diplomeAutres.length !== 0 && Etudiant.diplomeAutres !== undefined|| Etudiant.diplomeAutres !== null;then error">
+          <ng-template *ngIf="Etudiant.diplomeAutres.length !== 0 && Etudiant.diplomeAutres !== undefined && Etudiant.diplomeAutres !== null;then here;else error"></ng-template>
+          <ng-template #here>
             <div class="one" *ngFor="let dip of Etudiant.diplomeAutres">
               <div>{{ dip.etablissement }}</div>
               <div>{{ dip.anneeObtention }}</div>

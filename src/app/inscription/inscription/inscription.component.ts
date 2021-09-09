@@ -12,7 +12,6 @@ import {FiliereModel} from "../../_models/filiere.model";
 import {NiveauModel} from "../../_models/niveau.model";
 import {Router} from "@angular/router";
 import { WebcamImage, WebcamInitError, WebcamUtil } from 'ngx-webcam';
-import { ContentService } from 'src/app/pdf/content.service';
 declare var $:any
 
 @Component({
@@ -70,7 +69,7 @@ export class InscriptionComponent implements OnInit {
 
   constructor(private breakpoint: BreakpointObserver,
                private formBuilder: FormBuilder,private snack: MatSnackBar, private infos: InfosService,
-              private router: Router, private cont: ContentService) {
+              private router: Router) {
     this.stepperOrientation = breakpoint.observe('(min-width: 1000px)').pipe(
       map(({matches}) => matches ? 'horizontal' : 'vertical')
     );
@@ -162,9 +161,11 @@ export class InscriptionComponent implements OnInit {
   onSubmit(): void{ //-------------------------terminer la souscription--------------------------------
    this.infos.Inscription(this.inscriptionModel()).subscribe(
      data => {
-       this.cont.setInfos(
-        this.inscriptionModel()
-      );
+      sessionStorage.setItem('USER_FORM',JSON.stringify({
+        infos: this.inscriptionModel(),
+        image: this.webcamImage.imageAsDataUrl
+       }));
+      
        window.open('/pdf');
        this.router.navigate(['/connexion']);
      },
