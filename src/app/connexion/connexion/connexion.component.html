@@ -29,7 +29,7 @@
                       </span>
                     </div>
                     <!--    gestion en cas d'erreur    -->
-                    <div id="passworHelp"*ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="form-text error">Veullez remplr votre password</div>
+                    <div id="passworHelp"*ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="form-text error">Veuillez remplir votre password</div>
                     <!--     end         -->
 
                   </div>
@@ -57,24 +57,33 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body" style="border: none;">
-          <form>
+          <div [ngClass]="{'font-weight-bold text-dark text-center alert': true, 'alert-danger': msgerrR, 'alert-warning': msgwarR}" role="alert">
+            {{ messageR }}
+          </div>
+          <form [formGroup]="forget" (ngSubmit)="onResetPassword()">
             <div class="mb-3">
-              <input type="text" class="form-control" id="recipient-number" placeholder="N° de préinscription" required>
+              <input type="text" class="form-control" formControlName = "name" placeholder="Nom" required>
+              <div id="passworHelp" *ngIf="forget.get('name')?.invalid && forget.get('name')?.touched" class="form-text error">Veuillez remplir votre nom</div>
             </div>
             <div class="mb-3">
-                <input type="text" class="form-control" id="recipient-name" placeholder="Nom et Prénom" required>
+                <input type="text" class="form-control" formControlName = "lastname" placeholder="Prénom" required>
+                <div id="passworHelp" *ngIf="forget.get('lastname')?.invalid && forget.get('lastname')?.touched" class="form-text error">Veulilez remplir votre prénom</div>
             </div>
             <div class="mb-3">
-                <input type="date" class="form-control" id="recipient-date" placeholder="Date de naissance" required>
+                <input type="date" class="form-control" formControlName = "birth" placeholder="Date de naissance" required>
+                <div id="passworHelp" *ngIf="forget.get('birth')?.invalid && forget.get('birth')?.touched" class="form-text error">Veuillez remplir votre date de naissancediv</div>
             </div>
             <div class="mb-3">
-                <input type="text" class="form-control" id="recipient-lieu" placeholder="Lieu de naissance" required>
+                <input type="text" class="form-control" formControlName = "place" placeholder="Lieu de naissance" required>
+                <div id="passworHelp" *ngIf="forget.get('place')?.invalid && forget.get('place')?.touched" class="form-text error">Veuillez remplir votre lieu de Naissancev</div>
             </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-success w-100">Envoyer</button>
-        </div>
+            <div class="mb-3">
+                <input type="password" class="form-control" formControlName = "newpassword" placeholder="Nouveau mot de passe" required>
+                <div id="passworHelp" *ngIf="forget.get('newpassword')?.invalid && forget.get('newpassword')?.touched" class="form-text error">Veuillez remplir votre password</div>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" [disabled]="forget.invalid" class="btn btn-success w-100">Envoyer</button>
+            </div>
     </form>
-      </div>
-    </div>
-    </div>
+  </div>
 </div>

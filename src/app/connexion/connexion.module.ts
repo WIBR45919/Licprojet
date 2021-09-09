@@ -9,6 +9,7 @@ import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/h
 import {SpinnerInterceptorService} from "../http-interceptor/spinner-interceptor.service";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 export function createTranslateLoader(http: HttpClient){
   return new TranslateHttpLoader(http, './assets/i18n/', '.json')
@@ -20,7 +21,7 @@ export function createTranslateLoader(http: HttpClient){
       ConnexionShellComponent
   ],
   imports: [
-    CommonModule,
+    CommonModule, SweetAlert2Module.forChild(),
     ConnexionRoutingModule,HttpClientModule,
     ReactiveFormsModule, FormsModule, TranslateModule.forChild({
       loader: {

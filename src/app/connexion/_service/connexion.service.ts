@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { delay } from 'rxjs/operators';
 import jwtDecode from 'jwt-decode';
 import { jWTModel } from 'src/app/_models/jwt.model';
+import { ResetModel } from 'src/app/_models/reset.model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,7 @@ export class ConnexionService {
 
   USER_NAME_SESSION_ATTRIBUTE_NAME = 'USERAUTH';
   user!: loginModel;
+  userReset!: ResetModel;
   jwt!: jWTModel;
 
   constructor(private http: HttpClient, private global: GlobalinfoService,
@@ -25,6 +27,10 @@ export class ConnexionService {
     return this.http.post(this.global.getApiUrl() + 'auth', user, {observe: 'body'});
   }
 
+  resetPassword(userreset: ResetModel): Observable<any>{
+    this.userReset = userreset;
+    return this.http.post(this.global.getApiUrl() + 'changePasswordInscrit', userreset, {observe: 'body'});
+  }
   registerSuccessfulLogin(token: string, ID: string): void{
     localStorage.setItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME, token);
     localStorage.setItem('ID', ID);
