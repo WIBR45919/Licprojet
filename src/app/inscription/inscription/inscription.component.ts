@@ -12,15 +12,22 @@ import {FiliereModel} from "../../_models/filiere.model";
 import {NiveauModel} from "../../_models/niveau.model";
 import {Router} from "@angular/router";
 import { WebcamImage, WebcamInitError, WebcamUtil } from 'ngx-webcam';
+import { MatDatepickerInputEvent } from '@angular/material/datepicker';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 declare var $:any
 
 @Component({
   selector: 'app-inscription',
   templateUrl: './inscription.component.html',
   styleUrls: ['./inscription.component.css'],
-  providers: [{
-    provide: STEPPER_GLOBAL_OPTIONS, useValue:{ displayDefaultIndicatorType: false }
-  }]
+  providers: [
+    { provide: STEPPER_GLOBAL_OPTIONS,
+       useValue:{
+          displayDefaultIndicatorType: false
+        }
+    },
+  { provide: MAT_DATE_LOCALE, useValue: 'fr-FR'},  
+  ]
 })
 export class InscriptionComponent implements OnInit {
 
@@ -35,6 +42,10 @@ export class InscriptionComponent implements OnInit {
   tab!:any;
   regions!: any;
   pays!: any;
+  //Date max et date Min
+  minDate = new Date(1990, 1, 1)
+  maxDate = new Date(2010,1,1)
+  date!: string;
 
   //creation du gestionnaire de formulaire reactif
   formEtudiant!: FormGroup;
@@ -150,7 +161,7 @@ export class InscriptionComponent implements OnInit {
          //FINISH && LOGIN
          this.formBuilder.group({
            username: new FormControl('',[Validators.required]),
-           password: new FormControl('',[Validators.required, Validators.minLength(8), Validators.pattern('\\w{8,}')])
+           password: new FormControl('',[Validators.required, Validators.minLength(6), Validators.pattern('\\w{6,}')])
          }),
        ]),
       }
@@ -230,8 +241,14 @@ export class InscriptionComponent implements OnInit {
   }
 // Pour afficher les informations en as de besoin
   affiche(): void{
-    console.log(this.informations.get([0])?.get('langues')?.value);
+    console.log(this.informations.get([0])?.get('date')?.value);
   }
+  addEvent (event : MatDatepickerInputEvent<Date>) {
+  let day = event.value?.getDate() //jour
+  let year = event.value?.getFullYear() //année
+  let month = event.value?.getMonth() + '';
+  this.date = day +'/' + (parseInt(month, 10) +1) + '/'+year
+ }
   //  restructuration du formulaire au format demande
   inscriptionModel(): EtudiantModel{
     const langue = this.informations.get([0])?.get('langues')?.value;
@@ -242,7 +259,7 @@ export class InscriptionComponent implements OnInit {
       situationFamilial: this.informations.get([0])?.get('situation')?.value,
       adresse: this.informations.get([0])?.get('adresse')?.value,
       centre: this.informations.get([1])?.get('Choixcentre')?.value,
-      dateNaissance: this.informations.get([0])?.get('date')?.value,
+      dateNaissance: this.date,
       lieu: this.informations.get([0])?.get('lieuNaiss')?.value,
       numCNI: this.informations.get([0])?.get('numCNI')?.value,
       email: this.informations.get([0])?.get('email')?.value,

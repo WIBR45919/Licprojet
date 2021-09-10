@@ -60,7 +60,7 @@ export class ConnexionComponent implements OnInit {
       }
     });
   }
-
+// ajout de sweetAlert
   onResetPassword(): void{
     Swal.fire({
       title: 'Are you sure?',
@@ -73,7 +73,8 @@ export class ConnexionComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         this.login.resetPassword(this.restructurationReset()).subscribe((response: any) => {
-          if (response.status === "OK") {
+          console.log(response)
+          if (response === "OK") {
             Swal.fire(
               'Reseted!',
               'Your password has been reseted.',
@@ -83,7 +84,7 @@ export class ConnexionComponent implements OnInit {
           }
         }, error => {
           Swal.fire(
-            'not Reset!',
+            'not Reseted!',
             'Your password has not been reseted.',
             'error'
           )
@@ -124,7 +125,7 @@ export class ConnexionComponent implements OnInit {
   initForm(): void{
     this.loginForm = this.build.group({
         username: new FormControl('',[Validators.required, Validators.minLength(4)]),
-        password: new FormControl('',[Validators.required, Validators.minLength(8), Validators.pattern('\\w{8,}')])
+        password: new FormControl('',[Validators.required, Validators.minLength(6), Validators.pattern('\\w{6,}')])
     })
   }
   initFormgotPassword(): void{

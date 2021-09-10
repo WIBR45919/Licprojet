@@ -38,7 +38,7 @@ export class PdfComponent implements OnInit, OnDestroy {
          // var imgHeight = canvas.height * 200 / canvas.width;
          console.log(canvas.width);
          console.log(canvas.height);
-         doc.addImage(imgData,'PNG',0,0,210, 240);
+         doc.addImage(imgData,'PNG',0,0,190, 210);
          doc.save('fiche-inscription.pdf');
       });
     }

@@ -15,7 +15,7 @@ import {HelpComponent} from "./help/help.component";
 import {MatDividerModule} from "@angular/material/divider";
 import {MatSelectModule} from "@angular/material/select";
 import {MatDatepickerModule} from "@angular/material/datepicker";
-import {MatNativeDateModule} from "@angular/material/core";
+import { MatNativeDateModule} from "@angular/material/core";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {InfosService} from "./__services/infos.service";
 import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/http";

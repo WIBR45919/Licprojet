@@ -21,7 +21,7 @@ export function createTranslateLoader(http: HttpClient){
       ConnexionShellComponent
   ],
   imports: [
-    CommonModule, SweetAlert2Module.forChild(),
+    CommonModule,
     ConnexionRoutingModule,HttpClientModule,
     ReactiveFormsModule, FormsModule, TranslateModule.forChild({
       loader: {

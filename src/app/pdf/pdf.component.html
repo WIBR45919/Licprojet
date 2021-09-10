@@ -18,36 +18,44 @@
       <div class="info-1 w-75">
         <h3>Informations Personnelles/Personnal Informations</h3>
         <div class="field">
-          <div><strong>Nom: </strong>{{ Etudiant.nom }}</div>
-          <div><strong>Prénom: </strong>{{ Etudiant.prenom }}</div>
-          <div><strong>Date Naissance: </strong>{{ Etudiant.dateNaissance }}</div>
-          <div><strong>Lieu naissance: </strong>{{ Etudiant.lieu }}</div>
-          <div><strong>Sexe: </strong>{{ Etudiant.sexe }}</div>
-          <div><strong>Nationalité: </strong>{{ Etudiant.paysOrigine }}</div>
-          <div><strong>Région d'origine: </strong>{{ Etudiant.regionOrigine }}</div>
-          <div><strong>N°CNI: </strong>{{ Etudiant.numCNI }}</div>
-          <div><strong>Adresse: </strong>{{ Etudiant.adresse }}</div>
-          <div><strong>Numéro de Tel: </strong>{{ Etudiant.telephone }}</div>
+          <div class="_first w-50">
+            <div><strong>Nom: </strong>{{ Etudiant.nom }}</div>
+            <div><strong>Prénom: </strong>{{ Etudiant.prenom }}</div>
+            <div><strong>Date Naissance: </strong>{{ Etudiant.dateNaissance }}</div>
+            <div><strong>Lieu naissance: </strong>{{ Etudiant.lieu }}</div>
+            <div><strong>Sexe: </strong>{{ Etudiant.sexe }}</div>
+          </div>
+          <div class="_second w-50">
+            <div><strong>Nationalité: </strong>{{ Etudiant.paysOrigine }}</div>
+            <div><strong>Région d'origine: </strong>{{ Etudiant.regionOrigine }}</div>
+            <div><strong>N°CNI: </strong>{{ Etudiant.numCNI }}</div>
+            <div><strong>Adresse: </strong>{{ Etudiant.adresse }}</div>
+            <div><strong>Numéro de Tel: </strong>{{ Etudiant.telephone }}</div>
+          </div>
         </div>
       </div>
       <div class="info-2 w-75">
-        <h3>Détails Concours/Entrance Details: <span class="green">{{ Etudiant.cursus !== null && Etudiant.cursus !== undefined ?  Etudiant.cursus.nomCursus : '/' }}</span></h3>
+        <h3>Détails Concours/Entrance Details <span class="green">{{ Etudiant.cursus !== null && Etudiant.cursus !== undefined ?  Etudiant.cursus.nomCursus : '/' }}</span></h3>
         <div class="field">
-          <div><strong>Session :</strong>{{ anne }} / {{ (anne + 1) }}</div>
-          <div><strong>Concours du :</strong>{{ Etudiant.niveau !== null && Etudiant.niveau !== undefined ? Etudiant.niveau.nomNiveau: '/' }}</div>
-          <div><strong>Diplôme d'éntrée :</strong>{{ Etudiant.diplomeAdmission !== null && Etudiant.diplomeAdmission !== undefined? Etudiant.diplomeAdmission.nomDiplome:'/' }}</div>
-          <div><strong>Choix Filière :</strong>{{ Etudiant.filiere !== null && Etudiant.filiere !== undefined ? Etudiant.filiere.nomFiliere: '/' }}</div>
-          <div><strong>Centre Examen :</strong>{{ Etudiant.centre }}</div>
-          <div><strong>Langue Examen :</strong>{{ Etudiant.langue }}</div>
+          <div class="_first w-50">
+            <div><strong>Session :</strong>{{ anne }} / {{ (anne + 1) }}</div>
+            <div><strong>Concours du :</strong>{{ Etudiant.niveau !== null && Etudiant.niveau !== undefined ? Etudiant.niveau.nomNiveau: '/' }}</div>
+            <div><strong>Diplôme d'éntrée :</strong>{{ Etudiant.diplomeAdmission !== null && Etudiant.diplomeAdmission !== undefined? Etudiant.diplomeAdmission.nomDiplome:'/' }}</div>
+          </div>
+          <div class="_second w-50">
+            <div><strong>Choix Filière :</strong>{{ Etudiant.filiere !== null && Etudiant.filiere !== undefined ? Etudiant.filiere.nomFiliere: '/' }}</div>
+            <div><strong>Centre Examen :</strong>{{ Etudiant.centre }}</div>
+            <div><strong>Langue Examen :</strong>{{ Etudiant.langue }}</div>
+          </div>
         </div>
       </div>
       <div class="info-3 w-75">
-        <h3><span class="green">Cursus Académique/Academic curriculum : </span></h3>
+        <h3><span class="green">Cursus Académique/Academic curriculum </span></h3>
         <div class="lic-table">
           <div class="title">
-            <div>Ecole/School :</div>
-            <div>Année/Year :</div>
-            <div>Diplôme :</div>
+            <div>Ecole/School</div>
+            <div>Année/Year</div>
+            <div>Diplôme/Diploma</div>
             <div>Mention/Grade</div>
           </div>
           <ng-template *ngIf="Etudiant.diplomeAutres.length !== 0 && Etudiant.diplomeAutres !== undefined && Etudiant.diplomeAutres !== null;then here;else error"></ng-template>

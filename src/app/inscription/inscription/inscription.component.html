@@ -48,9 +48,9 @@
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                   <mat-label>{{ 'HOME.REGISTER.PAGE_2.date'| translate }}(mm/dd/yyyy)</mat-label>
-                  <input matInput  formControlName="date" [matDatepicker]="picker2" required>
+                  <input matInput  formControlName="date" (dateInput)="addEvent($event)" [matDatepicker]="picker2" [min]="minDate" [max]="maxDate" required>
                   <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-                  <mat-datepicker #picker2 color="primary"></mat-datepicker>
+                  <mat-datepicker #picker2 touchUi disabled="false" color="primary"></mat-datepicker>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                   <mat-icon matSuffix>place</mat-icon>
