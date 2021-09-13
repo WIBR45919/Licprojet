@@ -6,11 +6,12 @@ import {AdmisComponent} from "./admis/admis.component";
 import {FilieresComponent} from "./filieres/filieres.component";
 import {PeriodeComponent} from "./periode/periode.component";
 import {RefusedComponent} from "./refused/refused.component";
+import { GuardService } from '../_services/guard.service';
 
 //todo: enlever les commentaires sur la securisation de la route de DashboardComponent
 const routes: Routes = [
   {
-    path: '', component: DashboardShellComponent/*, canActivate: [GuardService]*/,
+    path: '', component: DashboardShellComponent, canActivate: [GuardService],
     children: [
       { path: '', component: DashboardComponent },
       { path: 'admin', component: DashboardComponent },

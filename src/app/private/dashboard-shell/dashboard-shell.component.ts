@@ -1,4 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
+import { Subscription } from 'rxjs';
+import { UserInService } from '../_service-admin/user-in.service';
 
 @Component({
   selector: 'app-dashboard-shell',
@@ -18,9 +20,10 @@ export class DashboardShellComponent implements OnInit {
   @Input() Admit!: any[];
   @Input() Refused!: any[];
 
-  constructor() { }
+  constructor(private user: UserInService) { }
 
   ngOnInit(): void {
+
     this.Men = 54;
     this.Women = 254;
     this.All = 368;

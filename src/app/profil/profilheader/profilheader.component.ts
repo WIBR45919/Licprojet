@@ -1,7 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ScriptsService} from "../../_services/scripts.service";
 import {ConnexionService} from "../../connexion/_service/connexion.service";
-import {Router} from "@angular/router";
 import { EtudiantModel } from 'src/app/_models/etudiant.model';
 
 declare var $:any
@@ -17,7 +16,7 @@ export class ProfilheaderComponent implements OnInit {
   email!: string;
   Etudiant!: EtudiantModel;
 
-  constructor(private script: ScriptsService, private con: ConnexionService, private  router: Router) {
+  constructor(private script: ScriptsService, private con: ConnexionService) {
   }
 
   ngOnInit(): void {
@@ -36,6 +35,5 @@ export class ProfilheaderComponent implements OnInit {
 
   logout(): void{
     this.con.logout();
-    this.router.navigate(['/connexion']);
   }
 }

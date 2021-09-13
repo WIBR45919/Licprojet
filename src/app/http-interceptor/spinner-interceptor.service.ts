@@ -21,7 +21,7 @@ export class SpinnerInterceptorService implements HttpInterceptor{
           Authorization: this.authenticationService.getLoggedInUserName()
         })
       });
-  
+      console.log(authReq)
       return next.handle(authReq)
     } else {
       return next.handle(req);

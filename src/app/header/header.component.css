@@ -141,6 +141,89 @@ ul{
 .responsive-menu.active span:last-child{
   transform: translateY(0px) rotate(45deg);
 }
+.imgprofil{
+  background-color: #50de50;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  cursor:pointer;
+}
+
+.menuprofil h3{
+  text-align: center;
+  font-weight: bold;
+  font-size: 22px;
+  word-spacing: 4px;
+  font-family:Poppins;
+}
+/* partie profil de l'utilisateur */
+.menuprofil{
+  position: absolute;
+  background-color: #454545;
+  right: 10px;
+  top: 100px;
+  width: 200px;
+  border-radius: 10px;
+  padding: 25px 10px;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.6s;
+}
+/*--apres clic*/
+.menuprofil.activeprofil{
+  visibility: visible;
+  opacity: 1;
+  top: 85%;
+}
+/*---- arrow of user */
+.menuprofil::before{
+  position: absolute;
+  content: '';
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid #454545;
+  border-right: 10px solid transparent;
+  border-left: 10px solid transparent;
+  right: 25%;
+  top: -6%;
+}
+.menuprofil b{
+  display: block;
+}
+.menuprofil .mail{
+  font-weight: normal;
+  text-transform: lowercase!important;
+  font-size: 13px;
+  opacity: 0.5;
+  transition: .5s;
+  padding: 4px;
+  border: 1px solid #2a2828;
+  border-radius: 25px;
+}
+.menuprofil .mail:hover{
+  border-color: white;
+  color: white!important;
+  background-color: #232121;
+}
+/*---- Sous menu du profil */
+.s-menu-profil{
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+.s-menu-profil li{
+  margin: 7px 0!important;
+  border-bottom: 2px solid darkgray;
+  padding:7px 0;
+  transition: 0.5s;
+}
+.s-menu-profil li a{
+  font-size: 17px;
+  text-transform: initial!important;
+}
 /* responsive design */
 @media screen and (max-width: 734px) {
   .navigation{

@@ -7,10 +7,25 @@
       </div>
       <div class="navigation">
         <ul>
-          <li><a routerLink="/home" routerLinkActive='here'>{{ 'HOME.LINKS.LINK_1' | translate }}</a></li>
-          <li><a routerLink="/connexion" routerLinkActive='here'>{{ 'HOME.LINKS.LINK_2' | translate }}</a></li>
-          <li><a routerLink="/inscription" >{{ 'HOME.LINKS.LINK_3' | translate }}</a></li>
+          <li *ngIf="isShow"><a routerLink="/home" routerLinkActive='here'>{{ 'HOME.LINKS.LINK_1' | translate }}</a></li>
+          <li *ngIf="isShow"><a routerLink="/connexion" routerLinkActive='here'>{{ 'HOME.LINKS.LINK_2' | translate }}</a></li>
+          <li *ngIf="isShow"><a routerLink="/inscription" >{{ 'HOME.LINKS.LINK_3' | translate }}</a></li>
           <li><a routerLink="help">{{ 'HOME.LINKS.LINK_4' | translate }}</a></li>
+          <li *ngIf="!isShow">
+            <div class="profil">
+              <div class="imgprofil" (click)="menuprofil()">{{ fullname.charAt(0) }}</div>
+            </div>
+            <div class="menuprofil" id="menuProfil">
+              <h3>{{ fullname }}<b>
+                <span><a class="mail" href="mailto:{{ email }}">{{ email }}</a></span>
+              </b></h3>
+              <ul class="s-menu-profil">
+                <li><span></span><a routerLink="import" routerLinkActive='here'>{{ 'HOME.LINKS.PI' | translate }}</a></li>
+                <li><a routerLink="/profil" routerLinkActive='here'>{{ 'HOME.LINKS.VP' | translate }}</a></li>
+                <li><a routerLinkActive="here" (click)="logout()">{{ 'HOME.LINKS.OUT' | translate }}</a></li>
+              </ul>
+            </div>
+          </li>
         </ul>
       </div>
       <div class="responsive-menu" #burger (click)="OpenBurger(burger, responsive)">
@@ -21,11 +36,18 @@
       <!-- Menu responsive -->
       <div class="resp" id="menures" #responsive>
         <div class="navigue" (click)="linkMenu(burger, responsive)">
-          <ul>
+          <ul *ngIf="isShow">
             <li><a routerLink="/home" routerLinkActive='here'>{{ 'HOME.LINKS.LINK_1' | translate }}</a></li>
             <li><a routerLink="/connexion" routerLinkActive='here'>{{ 'HOME.LINKS.LINK_2' | translate }}</a></li>
             <li><a routerLink="/inscription">{{ 'HOME.LINKS.LINK_3' | translate }}</a></li>
             <li><a routerLink="help">{{ 'HOME.LINKS.LINK_4' | translate }}</a></li>
+          </ul>
+          <ul *ngIf="!isShow">
+            <div class="imgprofil" (click)="menuprofil()">{{ fullname.charAt(0) }}</div>
+            <li><a routerLink="/inscription/help" routerlinkActive="here">{{ 'HOME.LINKS.LINK_4' | translate }}</a></li>
+            <li><a routerLink="import" routerlinkActive="here">{{ 'HOME.LINKS.PI' | translate }}</a></li>
+            <li><a routerLink="/profil" routerlinkActive="here">{{ 'HOME.LINKS.VP' | translate }}</a></li>
+            <li style="cursor: pointer;"><a (click)="logout()" routerlinkActive="here">{{ 'HOME.LINKS.OUT' | translate }}</a></li>
           </ul>
         </div>
       </div>

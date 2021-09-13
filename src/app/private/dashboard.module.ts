@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import {DashboardShellComponent} from "./dashboard-shell/dashboard-shell.component";
 import {DashboardComponent} from "./dashboard/dashboard.component";
@@ -11,6 +10,7 @@ import { FilieresComponent } from './filieres/filieres.component';
 import { PeriodeComponent } from './periode/periode.component';
 import {HttpClientModule, HTTP_INTERCEPTORS} from "@angular/common/http";
 import { SpinnerInterceptorService } from '../http-interceptor/spinner-interceptor.service';
+import { UserInService } from './_service-admin/user-in.service';
 
 
 @NgModule({
@@ -32,7 +32,8 @@ import { SpinnerInterceptorService } from '../http-interceptor/spinner-intercept
       provide: HTTP_INTERCEPTORS,
       useClass: SpinnerInterceptorService,
       multi: true
-    }
+    },
+    UserInService
   ]
 })
 export class DashboardModule { }

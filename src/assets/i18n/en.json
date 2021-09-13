@@ -12,7 +12,7 @@
       "PFTT": "Tertiary Technology Platforms is a platform specializing in the various business areas comprising different sectors such as Management applied to Small and Medium Enterprises (GAPMO), Logistics and Transport Engineering (GLT), Organization and Administrative Management (OGA), and the same for License courses.",
       "PFTI": "Platforms of Industrial Technologies is a platform comprising different industrial sectors such as Industrial Engineering and Maintenance (GIM), Mechanical and Productive Engineering (GMP), Thermal and Energy Engineering (GTE), Mining Engineering (GMI), Metallurgical Engineering (GME) and Engineering Civil (GC) and the same for the License courses.",
       "PI": "Import files",
-      "VP": "See my profile",
+      "VP": "My profile",
       "OUT": "Sign out"
     },
     "HOOK": {
@@ -138,6 +138,7 @@
         "choise_cur": "Course chooses",
         "state": "Application status",
         "invalid": "Invalid",
+        "fac": "Sector",
         "valid": "Valid"
       }
     },
@@ -146,6 +147,7 @@
       "SUBTITLE1": "Viewing your loaded images (click on the box below to select your images)",
       "SUBTITLE2": "File upload order",
       "SUBTITLE3": "Upload your images here!",
+      "device" : "Rename your file before upload",
       "img1": "Medical certificate",
       "img2": "Certified birth certificate",
       "img3": "Certified Baccalaureate or certified Probationary",

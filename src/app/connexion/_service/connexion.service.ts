@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import Swal from 'sweetalert2'
 import {HttpClient} from "@angular/common/http";
 import {loginModel} from "../../_models/login.model";
 import {GlobalinfoService} from "../../_services/globalinfo.service";
@@ -57,11 +58,28 @@ export class ConnexionService {
   logoutTimer(expirationDate: number): void{
     of(true).pipe(
       delay( expirationDate * 1000)
-    ).subscribe(_ => this.logout());
+    ).subscribe(_ => {
+      this.notifyUser();
+    });
   }
 
   decodeToken(token: string): void{
     this.jwt = jwtDecode(token)
     this.logoutTimer(this.jwt.exp);
+  }
+
+  notifyUser(): void{
+    Swal.fire({
+      title: 'Time Over',
+      text: "Le temps de connexion est dépassé!",
+      icon: 'warning',
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, redirect!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.logout();
+      }
+    })
   }
 }

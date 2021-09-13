@@ -12,7 +12,7 @@
       "PFTT": "Plateformes des Technologies du Tertiaire est une plateforme spécialise dans le différentes domaines en entreprise comportant diffrentes filières telque Gestion appliqué aux Petites et Moyennes Entreprises (GAPMO), Genie Logistique et Transport (GLT), Organisation et Gestion Administrative (OGA), et de mêmê pour les filières de Licence.",
       "PFTI": "Plateformes Des Technologies Industrielles est une plateforme comportant diffrentes filières industrielles telque Genie Industrielle et Maintenance (GIM), Genie Mécanique et Productique (GMP), Genie Thermique et Energie (GTE), Genie des Mines (GMI), Génie Metallurgique (GME) et Génie Civil (GC) et de mêmê pour les filières de Licence.",
       "PI": "Importer les fichiers",
-      "VP": "Voir Mon profil",
+      "VP": "Mon profil",
       "OUT": "Se Déconnecter"
     },
     "HOOK": {
@@ -147,6 +147,7 @@
       "SUBTITLE1": "Visualisation de vos images chargées (cliquer sur le box ci-dessous pour sélectionner vos images)",
       "SUBTITLE2": "Ordre de chargement des fichiers",
       "SUBTITLE3": "Déposer vos images ici!",
+      "device" : "Renommer vos fichier avant de les envoyer",
       "img1": "Certificat Médical",
       "img2": "Acte de naissance certifiée",
       "img3": "Baccalauréat Certifié ou probatoire certifiée",

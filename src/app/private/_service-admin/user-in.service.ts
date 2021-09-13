@@ -1,22 +1,41 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {GlobalinfoService} from "../../_services/globalinfo.service";
-import {Observable} from "rxjs";
+import {Observable, Subject} from "rxjs";
+import { EtudiantModel } from 'src/app/_models/etudiant.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserInService {
-  ShowInfos!: any[];
+export class UserInService implements OnInit{
+
+  showSubject = new Subject<EtudiantModel[]>();
+  ShowInfos!: EtudiantModel[];
 
   constructor(private http: HttpClient, private global: GlobalinfoService) {
   }
 
-  getInfos(): Observable<any>{
-    return this.http.get(this.global.getApiUrl(), { });
+  ngOnInit():void{
+    this.getInfos();
+  }
+
+  getInfos(): void{
+    this.http.get<EtudiantModel[]>(this.global.getApiUrl() + 'admin/findAllEtudiant')
+    .subscribe((etudiant) => {
+      this.ShowInfos = etudiant;
+      console.log(etudiant)
+      this.emitSublect();
+    },
+    error =>{
+      console.log(error);
+    });
   }
   getHomme(){}
   getFemme(){}
   getNbreCandidats(){}
   getHandicape(){}
+
+  emitSublect(): void{
+    this.showSubject.next(this.ShowInfos);
+  }
 }
