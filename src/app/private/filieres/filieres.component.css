@@ -3,3 +3,32 @@
   margin-top: 2px;
   padding: 2rem 1.5rem;
 }
+aside{
+  padding: 2rem 1.5rem;
+}
+.announced h1{
+  font-weight: bold;
+  font-size: 1.7rem;
+  padding-bottom: 1rem;
+}
+.thead-dark{
+  background-color:#000;
+  color:white;
+}
+.not-view{
+  color: cornflowerblue;
+  font-weight: normal;
+}
+td, th{
+  text-align: center;
+}
+/* Formulaire d'ajout */
+.butt{
+  margin: 0 25px;
+}
+.btn{
+  border-radius: 3px!important;
+}
+button{
+  cursor: pointer;
+}

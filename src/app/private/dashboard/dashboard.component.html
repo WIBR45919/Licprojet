@@ -21,17 +21,17 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let elt of showEtudiant;">
-        <th scope="row">1</th>
+      <tr *ngFor="let elt of showEtudiant;let i = index">
+        <th scope="row">{{ i+1 }}</th>
         <td>{{ elt.nom }}</td>
         <td>{{ elt.prenom }}</td>
         <td>{{ elt.sexe }}</td>
         <td>{{ elt.numCNI }}</td>
         <td>{{ elt.email }}</td>
         <td>{{ elt.telephone }}</td>
-        <td>{{ elt.centre }}</td>
-        <td>{{ elt.filiere.nomFilire }}</td>
-        <td>{{ elt.niveau.nomNiveau }}</td>
+        <td>{{ elt.centre ?? '/' }}</td>
+        <td>{{ elt.filiere !== null && elt.filiere !== undefined ? elt.filiere.nomFiliere: '/-/' }}</td>
+        <td>{{ elt.niveau !== null && elt.filiere !== undefined ? elt.niveau.nomNiveau : '/-/' }}</td>
         <td>{{ elt.langue }}</td>
       </tr>
       </tbody>

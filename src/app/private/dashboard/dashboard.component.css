@@ -19,3 +19,6 @@ aside{
   color: cornflowerblue;
   font-weight: normal;
 }
+td, th{
+  text-align: center;
+}

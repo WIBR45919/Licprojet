@@ -1,6 +1,4 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { EtudiantModel } from 'src/app/_models/etudiant.model';
 import { UserInService } from '../_service-admin/user-in.service';
 import Swal from 'sweetalert2';
 
@@ -9,15 +7,16 @@ import Swal from 'sweetalert2';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit, OnDestroy {
+export class DashboardComponent implements OnInit {
 
-  showSubcription!: Subscription;
+ 
   showEtudiant!: any[];
+  i!: number;
 
   constructor(private user: UserInService) { }
 
   ngOnInit(): void {
-    this.showSubcription = this.user.showSubject.subscribe((data) => {
+    this.user.getInfos().subscribe((data) => {
       this.showEtudiant = data;
     },
     error => {
@@ -28,10 +27,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
         'error'
       )
     })
-    this.user.emitSublect();
   }
 
-  ngOnDestroy(): void{
-    this.showSubcription.unsubscribe()
-  }
 }
