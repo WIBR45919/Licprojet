@@ -1,6 +1,6 @@
 
 <div id="main-school">
-  <section class="d-flex justify-content-center">
+  <!-- <section class="d-flex justify-content-center">
    
      <button type="button" (click)="searchCursus()" class="btn btn-info">Voir Cursus</button>
   
@@ -8,32 +8,11 @@
   
     <button type="button" (click)="searchFiliere()" class="btn btn-info">Voir Filière</button>
    
-  </section>
+  </section> -->
   <aside>
     <div class="announced">
       <h1 class="text-center">Liste des candidats inscrits <span class="not-view">n'ayant pas d'état de candidatures</span></h1>
     </div>
-    <table class="table table-hover">
-      <thead class="thead-dark">
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Nom</th>
-        <th scope="col">AJouter</th>
-        <th scope="col">Modifier</th>
-        <th scope="col">Supprimer</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let elt of showEtudiant;let i = index">
-        <th scope="row">{{ i+1 }}</th>
-        <td>{{ elt.nomFiliere !== null && elt.nomFiliere !== undefined ? elt.nomFiliere : elt.Niveau !== null
-           && elt.Niveau !== undefined ? elt.Niveau: elt.nomCursus !== null && elt.nomCursus !== undefined
-            ? elt.nomCursus : '' }}</td>
-        <td><button class="btn btn-info" (click)="addFilere()">Ajouter</button></td>
-        <td><button class="btn btn-warning" (click)="updateFilere(1)">Modifier</button></td>
-        <td><button class="btn btn-danger"  (click)="deleteFiliere(1)">Supprimer</button></td>
-      </tr>
-      </tbody>
-    </table>
+      <app-candidat [showEtudiant]="showEtudiant"></app-candidat>
   </aside>
 </div>

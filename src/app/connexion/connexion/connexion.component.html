@@ -34,7 +34,10 @@
 
                   </div>
 
-                  <button type="submit" class="btn btn-success mb-4 w-100" [disabled]="loginForm.invalid" >{{ 'HOME.LOGIN.BTN'| translate }}</button>
+                  <button type="submit" class="btn btn-success mb-4 w-100" [disabled]="loginForm.invalid" >
+                    <span *ngIf="spinner" class="spinner-border spinner-border-sm" style="width: 2rem;height: 2rem;" role="status" aria-hidden="true"></span>
+                    <span class="sr-only ml-2"> {{ 'HOME.LOGIN.BTN'| translate }} </span>
+                  </button>
                   <div class="mb-3 form-check w-100">
                       <span>{{ 'HOME.LOGIN.LATER'| translate }}
                           <a routerLink = "/inscription" style="margin-left: 1em;">{{ 'HOME.LINKS.LINK_3'| translate }}</a> | <a routerLink="/home">{{ 'HOME.LINKS.LINK_1'| translate }}</a>
@@ -82,7 +85,10 @@
                 <div id="passworHelp" *ngIf="forget.get('newpassword')?.invalid && forget.get('newpassword')?.touched" class="form-text error">Veuillez remplir votre password</div>
             </div>
             <div class="modal-footer">
-              <button type="submit" [disabled]="forget.invalid" class="btn btn-success w-100">Envoyer</button>
+              <button type="submit" [disabled]="forget.invalid" class="btn btn-success w-100">
+                <span *ngIf="spinner" class="spinner-border spinner-border-sm" style="width: 1rem;height: 1rem;" role="status" aria-hidden="true"></span>
+                <span class="sr-only ml-2"> Envoyer </span>
+              </button>
             </div>
     </form>
   </div>

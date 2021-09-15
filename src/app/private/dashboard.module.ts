@@ -11,6 +11,7 @@ import { PeriodeComponent } from './periode/periode.component';
 import {HttpClientModule, HTTP_INTERCEPTORS} from "@angular/common/http";
 import { SpinnerInterceptorService } from '../http-interceptor/spinner-interceptor.service';
 import { UserInService } from './_service-admin/user-in.service';
+import { CandidatComponent } from './candidat/candidat.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { UserInService } from './_service-admin/user-in.service';
     AdmisComponent,
     RefusedComponent,
     FilieresComponent,
-    PeriodeComponent
+    PeriodeComponent,
+    CandidatComponent
   ],
   imports: [
     CommonModule,

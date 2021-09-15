@@ -1,4 +1,10 @@
+<div *ngIf="loading" class="loader">
+  <div class="h-100 w-100 d-flex justify-content-center align-items-center">
+    <div class="spinner-border text-success" role="status" style="width: 6rem;height: 6rem;"></div>
+  </div>
+</div>
 <router-outlet></router-outlet>
 <div class="internalisation" title="Clique ici poir chaner de langue" (click)="changeLanguage(lang)">
   <span #lang>FR</span>
 </div>
+<app-conter-timer *ngIf="cont"></app-conter-timer>

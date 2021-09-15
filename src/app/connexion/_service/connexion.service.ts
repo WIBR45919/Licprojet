@@ -19,6 +19,7 @@ export class ConnexionService {
   user!: loginModel;
   userReset!: ResetModel;
   jwt!: jWTModel;
+  conter = false;
 
   constructor(private http: HttpClient, private global: GlobalinfoService,
     private router: Router) { }
@@ -40,6 +41,7 @@ export class ConnexionService {
   logout(): void{
     localStorage.clear();
     localStorage.removeItem('USER_INFOS');
+    
     this.router.navigate(['/connexion']);
   }
 

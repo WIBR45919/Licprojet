@@ -1,0 +1,19 @@
+
+.thead-dark{
+    background-color:#000;
+    color:white;
+  }
+
+  td, th{
+    text-align: center;
+  }
+  /* Formulaire d'ajout */
+  .butt{
+    margin: 0 25px;
+  }
+  .btn{
+    border-radius: 3px!important;
+  }
+  button{
+    cursor: pointer;
+  }

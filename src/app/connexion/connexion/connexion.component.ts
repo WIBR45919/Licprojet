@@ -18,6 +18,7 @@ export class ConnexionComponent implements OnInit {
 
   loginForm!: FormGroup;
   forget!: FormGroup; 
+  spinner = false;
   message!: string;
   msgerr = false;
   msgwar = false;
@@ -37,6 +38,7 @@ export class ConnexionComponent implements OnInit {
   }
 
   onLogin():void{
+    this.spinner = true;
     this.login.Login(this.restructuration()).subscribe((response: any) => {
       if (response.status === "200") {
           this.login.decodeToken(response.jwtToken);
@@ -46,6 +48,7 @@ export class ConnexionComponent implements OnInit {
       }
     }, error => {
       console.log(error);
+      this.spinner = false;
       switch (error.status) {
         case 401:
          this.message = "utilisateur inexistant";

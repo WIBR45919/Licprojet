@@ -11,7 +11,8 @@ import { EtudiantModel } from 'src/app/_models/etudiant.model';
 })
 export class ProfilShellComponent implements OnInit {
 
-  constructor(private active: ActivatedRoute,private translate: TranslateService, private i18nserice: I18nServiceService) { }
+  constructor(private active: ActivatedRoute,private translate: TranslateService,
+     private i18nserice: I18nServiceService) { }
 
   ngOnInit(): void {
     this.i18nserice.localEvent.subscribe((local: string) => {
