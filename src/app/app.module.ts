@@ -14,6 +14,7 @@ import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import { SpinnerInterceptorService } from './http-interceptor/spinner-interceptor.service';
 import { ConterTimerComponent } from './conter-timer/conter-timer.component';
+import { NgxMaskModule } from 'ngx-mask';
 
 export function createTranslateLoader(http: HttpClient){
   return new TranslateHttpLoader(http, './assets/i18n/home/', '.json')
@@ -40,7 +41,8 @@ export function createTranslateLoader(http: HttpClient){
           deps: [HttpClient]
         },
           isolate: false
-      })
+      }),
+      NgxMaskModule.forRoot()
     ],
     providers: [
       {
