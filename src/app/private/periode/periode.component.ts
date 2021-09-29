@@ -12,4 +12,7 @@ export class PeriodeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  look(): void{
+    console.log('periode works')
+  }
 }

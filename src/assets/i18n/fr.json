@@ -47,12 +47,15 @@
       },
       "PAGE_1": {
         "REC_1": "Remplir correctement les informations",
-        "REC_2": "Si vous etes née vers (1990 par exempls), choisir 01/01/1990 comme date de naissance",
+        "REC_2": "Si vous etes née vers (1990 par exemples), choisir 01/01/1990 comme date de naissance",
         "REC_3": "Tous les champs sont obligatoires",
         "REC_4": "Si vous etes deja préinscrit",
+        "REC_5": "Vous devez payer les frais de préinscription avant de vous inscrire",
+        "REC_6": "Télécharger les fichiers de préinscription dans l'ongle d'aide",
         "BTN": "Connectez-vous"
       },
       "PAGE_2": {
+        "receipt":"reçus de paiement",
         "name": "Nom",
         "last": "Prénom",
         "sex": "Sexe",

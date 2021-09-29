@@ -16,13 +16,24 @@
 /* Tests A effacer */
 
 /***/
+.field ._first{
+  padding: 1rem;
+}
 .field ._first > div {
   display: flex;
   justify-content: space-between;
+  border-bottom: 1px solid gray;
+  padding: 5px;
+}
+.field ._second{
+  padding: 1rem;
+  /* border-left: 1.2px solid gray; */
 }
 .field ._second > div {
   display: flex;
   justify-content: space-between;
+  border-bottom: 1px solid gray;
+  padding: 5px;
 }
 /*image*/
 .header img{
@@ -71,6 +82,8 @@ ul li i{
   /* border: 1px solid rgba(7, 97, 89, 0.867); */
   text-align: center;
   width: 25%;
+  border: 1.5px solid gray;
+  padding: 5px;
 }
 .one{
   display: flex;
@@ -81,7 +94,9 @@ ul li i{
 .one div{
   width: 25%;
   text-align: center;
-  margin: 5px 0;
+  margin: 10px 0;
+  padding: 2px;
+  border: 1.5px dashed gray;
   /* border: 1px solid rgba(7, 97, 89, 0.867); */
 }
 .head{
@@ -105,8 +120,8 @@ ul li i{
 }
 
 button{
- position: fixed;
-  right: 20px;
-  bottom: 20px;
+  position: fixed;
+  left: 20px;
+  bottom: 10px;
   border-radius: 3px;
 }

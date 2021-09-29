@@ -50,9 +50,12 @@
         "REC_2": "If you were born around (1990 for example), choose 01/01/1990 as date of birth",
         "REC_3": "All fields are mandatory",
         "REC_4": "If you are already pre-registered",
+        "REC_5": "You must pay the pre-registration fee before registering",
+        "REC_6": "Download the pre-registration files in the help tab",
         "BTN": "LOGIN"
       },
       "PAGE_2": {
+        "receipt": "payment receipts",
         "name": "last name",
         "last": "first name",
         "sex": "sex",

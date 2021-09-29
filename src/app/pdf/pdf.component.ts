@@ -31,14 +31,14 @@ export class PdfComponent implements OnInit, OnDestroy {
     if (element) {
        html2canvas(element).then((canvas) => {
 
-         var imgData = canvas.toDataURL('image/png');
+         var imgData = canvas.toDataURL('image/PNG');
 
          var doc = new jsPDF();
 
          // var imgHeight = canvas.height * 200 / canvas.width;
          console.log(canvas.width);
          console.log(canvas.height);
-         doc.addImage(imgData,'PNG',0,0,190, 210);
+         doc.addImage(imgData,'PNG',0,0,170, 220);
          doc.save('fiche-inscription.pdf');
       });
     }

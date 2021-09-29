@@ -8,6 +8,7 @@ import {CursusModel} from "./cursus.model";
 
 export  interface EtudiantModel {
   nom: string;
+  Numreçus: string;
   prenom: string;
   sexe: string;
   situationFamilial: string;

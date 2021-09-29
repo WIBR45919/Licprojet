@@ -88,6 +88,24 @@ h1{
   color: black;
   line-height: 25px;
 }
+.required{
+  color: rgb(231, 93, 21);
+  animation-name: animation1;
+  animation-duration: 2s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: infinite;
+}
+
+/*animation*/
+@keyframes animation1 {
+  from{
+    transform: scale(0.9);
+  }
+  to{
+    transform: scale(1.01);
+  }
+}
+/*  */
 ::ng-deep .mat-list-base .mat-list-item .mat-list-item-content, .mat-list-base .mat-list-option .mat-list-item-content{
   font-family: Roboto;
 }
@@ -249,4 +267,3 @@ mat-label{
     margin-right: 0;
   }
 }
-

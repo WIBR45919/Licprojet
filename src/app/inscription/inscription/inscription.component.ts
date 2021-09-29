@@ -14,6 +14,7 @@ import {Router} from "@angular/router";
 import { WebcamImage, WebcamInitError, WebcamUtil } from 'ngx-webcam';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
+import Swal from 'sweetalert2';
 declare var $:any
 
 @Component({
@@ -91,6 +92,7 @@ export class InscriptionComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.requiredStep();
     this.initForm();
     this.initFormDiplome();
     this.infos.getCursus().subscribe( (data) =>{
@@ -101,7 +103,7 @@ export class InscriptionComponent implements OnInit {
 
     //initialisations des valeurs a utiliser provenant du service
     this.mention = this.infos.mention;
-    this.annees = this.infos.annees;
+    this.annees = this.infos.getMyYear();
     this.diplome = this.infos.diplome;
     this.regions = this.infos.Pays[0].regions;
     this.pays = this.infos.Pays;
@@ -122,6 +124,7 @@ export class InscriptionComponent implements OnInit {
         informations : this.formBuilder.array([
          // IDENTIFICATION
          this.formBuilder.group({
+           Numreçus: new FormControl('',[Validators.required, Validators.maxLength(100)]),
            nom: new FormControl('',[Validators.required]),
            prenom: new FormControl('',[Validators.required]),
            sexe: new FormControl('Maxculin',[Validators.required]),
@@ -147,7 +150,6 @@ export class InscriptionComponent implements OnInit {
            anneeObtention: new FormControl('',[Validators.required]),
            etablissementObt: new FormControl('',[Validators.required]),
            paysObtention: new FormControl('',[Validators.required]),
-           Choixcentre: new FormControl('',[Validators.required]),
            AnneeObtentionB: new FormControl('2020',[Validators.required]),
          }),
          // AUTRES INFOS
@@ -156,6 +158,7 @@ export class InscriptionComponent implements OnInit {
            profession: new FormControl('',[Validators.required]),
            nomtuteur: new FormControl('',[Validators.required]),
            telephoneTuteur: new FormControl('',[Validators.required, Validators.pattern('[0-9]{9}')]),
+           Choixcentre: new FormControl('',[Validators.required]),
            emailTuteur: new FormControl('',[Validators.required, Validators.email,Validators.pattern('\\b[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}\\b')])
          }),
          //FINISH && LOGIN
@@ -167,7 +170,14 @@ export class InscriptionComponent implements OnInit {
       }
     );
   }
-
+//prevention des elements necessaires
+ requiredStep(): void{
+  Swal.fire(
+    'Etape Obligatoire',
+    'Vous devez avoir payé les frais de préinscription avant de vous préinscrire!',
+    'warning'
+  )
+ }
 //  Send form method
   onSubmit(): void{ //-------------------------terminer la souscription--------------------------------
    this.infos.Inscription(this.inscriptionModel()).subscribe(
@@ -253,12 +263,13 @@ export class InscriptionComponent implements OnInit {
   inscriptionModel(): EtudiantModel{
     const langue = this.informations.get([0])?.get('langues')?.value;
     return {
+      Numreçus:this.informations.get([0])?.get('Numreçus')?.value,
       nom: this.informations.get([0])?.get('nom')?.value,
       prenom: this.informations.get([0])?.get('prenom')?.value,
       sexe: this.informations.get([0])?.get('sexe')?.value,
       situationFamilial: this.informations.get([0])?.get('situation')?.value,
       adresse: this.informations.get([0])?.get('adresse')?.value,
-      centre: this.informations.get([1])?.get('Choixcentre')?.value,
+      centre: this.informations.get([2])?.get('Choixcentre')?.value,
       dateNaissance: this.date,
       lieu: this.informations.get([0])?.get('lieuNaiss')?.value,
       numCNI: this.informations.get([0])?.get('numCNI')?.value,

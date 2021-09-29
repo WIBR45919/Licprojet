@@ -38,7 +38,7 @@ const routes: Routes = [
   { path: 'pdf', component: PdfComponent },
 
   { path: 'admin', loadChildren: ()=>import('./private/dashboard.module').then(admin => admin.DashboardModule),
-    /*, canActivate: [GuardService], canActivateChild: [GuardchildService] */},
+    canActivate: [GuardService], canActivateChild: [GuardchildService]},
   { path: '**', component: NotfoundComponent}
 ];
 

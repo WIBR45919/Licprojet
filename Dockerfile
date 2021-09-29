@@ -4,7 +4,8 @@ COPY . .
 RUN npm install && npm run build
 COPY . .
 FROM nginx:alpine
-WORKDIR /usr/share/nginx/html
+WORKDIR /var/www/html
 RUN rm -fr ./*
-COPY --from=builder /app/dist/licenceiut .
+COPY --from=builder /app/dist/licenceiut /var/www/html
+
 ENTRYPOINT [ "nginx", "-g", "daemon off;" ]
