@@ -210,8 +210,32 @@ export class InscriptionComponent implements OnInit {
     const bet = this.infos.Pays.filter((pay: any) => pay.nom === $(event)[0].value);
     this.regions = bet[0].regions;
   }
-//  méthodes liée aux diplomes
+  //previsualisation d'image
+  loadpreviewImage(file :any, img: any): void{
+    $(file).click();
 
+    $(file).change(()=>{
+      let image = $(file)[0].files[0];
+       if(image.size > 204800){
+        Swal.fire(
+          'Le fichier est trop lourd!',
+          'Le poids maximal du fichier est de 200KO',
+          'warning'
+        )
+       }else{
+          let reader = new FileReader();
+          reader.addEventListener('load', ()=>{
+            $(img).attr('src',reader.result)
+          }, false)
+
+          if(image){
+            reader.readAsDataURL(image);
+          }
+       }
+      
+    })
+  }
+//  méthodes liée aux diplome
   //  -- initialisation du formulaire d'ajout
 
   initFormDiplome(): void{
@@ -234,7 +258,12 @@ export class InscriptionComponent implements OnInit {
       mention: this.formDiplome.get('mention')?.value
     }
     // console.log(typeof this.formDiplome.get('diplome')?.value);
-    this.listDiplomeAutre.push(elt);
+    //verifier si le diplome existe deja
+    let final = this.listDiplomeAutre.filter(dip => (dip.nomDiplome === elt.nomDiplome || dip.anneeObtention === elt.anneeObtention));
+    if(final?.length > 0){
+      this.ConfirmAjout("Diplome déja existant ou année déja existante");
+    }
+    else this.listDiplomeAutre.push(elt);
   }
   showHide(): void{
     this.isVisible = !this.isVisible;
