@@ -29,7 +29,7 @@
              <button type="button" class="next" mat-raised-button matStepperNext>{{ 'HOME.REGISTER.BTN.next'| translate }}<mat-icon>chevron_right</mat-icon></button>
            </div>
          </mat-step>
-         <mat-step formGroupName="0"   label="{{ 'HOME.REGISTER.STEPS.TWO'| translate | uppercase }}" state="person">
+         <mat-step formGroupName="0" [stepControl]="informations.get([0])!"  label="{{ 'HOME.REGISTER.STEPS.TWO'| translate | uppercase }}" state="person">
             <div class="parent">
               <div class="champs">
                 <mat-form-field appearance="outline">
@@ -132,7 +132,7 @@
               <button type="button" class="next" mat-raised-button matStepperNext>{{ 'HOME.REGISTER.BTN.next'| translate }} <mat-icon>chevron_right</mat-icon></button>
             </div>
           </mat-step>
-         <mat-step formGroupName="1"  label="{{ 'HOME.REGISTER.STEPS.THREE'| translate | uppercase }}" state="rate_review">
+         <mat-step formGroupName="1" [stepControl]="informations.get([1])!"  label="{{ 'HOME.REGISTER.STEPS.THREE'| translate | uppercase }}" state="rate_review">
             <div class="parent">
               <div class="champs">
                 <mat-form-field appearance="outline">
@@ -294,7 +294,7 @@
               <button type="button" class="next" [disabled]="listDiplomeAutre.length < 3" mat-raised-button matStepperNext>{{ 'HOME.REGISTER.BTN.next'| translate }}<mat-icon>chevron_right</mat-icon></button>
             </div>
           </mat-step>
-         <mat-step formGroupName="2"  label="{{ 'HOME.REGISTER.STEPS.FIVE'| translate | uppercase }}" state="contact_phone">
+         <mat-step formGroupName="2" [stepControl]="informations.get([2])!"  label="{{ 'HOME.REGISTER.STEPS.FIVE'| translate | uppercase }}" state="contact_phone">
              <div class="parent">
                <div class="champs">
                  <mat-form-field appearance="outline">
@@ -374,7 +374,7 @@
                <button type="button" class="next" mat-raised-button matStepperNext>{{ 'HOME.REGISTER.BTN.next'| translate }} <mat-icon>chevron_right</mat-icon></button>
              </div>
            </mat-step>
-         <mat-step formGroupName="3" label="{{ 'HOME.REGISTER.STEPS.SIX'| translate | uppercase }}" state="flight_land">
+         <mat-step formGroupName="3" [stepControl]="informations.get([3])!" label="{{ 'HOME.REGISTER.STEPS.SIX'| translate | uppercase }}" state="flight_land">
            <div class="parent">
              <div class="champsaround">
                <mat-form-field class="w-100" appearance="outline">

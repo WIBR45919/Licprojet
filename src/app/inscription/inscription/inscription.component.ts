@@ -51,6 +51,7 @@ export class InscriptionComponent implements OnInit {
   minDate = new Date(1990, 1, 1)
   maxDate = new Date(2010,1,1)
   date!: string;
+  langue = '';
 
   //creation du gestionnaire de formulaire reactif
   formEtudiant!: FormGroup;
@@ -188,7 +189,44 @@ export class InscriptionComponent implements OnInit {
    this.infos.Inscription(this.inscriptionModel()).subscribe(
      data => {
       sessionStorage.setItem('USER_FORM',JSON.stringify({
-        infos: this.inscriptionModel(),
+        infos: {
+          nom: this.informations.get([0])?.get('nom')?.value,
+          prenom: this.informations.get([0])?.get('prenom')?.value,
+          sexe: this.informations.get([0])?.get('sexe')?.value,
+          adresse: this.informations.get([0])?.get('adresse')?.value,
+          centre: this.informations.get([2])?.get('Choixcentre')?.value,
+          dateNaissance: this.date,
+          lieu: this.informations.get([0])?.get('lieuNaiss')?.value,
+          numCNI: this.informations.get([0])?.get('numCNI')?.value,
+          telephone: this.informations.get([0])?.get('tel')?.value,
+          paysOrigine: this.informations.get([0])?.get('paysOrigine')?.value,
+          regionOrigine: this.informations.get([0])?.get('regionOrigine')?.value,
+          langue: this.langue.toString(),
+          cursus: {
+            nomCursus: this.informations.get([1])?.get('nomCursus')?.value
+          },
+          diplomeAdmission: {
+            nomDiplome: this.informations.get([1])?.get('diplomeAdd')?.value,
+            anneeObtention: this.informations.get([1])?.get('anneeObtention')?.value,
+            paysObtention: this.informations.get([1])?.get('paysObtention')?.value,
+            etablissement: this.informations.get([1])?.get('etablissementObt')?.value,
+            centreExamen: this.informations.get([1])?.get('Choixcentre')?.value,
+            anneeObtentionAutre: this.informations.get([1])?.get('AnneeObtentionB')?.value,
+            serieDiplome: this.informations.get([1])?.get('serieAdd')?.value
+          },
+          diplomeAutres: this.listDiplomeAutre,
+          filiere: {
+            nomFiliere: this.informations.get([1])?.get('nomFil')?.value
+          },
+          tuteur: {
+            nomTuteur: this.informations.get([2])?.get('nomtuteur')?.value,
+            telephoneTuteur: parseInt(this.informations.get([2])?.get('telephoneTuteur')?.value),
+            emailTuteur: this.informations.get([2])?.get('emailTuteur')?.value
+          },
+          niveau: {
+            nomNiveau: this.informations.get([1])?.get('niveauFil')?.value
+          },
+        },
         image: this.webcamImage.imageAsDataUrl
        }));
       
@@ -197,6 +235,7 @@ export class InscriptionComponent implements OnInit {
      },
      error => {
        console.log(error)
+       console.table(this.inscriptionModel())
      },
    );
   }
@@ -302,7 +341,7 @@ export class InscriptionComponent implements OnInit {
  }
   //  restructuration du formulaire au format demande
   inscriptionModel(): EtudiantModel{
-    const langue = this.informations.get([0])?.get('langues')?.value;
+    this.langue = this.informations.get([0])?.get('langues')?.value;
     return {
       Numreçus:this.informations.get([0])?.get('Numreçus')?.value,
       nom: this.informations.get([0])?.get('nom')?.value,
@@ -318,7 +357,7 @@ export class InscriptionComponent implements OnInit {
       telephone: this.informations.get([0])?.get('tel')?.value,
       paysOrigine: this.informations.get([0])?.get('paysOrigine')?.value,
       regionOrigine: this.informations.get([0])?.get('regionOrigine')?.value,
-      langue: langue.toString(),
+      langue: this.langue.toString(),
       handicap: this.informations.get([2])?.get('handicap')?.value,
       profession: this.informations.get([2])?.get('profession')?.value,
       cursus: {
