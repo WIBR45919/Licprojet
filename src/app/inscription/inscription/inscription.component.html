@@ -29,7 +29,7 @@
              <button type="button" class="next" mat-raised-button matStepperNext>{{ 'HOME.REGISTER.BTN.next'| translate }}<mat-icon>chevron_right</mat-icon></button>
            </div>
          </mat-step>
-         <mat-step formGroupName="0" [stepControl]="informations.get([0])!"  label="{{ 'HOME.REGISTER.STEPS.TWO'| translate | uppercase }}" state="person">
+         <mat-step formGroupName="0"   label="{{ 'HOME.REGISTER.STEPS.TWO'| translate | uppercase }}" state="person">
             <div class="parent">
               <div class="champs">
                 <mat-form-field appearance="outline">
@@ -132,7 +132,7 @@
               <button type="button" class="next" mat-raised-button matStepperNext>{{ 'HOME.REGISTER.BTN.next'| translate }} <mat-icon>chevron_right</mat-icon></button>
             </div>
           </mat-step>
-         <mat-step formGroupName="1" [stepControl]="informations.get([1])!"  label="{{ 'HOME.REGISTER.STEPS.THREE'| translate | uppercase }}" state="rate_review">
+         <mat-step formGroupName="1"  label="{{ 'HOME.REGISTER.STEPS.THREE'| translate | uppercase }}" state="rate_review">
             <div class="parent">
               <div class="champs">
                 <mat-form-field appearance="outline">
@@ -294,7 +294,7 @@
               <button type="button" class="next" [disabled]="listDiplomeAutre.length < 3" mat-raised-button matStepperNext>{{ 'HOME.REGISTER.BTN.next'| translate }}<mat-icon>chevron_right</mat-icon></button>
             </div>
           </mat-step>
-         <mat-step formGroupName="2" [stepControl]="informations.get([2])!"  label="{{ 'HOME.REGISTER.STEPS.FIVE'| translate | uppercase }}" state="contact_phone">
+         <mat-step formGroupName="2"  label="{{ 'HOME.REGISTER.STEPS.FIVE'| translate | uppercase }}" state="contact_phone">
              <div class="parent">
                <div class="champs">
                  <mat-form-field appearance="outline">
@@ -374,7 +374,7 @@
                <button type="button" class="next" mat-raised-button matStepperNext>{{ 'HOME.REGISTER.BTN.next'| translate }} <mat-icon>chevron_right</mat-icon></button>
              </div>
            </mat-step>
-         <mat-step formGroupName="3" [stepControl]="informations.get([3])!" label="{{ 'HOME.REGISTER.STEPS.SIX'| translate | uppercase }}" state="flight_land">
+         <mat-step formGroupName="3" label="{{ 'HOME.REGISTER.STEPS.SIX'| translate | uppercase }}" state="flight_land">
            <div class="parent">
              <div class="champsaround">
                <mat-form-field class="w-100" appearance="outline">
@@ -401,7 +401,7 @@
                     <h3>Importer le reçus de paiement</h3>
                   </div>
                   <div class="image-recus w-100">
-                    <img src="https://via.placeholder.com/450x250" id="recus" alt="reçus de paiement" (click)="loadpreviewImage(file, img)" #img>
+                    <img src="https://via.placeholder.com/450x250" title="cliquer sur l'image pour choisir ton fichier" id="recus" alt="reçus de paiement" (click)="loadpreviewImage(file, img)" #img>
                     <input style="display: none;" type="file" #file>
                   </div>
                 </div>
@@ -418,26 +418,44 @@
          <mat-step label="IMAGE" state="photo_camera">
           <div class="parent">
             <div class="champsaround">
+              <div class="choise">
+                <h3>Choix de la maniere d'importer l'image</h3>
+                <div class="btn-choise">
+                  <button type="button" class="actionBtn" (click)="changeMode()">Prendre une photo</button>
+                  <button type="button" class="actionBtn" (click)="changeMode()">Importer une image</button>
+                </div>
+              </div>
               <!-- creation de la partie d'image -->
-              <div class="web">
-                <webcam  [height]="300" [width]="300" [trigger]="triggerObservable" (imageCapture)="handleImage($event)" *ngIf="showWebcam"
-                  [allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable"
-                  [videoOptions]="videoOptions"
-                  [imageQuality]="1" [mirrorImage]="mirror"
-                  (cameraSwitched)="cameraWasSwitched($event)"
-                  (initError)="handleInitError($event)">
-                </webcam>
-              </div>
-              <div class="snapshot" *ngIf="webcamImage">
-                <img [src]="webcamImage.imageAsDataUrl"/>
-              </div>
+              <div class="parent-cam" *ngIf="choise">
+                <div class="web">
+                  <webcam  [height]="300" [width]="300" [trigger]="triggerObservable" (imageCapture)="handleImage($event)" *ngIf="showWebcam"
+                    [allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable"
+                    [videoOptions]="videoOptions"
+                    [imageQuality]="1" [mirrorImage]="mirror"
+                    (cameraSwitched)="cameraWasSwitched($event)"
+                    (initError)="handleInitError($event)">
+                  </webcam>
+                </div>
+                <div class="snapshot" *ngIf="webcamImage">
+                  <img [src]="webcamImage.imageAsDataUrl"/>
+                </div>
 
-              <h4 *ngIf="errors.length > 0">Messages:</h4>
-              <ul *ngFor="let error of errors">
-                <li>{{error | json}}</li>
-              </ul>
-              <div class="btn-capture p-1 pb-2">
-                <button class="actionBtn" type="button" (click)="triggerSnapshot();">Capture</button>
+                <h4 *ngIf="errors.length > 0">Messages:</h4>
+                <ul *ngFor="let error of errors">
+                  <li>{{error | json}}</li>
+                </ul>
+                <div class="btn-capture p-1 pb-2">
+                  <button class="actionBtn" type="button" (click)="triggerSnapshot();">Capture</button>
+                </div>
+              </div>
+              <div class="recus" *ngIf="!choise">
+                <div class="titre">
+                  <h3>Importer ta photo pour la fiche d'inscription 4x4</h3>
+                </div>
+                <div class="image-recus w-100">
+                  <img src="https://via.placeholder.com/300x300" title="cliquer sur l'image pour choisir ton fichier" id="recus" alt="reçus de paiement" (click)="loadpreviewImage1(file2, img2)" #img2>
+                  <input style="display: none;" type="file" #file2>
+                </div>
               </div>
             </div>
             <div class="imgaround">

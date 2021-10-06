@@ -63,6 +63,8 @@ export class InscriptionComponent implements OnInit {
 
   //variable de la webcam
   // toggle webcam on/off
+  imageupload!: any;
+  choise = false;
   public showWebcam = true;
   public allowCameraSwitch = true;
   public multipleWebcamsAvailable = false;
@@ -227,7 +229,7 @@ export class InscriptionComponent implements OnInit {
             nomNiveau: this.informations.get([1])?.get('niveauFil')?.value
           },
         },
-        image: this.webcamImage.imageAsDataUrl
+        image: this.webcamImage.imageAsDataUrl ? (this.webcamImage.imageAsDataUrl !== undefined && this.webcamImage.imageAsDataUrl !== null) : this.imageupload
        }));
       
        window.open('/pdf');
@@ -263,6 +265,31 @@ export class InscriptionComponent implements OnInit {
   }
   //previsualisation d'image
   loadpreviewImage(file :any, img: any): void{
+    $(file).click();
+
+    $(file).change(()=>{
+      let image = $(file)[0].files[0];
+       if(image.size > 204800){
+        Swal.fire(
+          'Le fichier est trop lourd!',
+          'Le poids maximal du fichier est de 200KO',
+          'warning'
+        )
+       }else{
+          let reader = new FileReader();
+          reader.addEventListener('load', ()=>{
+            $(img).attr('src',reader.result)
+            this.imageupload = reader.result;
+          }, false)
+
+          if(image){
+            reader.readAsDataURL(image);
+          }
+       }
+      
+    })
+  }
+  loadpreviewImage1(file :any, img: any): void{
     $(file).click();
 
     $(file).change(()=>{
@@ -420,6 +447,9 @@ export class InscriptionComponent implements OnInit {
     return this.nextWebcam.asObservable();
   }
 
+  changeMode(): void{
+    this.choise = !this.choise;
+  }
 }
 //Validators.pattern('([1-9]|1[0-2])/([1-9]|1[0-9]|2[0-9]|3[01])/(19|20)[0-9]{2}')
 //Validators.pattern('\\b[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}\\b')]),
