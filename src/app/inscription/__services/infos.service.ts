@@ -14,7 +14,7 @@ export class InfosService implements OnInit{
   annees = new Array<string>();
   diplome = [
     "HND","DSEP","Baccalaureat","BT","DUT","Licence Scientifique","GCE Advanced Level","BEPC / CAP",
-    "Ingénieur des Travaux","Licence Technologie","BTS","DEUG","Probatoire","HCE Ordinary Level","CEP anglophone"
+    "Ingénieur des Travaux","Licence Technologie","BTS","DEUG","Probatoire","GCE Ordinary Level","CEP anglophone"
   ];
   mention = ["Asséz-bien","Bien","Excellent","Passable","Très bien","Sous-reserve"];
 
@@ -114,6 +114,29 @@ export class InfosService implements OnInit{
   }
   ];
 
+  AdmissionDip = {
+    "Niveau 1": {
+      "Baccalaureat": ["C","D","E","TI","F","A","F1","F2","F3","F4","F5","G1","G2","G3","B","ACA","SES","CG","BT","FIG"],
+      "GCE Advanced Level":["A","S","C"],
+      "GCE Ordinary Level (sous reserve)": ["A","S","C"],
+      "Probatoire(sous reserve)":["C","D","E","TI","F","A","F1","F2","F3","F4","F5","G1","G2","G3","B","ACA","SES","CG","BT","FIG"],
+      "BT":["IS","MA","MAV","MEB","MEM","CM/MF"],
+      "Autres": ["*"]
+    },
+    "Niveau 3":[
+      "DUT", "Licence Scientifique","Licence Technologique","INgenieur des Travaux","DEUG","BTS","Autres"
+    ],
+    "Niveau 4": [
+      "Licence Technologique", "Licenceiut Professionnelle","Autres"
+    ],
+    "Niveau 5":[
+      "Master 1"
+    ],
+    "Niveau 6":[
+      "Master 2"
+    ]
+  }
+
   constructor(private http: HttpClient, private global: GlobalinfoService) { }
   ngOnInit(): void {
   }
@@ -124,6 +147,10 @@ export class InfosService implements OnInit{
 
   getCursus(): Observable<any>{
     return this.http.get(this.global.getApiUrl() + 'cursus');
+  }
+
+  getAdmissionDIp(): any{
+    return this.AdmissionDip;
   }
 
   getMyYear(): string[]{

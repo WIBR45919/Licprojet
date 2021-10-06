@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges } from '@angular/core';
 import {BreakpointObserver} from "@angular/cdk/layout";
 import {Observable, Subject} from "rxjs";
 import {STEPPER_GLOBAL_OPTIONS, StepperOrientation} from "@angular/cdk/stepper";
@@ -38,11 +38,15 @@ export class InscriptionComponent implements OnInit {
   listDiplomeAutre = new Array<DiplomeAutreModel>();
   annees!: string[];
   diplome!: string[];
+  admission!: any;
+  admissionkeys!: string[];
+  admissionserie!: string[];
   mention!: string[];
   cursus!: any;
   tab!:any;
   regions!: any;
   pays!: any;
+  defaultValue!: string;
   //Date max et date Min
   minDate = new Date(1990, 1, 1)
   maxDate = new Date(2010,1,1)
@@ -86,6 +90,7 @@ export class InscriptionComponent implements OnInit {
       map(({matches}) => matches ? 'horizontal' : 'vertical')
     );
   }
+
   // retourne un formArray avec le nom 'informations'
   get informations(): AbstractControl{
     return this.formEtudiant.get('informations') as FormArray;
@@ -196,15 +201,22 @@ export class InscriptionComponent implements OnInit {
    );
   }
   choixNiveau(elt1: any): void{
-    const name = $(elt1)[0].value;
-    // console.log(name)
+    let name = $(elt1)[0].value;
+    console.log(name)
     this.tab = this.cursus.filter((elt: any) => elt.nomCursus === name);
     // console.log(tab[0]);
     this.niveau = this.tab[0].niveau.nomNiveau;
     this.filiere = this.tab[0].filiereList;
   }
-  choixFilire(elt: any): void{
-    // console.log($(elt)[0].value)
+  choixFiliere(elt: any): void{
+    let niv = $(elt)[0].value;
+    this.admission = this.infos.getAdmissionDIp()[niv];
+    this.admissionkeys = Object.keys(this.infos.getAdmissionDIp()[niv]);
+  }
+
+  choixSerie(elt: any): void{
+    let serie = $(elt)[0].value;
+    this.admissionserie = this.admission[serie];
   }
   updateRegion(event: any){
     const bet = this.infos.Pays.filter((pay: any) => pay.nom === $(event)[0].value);

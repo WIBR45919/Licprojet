@@ -138,14 +138,16 @@
                 <mat-form-field appearance="outline">
                   <mat-icon matSuffix>train</mat-icon>
                   <mat-label>{{ 'HOME.REGISTER.PAGE_3.cursus'| translate }}</mat-label>
-                  <mat-select id="niveau" formControlName="nomCursus" (selectionChange)="choixNiveau($event)"required>
+                  <mat-select id="niveau" formControlName="nomCursus" (selectionChange)="choixNiveau($event)" required>
+                    <mat-option value="" selected>--Choix Cursus--</mat-option>
                     <mat-option *ngFor="let c of cursus" [value]="c.nomCursus">{{ c.nomCursus }}</mat-option>
                   </mat-select>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                   <mat-icon matSuffix>work</mat-icon>
                   <mat-label>{{ 'HOME.REGISTER.PAGE_3.level'| translate }}</mat-label>
-                  <mat-select formControlName="niveauFil" (SelectionChange)="choixFilire($event)" required>
+                  <mat-select formControlName="niveauFil" (selectionChange)="choixFiliere($event)" required>
+                    <mat-option [value]="''" selected>--Choix Niveau--</mat-option>
                     <mat-option [value]="niveau">{{ niveau }}</mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -153,6 +155,7 @@
                   <mat-icon matSuffix>work</mat-icon>
                   <mat-label>{{ 'HOME.REGISTER.PAGE_3.first'| translate }}</mat-label>
                   <mat-select formControlName="nomFil" required>
+                    <mat-option [value]="''" selected>--Choix premiere filiere--</mat-option>
                     <mat-option *ngFor="let fil of filiere" [value]="fil.nomFiliere">{{ fil.nomFiliere }}</mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -160,24 +163,33 @@
                   <mat-icon matSuffix>work</mat-icon>
                   <mat-label>{{ 'HOME.REGISTER.PAGE_3.second'| translate }}</mat-label>
                   <mat-select required>
+                    <mat-option [value]="''" selected>--Choix deuxieme filiere--</mat-option>
                     <mat-option *ngFor="let fil of filiere" [value]="fil.nomFiliere">{{ fil.nomFiliere }}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <!--  -->
+                <mat-form-field appearance="outline">
+                  <mat-icon matSuffix>book</mat-icon>
+                  <mat-label class="right">{{ 'HOME.REGISTER.PAGE_3.qualification'| translate }}</mat-label>
+                  <mat-select formControlName="diplomeAdd" (selectionChange)="choixSerie($event)" required>
+                    <mat-option [value]="''" selected>--Choix diplome d'admission--</mat-option>
+                    <mat-option *ngFor="let ad of admissionkeys" [value]="ad">{{ ad }}</mat-option>
                   </mat-select>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                   <mat-icon matSuffix>book</mat-icon>
-                  <mat-label class="right">{{ 'HOME.REGISTER.PAGE_3.qualification'| translate }}</mat-label>
-                  <input matInput placeholder="serie diplôme" required formControlName="diplomeAdd">
-                </mat-form-field>
-                <mat-form-field appearance="outline">
-                  <mat-icon matSuffix>book</mat-icon>
                   <mat-label>{{ 'HOME.REGISTER.PAGE_3.round'| translate }}</mat-label>
-                  <mat-label class="right">Serie diplôme d'admission</mat-label>
-                  <input matInput placeholder="serie diplôme" required formControlName="serieAdd">
+                  <mat-select formControlName="serieAdd" required>
+                    <mat-option [value]="''" selected>--Choix serie diplome d'admission--</mat-option>
+                    <mat-option *ngFor="let ads of admissionserie" [value]="ads">{{ ads }}</mat-option>
+                  </mat-select>
                 </mat-form-field>
+                <!--  -->
                 <mat-form-field appearance="outline">
                   <mat-icon matSuffix>menu_book</mat-icon>
                   <mat-label>{{ 'HOME.REGISTER.PAGE_3.mention'| translate }}</mat-label>
                   <mat-select formControlName="mentionDiplome">
+                    <mat-option value="" selected>--Choix de la mention--</mat-option>
                     <mat-option *ngFor="let m of mention" [value]="m">{{ m }}</mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -185,6 +197,7 @@
                   <mat-icon matSuffix>today</mat-icon>
                   <mat-label>{{ 'HOME.REGISTER.PAGE_3.y_graduation'| translate }}</mat-label>
                   <mat-select required formControlName="anneeObtention">
+                    <mat-option value="" selected>--Choix année d'obtention--</mat-option>
                     <mat-option *ngFor="let anne of annees" [value]="anne">{{ anne }}</mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -197,7 +210,8 @@
                   <mat-icon matSuffix>public</mat-icon>
                   <mat-label class="right">{{ 'HOME.REGISTER.PAGE_3.country'| translate }}</mat-label>
                   <mat-select required formControlName="paysObtention">
-                    <mat-option value="République du Cameroun" selected>République du Cameroun</mat-option>
+                    <mat-option value="" selected>--Choix pays obtention--</mat-option>
+                    <mat-option value="République du Cameroun">République du Cameroun</mat-option>
                     <mat-option value="Burkina Faso">Burkina Faso</mat-option>
                     <mat-option value="Togo">Togo</mat-option>
                     <mat-option value="Niger">Niger</mat-option>
@@ -216,6 +230,7 @@
                   <mat-icon matSuffix>event</mat-icon>
                   <mat-label>Année obtention Bac/GCEAL/equiv</mat-label>
                   <mat-select formControlName="AnneeObtentionB" required>
+                    <mat-option value="" selected>--Choix année d'obtention BAC/GCE Advanced--</mat-option>
                     <mat-option *ngFor="let anne of annees" [value]="anne">{{ anne }}</mat-option>
                   </mat-select>
                 </mat-form-field>
